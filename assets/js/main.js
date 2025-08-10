@@ -39,4 +39,29 @@
       });
     }
   });
+
+  // (Removed dark mode toggle per design decision)
+
+  // FAQ accordion (ARIA compliant)
+  document.querySelectorAll('.faq-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const panel = document.getElementById(btn.getAttribute('aria-controls'));
+      btn.setAttribute('aria-expanded', String(!expanded));
+      if (panel) {
+        if (expanded) panel.setAttribute('hidden', ''); else panel.removeAttribute('hidden');
+      }
+    });
+  });
+
+  // Dynamic waveform state cycling
+  const wf = document.getElementById('waveformDynamic');
+  if (wf) {
+    const states = ['idle','listening','processing','complete'];
+    let idx = 1; // start at listening
+    setInterval(() => {
+      idx = (idx + 1) % states.length;
+      wf.dataset.state = states[idx];
+    }, 5000);
+  }
 })();

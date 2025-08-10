@@ -54,14 +54,16 @@
       <button class="nav__toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
       <ul id="navMenu" class="nav__list">
         <li><a href="#features">Features</a></li>
+        <li><a href="#why">Why OTO</a></li>
         <li><a href="#privacy">Privacy</a></li>
         <li><a href="#design">Design</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#download" class="cta-link">Download</a></li>
       </ul>
     </nav>
   </header>
   <main id="main" tabindex="-1">
-    <section class="hero" aria-labelledby="heroTitle">
+  <section class="hero" aria-labelledby="heroTitle">
       <div class="hero__content">
         <h1 id="heroTitle" class="hero__title">Local Voice‑to‑Text<br><span class="accent-gradient">On Your Mac</span></h1>
         <p class="hero__tag">Your voice. Your hardware. Your rules.</p>
@@ -77,10 +79,35 @@
         </ul>
       </div>
       <div class="hero__visual" aria-hidden="true">
-        <div class="waveform" id="waveformSkeleton">
+        <div class="waveform dynamic" id="waveformDynamic" data-state="listening">
           <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
           <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
         </div>
+      </div>
+    </section>
+
+    <section id="why" class="section value-props" aria-labelledby="whyTitle">
+      <div class="section__header">
+        <h2 id="whyTitle">Why OTO Exists</h2>
+        <p class="section__lead">A quiet, reliable companion that respects attention and privacy.</p>
+      </div>
+      <div class="value-grid" role="list">
+        <article class="value-card organic-card" role="listitem">
+          <h3>Thoughtfully Minimal</h3>
+          <p>No dashboards, no accounts, no noise—just instant transcription when you need it.</p>
+        </article>
+        <article class="value-card organic-card" role="listitem">
+          <h3>Frictionless Flow</h3>
+          <p>Global hotkey capture means ideas move from voice to text without breaking focus.</p>
+        </article>
+        <article class="value-card organic-card" role="listitem">
+          <h3>Built for Privacy</h3>
+          <p>Data never leaves your machine. We can’t leak what we never see.</p>
+        </article>
+        <article class="value-card organic-card" role="listitem">
+          <h3>Native Performance</h3>
+          <p>Optimized for macOS with smooth 60fps waveforms and low overhead.</p>
+        </article>
       </div>
     </section>
 
@@ -169,6 +196,47 @@
         <p class="section__lead">Experience fast, accurate, completely offline voice‑to‑text.</p>
         <a id="downloadBtnBottom" class="warm-button primary large" href="https://apps.apple.com/" target="_blank" rel="noopener" aria-describedby="downloadNote">Download on the App Store</a>
         <p id="downloadNote" class="micro muted">Download handled securely through the Mac App Store.</p>
+      </div>
+    </section>
+
+    <section id="faq" class="section section--alt" aria-labelledby="faqTitle">
+      <div class="section__header">
+        <h2 id="faqTitle">Frequently Asked Questions</h2>
+        <p class="section__lead">Quick answers about performance, privacy, and capability.</p>
+      </div>
+      <div class="faq" role="list">
+        <div class="faq-item" role="listitem">
+          <h3>
+            <button class="faq-toggle" aria-expanded="false" aria-controls="faq1" id="faqBtn1">Is any of my audio uploaded?</button>
+          </h3>
+          <div id="faq1" class="faq-panel" role="region" aria-labelledby="faqBtn1" hidden>
+            <p>Never. All transcription is performed locally with on‑device Whisper models. No telemetry, no hidden sync, no account.</p>
+          </div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <h3>
+            <button class="faq-toggle" aria-expanded="false" aria-controls="faq2" id="faqBtn2">What languages are supported?</button>
+          </h3>
+            <div id="faq2" class="faq-panel" role="region" aria-labelledby="faqBtn2" hidden>
+              <p>Over 100 languages with automatic detection. You can also force a language for speed and accuracy improvements.</p>
+            </div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <h3>
+            <button class="faq-toggle" aria-expanded="false" aria-controls="faq3" id="faqBtn3">Does it impact performance?</button>
+          </h3>
+          <div id="faq3" class="faq-panel" role="region" aria-labelledby="faqBtn3" hidden>
+            <p>Models are optimized for Apple Silicon. Background usage stays lightweight; larger models can be chosen only when needed.</p>
+          </div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <h3>
+            <button class="faq-toggle" aria-expanded="false" aria-controls="faq4" id="faqBtn4">Do I need an account or subscription?</button>
+          </h3>
+          <div id="faq4" class="faq-panel" role="region" aria-labelledby="faqBtn4" hidden>
+            <p>No accounts, no subscriptions, no recurring billing—just the app on your Mac.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
