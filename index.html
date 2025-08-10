@@ -26,7 +26,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <!-- System font stack primarily; fallback to SF Pro if available -->
+  <link rel="preload" href="assets/css/styles.css" as="style" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="dns-prefetch" href="//apps.apple.com" />
   <link rel="icon" type="image/png" href="assets/img/favicon.png" />
   <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
   <script type="application/ld+json">{
@@ -65,7 +67,7 @@
   <main id="main" tabindex="-1">
   <section class="hero" aria-labelledby="heroTitle">
       <div class="hero__content">
-        <h1 id="heroTitle" class="hero__title">Local Voice‑to‑Text<br><span class="accent-gradient">On Your Mac</span></h1>
+  <h1 id="heroTitle" class="hero__title">Local Voice‑to‑Text<br><span class="accent-gradient">On Your Mac</span></h1>
         <p class="hero__tag">Your voice. Your hardware. Your rules.</p>
         <p class="hero__lead">OTO transcribes speech instantly using on‑device AI—no cloud, zero data leaves your Mac, and absolutely no subscription.</p>
         <div class="hero__actions">
@@ -188,6 +190,34 @@
           <p>Optimized animations targeting a smooth 60fps feel.</p>
         </div>
       </div>
+    </section>
+
+    <section id="gallery" class="section" aria-labelledby="galleryTitle">
+      <div class="section__header">
+        <h2 id="galleryTitle">A Glimpse Inside</h2>
+        <p class="section__lead">Lightweight, warm, distraction‑free. Real UI screenshots from OTO.</p>
+      </div>
+      <div class="screenshot-grid" role="list">
+        <figure class="screenshot-card organic-card" role="listitem">
+          <picture>
+            <img src="assets/img/screenshot-1.png" loading="lazy" alt="Recording interface with live waveform"/>
+          </picture>
+          <figcaption class="micro muted">Live recording with waveform feedback</figcaption>
+        </figure>
+        <figure class="screenshot-card organic-card" role="listitem">
+          <picture>
+            <img src="assets/img/screenshot-2.png" loading="lazy" alt="Transcription history list view"/>
+          </picture>
+          <figcaption class="micro muted">Transcription history & quick actions</figcaption>
+        </figure>
+        <figure class="screenshot-card organic-card" role="listitem">
+          <picture>
+            <img src="assets/img/screenshot-3.png" loading="lazy" alt="Settings panel with model selection"/>
+          </picture>
+          <figcaption class="micro muted">Model selection & preferences</figcaption>
+        </figure>
+      </div>
+      <p class="micro muted gallery-note">(Add or replace images in <code>assets/img/</code> — optimize to ~150–250KB each, PNG or WebP.)</p>
     </section>
 
     <section id="download" class="section cta" aria-labelledby="downloadTitle">
