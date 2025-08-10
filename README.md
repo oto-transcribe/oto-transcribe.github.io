@@ -21,9 +21,19 @@ assets/img/               # Images (add og-cover.png, favicon.png, etc.)
 
 Place these into `assets/img/` (export @2x where relevant):
 
-- favicon.png (32x32)
-- apple-touch-icon.png (180x180)
-- og-cover.png (1200x630) – hero graphic or clean app window montage
+
+### Screenshot / Image Optimization
+
+Raw UI captures go in `assets/img/`.
+
+Run the optimization script (creates `assets/img/optimized/` with stripped & compressed PNG + WebP):
+
+```bash
+chmod +x scripts/optimize-images.sh
+./scripts/optimize-images.sh assets/img
+```
+
+Update `<source>` / `<img>` paths if you rename files. Target per-image size: 150–250KB (use pngquant quality 70–90, WebP ~q80).
 
 ## Local Preview
 

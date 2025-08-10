@@ -80,4 +80,66 @@
       }
     });
   }
+
+  // Lazy image blur-up enhancement
+  const lazyImgs = Array.from(document.querySelectorAll('img.lazy-image'));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img instanceof HTMLImageElement) {
+            if (img.complete) {
+              img.classList.add('is-loaded');
+            } else {
+              img.addEventListener('load', () => img.classList.add('is-loaded'), { once:true });
+            }
+          }
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '120px 0px 120px' });
+    lazyImgs.forEach(img => io.observe(img));
+  } else {
+    lazyImgs.forEach(img => {
+      if (img.complete) img.classList.add('is-loaded'); else img.addEventListener('load', () => img.classList.add('is-loaded'), { once:true });
+    });
+  }
+
+  // Active navigation link highlighting
+  const sectionEls = Array.from(document.querySelectorAll('[data-section]'));
+  const navLinks = Array.from(document.querySelectorAll('.nav__list a[href^="#"]'));
+  if ('IntersectionObserver' in window && sectionEls.length && navLinks.length) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          if (!id) return;
+          navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5, 1] });
+    sectionEls.forEach(sec => sectionObserver.observe(sec));
+  }
+
+  // Section & element reveal animations
+  const revealNodes = Array.from(document.querySelectorAll('.reveal'));
+  if ('IntersectionObserver' in window && revealNodes.length) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+    // Slight stagger via transition-delay
+    revealNodes.forEach((node, i) => {
+      (node).style.transitionDelay = (Math.min(i * 60, 360)) + 'ms';
+      revealObserver.observe(node);
+    });
+  } else {
+    // Fallback: make them visible immediately
+    revealNodes.forEach(n => n.classList.add('is-visible'));
+  }
 })();
