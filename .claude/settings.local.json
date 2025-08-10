@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:oto-transcribe.github.io)"
+    ],
+    "deny": []
+  }
+}
