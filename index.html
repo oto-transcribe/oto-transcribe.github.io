@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OTO – Local Voice‑to‑Text for macOS</title>
-  <meta name="description" content="OTO is a local-first macOS voice-to-text app. 100% offline. Your voice. Your hardware. Your rules." />
+  <title>OTO – Offline Mac Transcription (One‑Time $35)</title>
+  <meta name="description" content="Work at the speed of thought. OTO is a private, on‑device macOS transcription app – one‑time $35, 100+ languages, zero cloud." />
   <link rel="canonical" href="https://oto-transcribe.github.io/" />
   <meta name="keywords" content="voice to text, offline transcription, macOS, whisper, speech recognition, privacy" />
   <meta name="color-scheme" content="light dark" />
@@ -13,14 +13,14 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OTO" />
-  <meta property="og:title" content="OTO – Local Voice‑to‑Text for macOS" />
-  <meta property="og:description" content="100% offline, private, on‑device transcription. Your voice. Your hardware. Your rules." />
+  <meta property="og:title" content="OTO – Offline Mac Transcription (One‑Time $35)" />
+  <meta property="og:description" content="Private on‑device transcription. Pay once, own forever. 100+ languages. Apple Silicon optimized." />
   <meta property="og:url" content="https://oto-transcribe.github.io/" />
   <meta property="og:image" content="https://oto-transcribe.github.io/assets/img/og-cover.png" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="OTO – Local Voice‑to‑Text for macOS" />
-  <meta name="twitter:description" content="Offline WhisperKit transcription on your Mac. No cloud. No subscription." />
+  <meta name="twitter:title" content="OTO – Offline Mac Transcription (One‑Time $35)" />
+  <meta name="twitter:description" content="Work at the speed of thought. Pay once. 100% private, offline transcription on your Mac." />
   <meta name="twitter:image" content="https://oto-transcribe.github.io/assets/img/og-cover.png" />
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -41,8 +41,8 @@
     "softwareVersion": "1.0",
     "downloadUrl": "https://apps.apple.com/",
     "license": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "featureList": ["Offline transcription","WhisperKit models","Global hotkey","Waveform visualization","Multi-language support"],
+  "offers": { "@type": "Offer", "price": "35", "priceCurrency": "USD" },
+  "featureList": ["Offline transcription","One-time purchase","Global hotkey","Real-time waveform","100+ languages"],
     "privacyPolicy": "https://oto-transcribe.github.io/#privacy"
   }</script>
 </head>
@@ -55,12 +55,13 @@
       </div>
       <button class="nav__toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
       <ul id="navMenu" class="nav__list">
-        <li><a href="#why">Why OTO</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#privacy">Privacy</a></li>
-        <li><a href="#pricing">Pricing</a></li>
         <li><a href="#demo">Demo</a></li>
-        <li><a href="#download" class="cta-link">Download</a></li>
+        <li><a href="#why">Why</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#pricing" class="cta-link">Get OTO</a></li>
       </ul>
     </nav>
   </header>
@@ -81,161 +82,126 @@
   
   <main id="main" tabindex="-1">
   <section class="hero" aria-labelledby="heroTitle" data-section="hero">
-      <div class="hero__content reveal">
-  <h1 id="heroTitle" class="hero__title"><span class="hero-line">Local Voice‑to‑Text</span><span class="hero-line accent-gradient">On Your Mac</span></h1>
-        <p class="hero__tag">100% Local. 100% Private. 100% Yours.</p>
-        <p class="hero__lead">Transform speech to text instantly with on‑device AI. No cloud required, no data shared, no subscriptions.</p>
-        <div class="hero__actions">
-          <a id="downloadBtnTop" class="warm-button primary" href="https://apps.apple.com/" target="_blank" rel="noopener">Download on the App Store</a>
-          <button class="warm-button secondary" data-scroll="#features">Explore Features</button>
-        </div>
-        <ul class="hero__bullets" role="list">
-          <li>Complete Privacy</li>
-          <li>Instant Transcription</li>
-          <li>100+ Languages</li>
-          <li>Global Hotkey</li>
-        </ul>
+    <div class="hero__content reveal">
+      <h1 id="heroTitle" class="hero__title"><span class="hero-line">Work at the speed of thought,</span><span class="hero-line accent-gradient">not the speed of your fingers.</span></h1>
+      <p class="hero__lead">Professional AI transcription that's yours forever – no subscriptions, no gatekeeping, no tricks. I was tired of being nickeled and dimed for transcription that should just work offline. So I built the app I actually wanted to buy.</p>
+      <div class="hero__actions">
+        <a id="downloadBtnTop" class="warm-button primary large" href="https://apps.apple.com/" target="_blank" rel="noopener">Get OTO – $35</a>
+        <button class="warm-button secondary large" data-scroll="#demo">See It In Action</button>
       </div>
-      <div class="hero__visual" aria-hidden="true">
-        <div class="waveform dynamic" id="waveformDynamic" data-state="listening">
-          <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-          <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-        </div>
+      <p class="micro muted trust-line">100% Local • 100+ Languages • Apple Silicon Optimized</p>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <div class="waveform dynamic" id="waveformDynamic" data-state="listening">
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  <section id="why" class="section value-props" aria-labelledby="whyTitle" data-section="why">
-      <div class="section__header">
-        <h2 id="whyTitle">Privacy by Design</h2>
-        <p class="section__lead">Built for creators who value privacy, focus, and seamless workflow.</p>
-      </div>
-      <div class="value-grid" role="list">
-        <article class="value-card organic-card reveal" role="listitem">
-          <h3>Simply Powerful</h3>
-          <p>No accounts, no complexity—just press a key and speak your thoughts.</p>
-        </article>
-        <article class="value-card organic-card reveal" role="listitem">
-          <h3>Seamless Workflow</h3>
-          <p>Capture ideas instantly without interrupting your creative process.</p>
-        </article>
-        <article class="value-card organic-card reveal" role="listitem">
-          <h3>Absolute Privacy</h3>
-          <p>Your voice stays on your device. Always.</p>
-        </article>
-        <article class="value-card organic-card reveal" role="listitem">
-          <h3>Native Excellence</h3>
-          <p>Built specifically for macOS with Apple Silicon optimization.</p>
-        </article>
-      </div>
-    </section>
-
-  <section id="features" class="section section--alt" aria-labelledby="featuresTitle" data-section="features">
-      <div class="section__header">
-        <h2 id="featuresTitle">Crafted for Creators</h2>
-        <p class="section__lead">Professional-grade transcription that works entirely on your Mac.</p>
-      </div>
-      <div class="feature-grid" role="list">
-        <article class="feature-card organic-card reveal" role="listitem">
-          <h3>Local‑First Privacy</h3>
-          <p>All transcription happens on your Mac. No servers, no uploads, no leaks.</p>
-        </article>
-        <article class="feature-card organic-card reveal" role="listitem">
-          <h3>Offline WhisperKit</h3>
-          <p>High‑accuracy speech models optimized for Apple Silicon with zero network calls.</p>
-        </article>
-        <article class="feature-card organic-card reveal" role="listitem">
-          <h3>Global Hotkey</h3>
-          <p>Start or stop recording instantly from anywhere. Sub‑200ms response.</p>
-        </article>
-        <article class="feature-card organic-card reveal" role="listitem">
-          <h3>Smart Formatting</h3>
-          <p>Automatic punctuation, capitalization, and clean transcript structure.</p>
-        </article>
-        <article class="feature-card organic-card reveal" role="listitem">
-          <h3>Waveform Feedback</h3>
-          <p>Real‑time animated waveform with 60fps rendering for responsive feel.</p>
-        </article>
-        <article class="feature-card organic-card reveal" role="listitem">
-          <h3>Multi‑Language</h3>
-          <p>Supports 100+ languages with auto‑detection and fast switching.</p>
-        </article>
-      </div>
-    </section>
-
-  <section id="privacy" class="section" aria-labelledby="privacyTitle" data-section="privacy">
-      <div class="section__split">
-  <div class="split__content reveal">
-          <h2 id="privacyTitle">Privacy Isn't a Feature—It's Everything</h2>
-          <p>Zero telemetry, zero tracking, zero cloud storage. Your voice recordings never leave your Mac.</p>
-          <ul class="checklist" role="list">
-            <li>100% offline processing</li>
-            <li>No accounts or sign‑ups required</li>
-            <li>Sandboxed macOS security model</li>
-            <li>Transparent, minimal permissions</li>
-          </ul>
-        </div>
-  <div class="split__visual organic-card reveal" aria-hidden="true">
-          <div class="privacy-callout">
-            <p class="micro">LOCAL ONLY</p>
-            <p class="statement">No cloud. No subscription.<br>Just pure on‑device AI.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  <section id="design" class="section section--alt" aria-labelledby="designTitle" data-section="design">
-      <div class="section__header">
-        <h2 id="designTitle">Native & Beautiful</h2>
-        <p class="section__lead">Designed specifically for macOS with the polish you expect from great software.</p>
-      </div>
-      <div class="design-grid">
-        <div class="design-point organic-card reveal">
-          <h3>Organic Aesthetic</h3>
-          <p>Rounded geometry, layered depth, crafted negative space.</p>
-        </div>
-        <div class="design-point organic-card reveal">
-          <h3>Adaptive Theme</h3>
-          <p>Automatic light / dark mode with accessible contrast.</p>
-        </div>
-        <div class="design-point organic-card reveal">
-          <h3>Micro‑Interactions</h3>
-          <p>Subtle hover, focus, and active states that guide—not distract.</p>
-        </div>
-        <div class="design-point organic-card reveal">
-          <h3>Performance First</h3>
-          <p>Optimized animations targeting a smooth 60fps feel.</p>
-        </div>
-      </div>
-    </section>
-
-  <section id="demo" class="section" aria-labelledby="demoTitle" data-section="demo">
-      <div class="section__header">
-        <h2 id="demoTitle">See OTO In Action</h2>
-        <p class="section__lead">From global hotkey to clean transcript in seconds—fully offline.</p>
+    <section id="demo" class="section" aria-labelledby="demoTitle" data-section="demo">
+      <div class="section__header reveal">
+        <h2 id="demoTitle">See OTO in action</h2>
+        <p class="section__lead">Press a key, speak your thoughts, get instant transcription – entirely on your Mac.</p>
       </div>
       <div class="demo-layout">
-  <figure class="demo-video-card organic-card reveal">
+        <figure class="demo-video-card organic-card reveal">
           <div class="video-wrapper" role="group" aria-labelledby="demoCaption">
             <video id="otoDemoVideo" class="demo-video" playsinline muted loop preload="metadata" poster="assets/img/Voice.png">
               <source src="assets/media/demo.mp4" type="video/mp4" />
-              <p>Your browser doesn’t support embedded video.</p>
             </video>
             <button class="warm-button primary video-play" id="videoPlayBtn" aria-label="Play demo video">Play</button>
           </div>
-          <figcaption id="demoCaption" class="micro muted">Waveform capture → local inference → formatted transcript.</figcaption>
+          <figcaption id="demoCaption" class="micro muted">Press a key → waveform appears → speak → real‑time text → copy anywhere.</figcaption>
         </figure>
-  <div class="demo-steps reveal">
-          <ol class="steps-list" aria-label="Workflow steps">
-            <li><strong>Start:</strong> Press the global hotkey.</li>
-            <li><strong>Record:</strong> Speak naturally while waveform responds.</li>
-            <li><strong>Transcribe:</strong> Local model processes instantly.</li>
-            <li><strong>Use:</strong> Copy / export with one click.</li>
+        <div class="demo-steps reveal">
+          <ol class="steps-list" aria-label="Demo sequence">
+            <li>User presses global hotkey</li>
+            <li>OTO interface appears with waveform</li>
+            <li>Speech transcribes live while speaking</li>
+            <li>Release key – clean, formatted transcript</li>
+            <li>Copy/paste into any app</li>
           </ol>
         </div>
       </div>
     </section>
 
-  <section id="gallery" class="section" aria-labelledby="galleryTitle" data-section="gallery">
+    <section id="why" class="section" aria-labelledby="whyTitle" data-section="why">
+      <div class="section__header reveal">
+        <h2 id="whyTitle">Built by a frustrated user, for frustrated users</h2>
+        <p class="section__lead">I fell in love with voice‑driven productivity—but hated the limitations.</p>
+      </div>
+      <div class="organic-card why-body reveal">
+        <p>After trying every transcription app, I was constantly frustrated:</p>
+        <ul class="frustrations" role="list">
+          <li>“Free” tiers that only gave you the worst models</li>
+          <li>Monthly subscriptions for features that should work offline</li>
+          <li>No way to run quality open‑source models locally</li>
+        </ul>
+        <p>I wanted something simple: download quality models, run them on my Mac, pay once, own forever. It didn’t exist, so I built it.</p>
+        <p><strong>OTO is the transcription tool I actually wanted to buy.</strong></p>
+      </div>
+    </section>
+
+    <section id="features" class="section section--alt" aria-labelledby="featuresTitle" data-section="features">
+      <div class="section__header reveal">
+        <h2 id="featuresTitle">Simply Powerful</h2>
+        <p class="section__lead">Capability without the subscription baggage.</p>
+      </div>
+      <div class="feature-grid" role="list">
+        <article class="feature-card organic-card reveal" role="listitem"><h3>🔒 100% Private</h3><p>All transcription happens on your Mac. No servers. No uploads.</p></article>
+        <article class="feature-card organic-card reveal" role="listitem"><h3>⚡ Instant Response</h3><p>Sub‑200ms start. Real‑time waveform & live formatting.</p></article>
+        <article class="feature-card organic-card reveal" role="listitem"><h3>🌍 100+ Languages</h3><p>Automatic detection or lock a language for speed.</p></article>
+      </div>
+      <ul class="additional-features reveal" role="list">
+        <li><strong>Apple Silicon optimized</strong> for maximum performance</li>
+        <li><strong>No account required</strong> – just download & use</li>
+        <li><strong>Global hotkey</strong> – transcribe from any app</li>
+        <li><strong>Automatic punctuation & formatting</strong></li>
+        <li><strong>Zero telemetry</strong> – we track nothing</li>
+        <li><strong>Offline forever</strong> – works disconnected</li>
+      </ul>
+    </section>
+
+    <section id="pricing" class="section" aria-labelledby="pricingTitle" data-section="pricing">
+      <div class="section__header reveal">
+        <h2 id="pricingTitle">Pay once, cry once, own forever</h2>
+        <p class="section__lead">No subscriptions. No recurring meter. Everything now & later—one price.</p>
+      </div>
+      <div class="pricing-box organic-card reveal">
+        <div class="price-tag">🎯 Founder's Special: <span class="price-amount">$35</span></div>
+        <p class="micro muted">Limited time – price increases as features ship</p>
+        <ul class="pricing-benefits" role="list">
+          <li>Lifetime access – yours forever</li>
+          <li>All future updates included</li>
+          <li>No monthly fees, ever</li>
+          <li>No device limits</li>
+          <li>No online authentication required</li>
+        </ul>
+        <p class="value-compare muted">Competitors charge $8–$25/month. OTO pays for itself in 2–4 months—then saves you hundreds.</p>
+        <div class="pricing-cta">
+          <a class="warm-button primary large" href="https://apps.apple.com/" target="_blank" rel="noopener" aria-describedby="refundNote">Get OTO – $35</a>
+        </div>
+        <p id="refundNote" class="micro muted">30‑day money‑back guarantee via Apple.</p>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section section--alt" aria-labelledby="roadmapTitle" data-section="roadmap">
+      <div class="section__header reveal">
+        <h2 id="roadmapTitle">Your one‑time purchase includes future updates</h2>
+        <p class="section__lead">Everything we build next is included. No upgrade fees. Ever.</p>
+      </div>
+      <div class="roadmap-grid" role="list">
+        <article class="roadmap-item organic-card reveal" role="listitem"><h3>📁 File Transcription <span class="tag upcoming">Coming Soon</span></h3><p>Transcribe MP3, WAV, M4A, MP4 locally—batch friendly.</p></article>
+        <article class="roadmap-item organic-card reveal" role="listitem"><h3>🤖 Local AI Transformations <span class="tag building">In Development</span></h3><p>Summaries, formatting & enhancements—still 100% on‑device.</p></article>
+        <article class="roadmap-item organic-card reveal" role="listitem"><h3>🔄 Enhanced Models <span class="tag ongoing">Ongoing</span></h3><p>Better accuracy & language coverage as new models emerge.</p></article>
+      </div>
+      <p class="micro muted roadmap-bottom reveal">All future features included in your purchase.</p>
+    </section>
+
+  <!-- (Original demo section replaced above) -->
+
+  <section id="gallery" class="section" aria-labelledby="galleryTitle" data-section="gallery" hidden>
       <div class="section__header">
         <h2 id="galleryTitle">Screenshots</h2>
         <p class="section__lead">Key UI surfaces designed for speed and silence.</p>
@@ -279,151 +245,23 @@
       </div>
     </section>
 
-  <section id="pricing" class="section" aria-labelledby="pricingTitle" data-section="pricing">
-      <div class="section__header">
-        <h2 id="pricingTitle">Simple, Honest Pricing</h2>
-        <p class="section__lead">One payment. Yours forever.</p>
-      </div>
-      
-      <div class="pricing-container">
-        <div class="pricing-comparison">
-          <div class="comparison-item">
-            <h3>Subscription Services</h3>
-            <p class="comparison-service">Dragon, Otter.ai, Rev.ai</p>
-            <div class="price-breakdown">
-              <div class="price-item">
-                <span class="price-period">Monthly</span>
-                <span class="price-amount">$15-30</span>
-              </div>
-              <div class="price-item">
-                <span class="price-period">Yearly</span>
-                <span class="price-amount accent-gradient">$180-360</span>
-              </div>
-            </div>
-            <ul class="price-features">
-              <li class="price-feature negative">Cloud processing required</li>
-              <li class="price-feature negative">Limited offline access</li>
-              <li class="price-feature negative">Recurring payments</li>
-              <li class="price-feature negative">Data uploaded to servers</li>
-            </ul>
-          </div>
-          
-          <div class="pricing-card organic-card">
-            <div class="pricing-badge">FOUNDER'S PRICING</div>
-            
-            <div class="pricing-header">
-              <div class="price-comparison">
-                <span class="price-old">$50</span>
-                <div class="price-current">$35</div>
-              </div>
-              <div class="savings-badge">Save $15 (30% off)</div>
-            </div>
-            
-            <ul class="pricing-features">
-              <li class="pricing-feature">
-                <span class="feature-icon">✓</span>
-                Lifetime access – yours forever
-              </li>
-              <li class="pricing-feature">
-                <span class="feature-icon">✓</span>
-                All future updates included
-              </li>
-              <li class="pricing-feature">
-                <span class="feature-icon">✓</span>
-                No subscriptions, ever
-              </li>
-              <li class="pricing-feature">
-                <span class="feature-icon">✓</span>
-                Multiple Whisper models included
-              </li>
-              <li class="pricing-feature">
-                <span class="feature-icon">✓</span>
-                Completely offline operation
-              </li>
-              <li class="pricing-feature">
-                <span class="feature-icon">✓</span>
-                100+ languages supported
-              </li>
-            </ul>
-            
-            <a href="https://apps.apple.com/" target="_blank" rel="noopener" class="warm-button primary large pricing-cta">
-              Get OTO for $35
-            </a>
-            
-            <p class="pricing-note">
-              🎯 Founder's pricing available for the first 1,000 users
-            </p>
-          </div>
-        </div>
-        
-        <div class="savings-highlight organic-card">
-          <h3>💰 Your Savings in Year One</h3>
-          <div class="savings-calculation">
-            <div class="calc-row">
-              <span>Typical subscription service</span>
-              <span class="calc-amount">$180-360/year</span>
-            </div>
-            <div class="calc-row minus">
-              <span>OTO (one-time)</span>
-              <span class="calc-amount">$35</span>
-            </div>
-            <div class="calc-row total">
-              <span><strong>You save</strong></span>
-              <span class="calc-amount accent-gradient"><strong>$145-325</strong></span>
-            </div>
-          </div>
-          <p class="savings-note">Plus you own it forever – no recurring fees, no subscription anxiety.</p>
-        </div>
-      </div>
-    </section>
+  <!-- (Original complex pricing comparison removed, simplified pricing above) -->
 
-    <section id="download" class="section cta" aria-labelledby="downloadTitle">
-  <div class="cta__inner organic-card reveal">
-        <h2 id="downloadTitle">Your Voice, Your Rules</h2>
-        <p class="section__lead">Experience the future of private transcription.</p>
-        <a id="downloadBtnBottom" class="warm-button primary large" href="https://apps.apple.com/" target="_blank" rel="noopener" aria-describedby="downloadNote">Download on the App Store</a>
-        <p id="downloadNote" class="micro muted">Download handled securely through the Mac App Store.</p>
-      </div>
-    </section>
+  <!-- Final CTA integrated into pricing; separate download section removed -->
 
-    <section id="faq" class="section section--alt" aria-labelledby="faqTitle">
-      <div class="section__header">
+    <section id="faq" class="section section--alt" aria-labelledby="faqTitle" data-section="faq">
+      <div class="section__header reveal">
         <h2 id="faqTitle">Frequently Asked Questions</h2>
-        <p class="section__lead">Quick answers about performance, privacy, and capability.</p>
+        <p class="section__lead">Straight answers about privacy, pricing, and performance.</p>
       </div>
       <div class="faq" role="list">
-        <div class="faq-item reveal" role="listitem">
-          <h3>
-            <button class="faq-toggle" aria-expanded="false" aria-controls="faq1" id="faqBtn1">Is any of my audio uploaded?</button>
-          </h3>
-          <div id="faq1" class="faq-panel" role="region" aria-labelledby="faqBtn1" hidden>
-            <p>Never. All transcription is performed locally with on‑device Whisper models. No telemetry, no hidden sync, no account.</p>
-          </div>
-        </div>
-  <div class="faq-item reveal" role="listitem">
-          <h3>
-            <button class="faq-toggle" aria-expanded="false" aria-controls="faq2" id="faqBtn2">What languages are supported?</button>
-          </h3>
-            <div id="faq2" class="faq-panel" role="region" aria-labelledby="faqBtn2" hidden>
-              <p>Over 100 languages with automatic detection. You can also force a language for speed and accuracy improvements.</p>
-            </div>
-        </div>
-  <div class="faq-item reveal" role="listitem">
-          <h3>
-            <button class="faq-toggle" aria-expanded="false" aria-controls="faq3" id="faqBtn3">Does it impact performance?</button>
-          </h3>
-          <div id="faq3" class="faq-panel" role="region" aria-labelledby="faqBtn3" hidden>
-            <p>Models are optimized for Apple Silicon. Background usage stays lightweight; larger models can be chosen only when needed.</p>
-          </div>
-        </div>
-  <div class="faq-item reveal" role="listitem">
-          <h3>
-            <button class="faq-toggle" aria-expanded="false" aria-controls="faq4" id="faqBtn4">Do I need an account or subscription?</button>
-          </h3>
-          <div id="faq4" class="faq-panel" role="region" aria-labelledby="faqBtn4" hidden>
-            <p>No accounts, no subscriptions, no recurring billing—just the app on your Mac.</p>
-          </div>
-        </div>
+        <div class="faq-item reveal" role="listitem"><h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq1" id="faqBtn1">How is this different from other transcription apps?</button></h3><div id="faq1" class="faq-panel" role="region" aria-labelledby="faqBtn1" hidden><p>Most apps require subscriptions or send your audio to the cloud. OTO runs professional‑grade models entirely on your Mac for a single one‑time price.</p></div></div>
+        <div class="faq-item reveal" role="listitem"><h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq2" id="faqBtn2">Why one‑time pricing instead of subscriptions?</button></h3><div id="faq2" class="faq-panel" role="region" aria-labelledby="faqBtn2" hidden><p>Subscription fatigue is real. Pay once, own it forever, get all future improvements.</p></div></div>
+        <div class="faq-item reveal" role="listitem"><h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq3" id="faqBtn3">Does my voice data ever leave my Mac?</button></h3><div id="faq3" class="faq-panel" role="region" aria-labelledby="faqBtn3" hidden><p>Never. Transcription is 100% local. No telemetry, tracking, or hidden sync.</p></div></div>
+        <div class="faq-item reveal" role="listitem"><h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq4" id="faqBtn4">What languages are supported?</button></h3><div id="faq4" class="faq-panel" role="region" aria-labelledby="faqBtn4" hidden><p>Over 100 languages with auto detection. Lock a language for even better accuracy.</p></div></div>
+        <div class="faq-item reveal" role="listitem"><h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq5" id="faqBtn5">Will you add subscription features later?</button></h3><div id="faq5" class="faq-panel" role="region" aria-labelledby="faqBtn5" hidden><p>No. All future features are included in your existing purchase.</p></div></div>
+        <div class="faq-item reveal" role="listitem"><h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq6" id="faqBtn6">What files will you support?</button></h3><div id="faq6" class="faq-panel" role="region" aria-labelledby="faqBtn6" hidden><p>Coming soon: MP3, WAV, M4A, MP4 batch transcription—still private & offline.</p></div></div>
+        <div class="faq-item reveal" role="listitem"><h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq7" id="faqBtn7">System requirements?</button></h3><div id="faq7" class="faq-panel" role="region" aria-labelledby="faqBtn7" hidden><p>Runs on macOS. Apple Silicon recommended for best performance (Intel supported).</p></div></div>
       </div>
     </section>
   </main>

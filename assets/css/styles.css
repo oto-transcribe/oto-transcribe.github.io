@@ -379,6 +379,42 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 .faq-item:hover { box-shadow: 0 8px 20px rgba(42,42,42,0.07); }
 
 /* --- End Enhancements --- */
+/* Structure Doc Additions */
+.why-body { padding:40px 46px 48px; line-height:1.55; font-size:17px; }
+.why-body .frustrations { list-style:none; margin:18px 0 24px; padding:0; display:grid; gap:8px; }
+.why-body .frustrations li { padding-left:22px; position:relative; font-size:15px; }
+.why-body .frustrations li::before { content:"•"; position:absolute; left:0; top:0; color: var(--color-accent-blue); }
+
+.additional-features { margin:50px 0 0; padding:0; list-style:none; display:grid; gap:10px; font-size:15px; }
+.additional-features li { padding-left:20px; position:relative; }
+.additional-features li::before { content:""; position:absolute; left:0; top:6px; width:10px; height:10px; border-radius:3px; background: linear-gradient(135deg,var(--color-accent-blue),var(--color-accent-primary)); opacity:0.85; }
+
+/* Pricing */
+.pricing-box { padding:48px 50px 56px; max-width:760px; margin:0 auto; position:relative; }
+.price-tag { font-size:26px; font-weight:400; letter-spacing:-0.5px; margin-bottom:6px; }
+.price-amount { font-weight:600; }
+.pricing-benefits { list-style:none; margin:24px 0 28px; padding:0; display:grid; gap:10px; font-size:15px; }
+.pricing-benefits li { padding-left:24px; position:relative; }
+.pricing-benefits li::before { content:"✓"; position:absolute; left:0; top:0; font-size:14px; color: var(--color-accent-blue); }
+.value-compare { font-size:14px; margin:0 0 28px; line-height:1.4; }
+.pricing-cta { text-align:center; margin-bottom:18px; }
+
+/* Roadmap */
+.roadmap-grid { display:grid; gap:34px; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); margin-top:10px; }
+.roadmap-item { padding:30px 26px 36px; }
+.roadmap-item h3 { margin:0 0 14px; font-size:21px; letter-spacing:-0.3px; font-weight:500; display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.roadmap-item p { margin:0; font-size:15px; }
+.tag { display:inline-block; font-size:11px; letter-spacing:0.8px; padding:4px 8px 5px; border-radius:12px; background: var(--color-content-bg); font-weight:500; }
+.tag.upcoming { background: rgba(140,170,200,0.15); color: #3a5064; }
+.tag.building { background: rgba(218,199,176,0.25); color: #5a4835; }
+.tag.ongoing { background: rgba(140,170,200,0.22); color:#344454; }
+.roadmap-bottom { text-align:center; margin-top:50px; }
+
+/* FAQ tweaks */
+.faq-item h3 { margin:0; font-size:16px; }
+
+/* Trust line */
+.trust-line { margin-top:8px; }
 
 /* Reveal animations */
 .reveal { opacity:0; transform: translateY(32px); }
