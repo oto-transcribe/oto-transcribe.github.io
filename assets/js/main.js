@@ -25,6 +25,9 @@
   // Full-screen section navigation with keyboard support
   let currentSectionIndex = 0;
   const sections = Array.from(document.querySelectorAll('.section, .hero'));
+  const sectionEls = Array.from(document.querySelectorAll('[data-section], .hero'));
+  const navLinks = Array.from(document.querySelectorAll('.nav__list a[href^="#"]'));
+  const indicatorDots = Array.from(document.querySelectorAll('.section-indicator__dot'));
   
   // Keyboard navigation for sections
   document.addEventListener('keydown', (e) => {
@@ -44,18 +47,31 @@
     }
   }
 
-  // Track current section for keyboard navigation
+  // Track current section for keyboard navigation and sync with indicators
   const main = document.querySelector('main');
   if (main) {
     main.addEventListener('scroll', () => {
       const windowHeight = window.innerHeight;
+      let newIndex = currentSectionIndex;
       
       sections.forEach((section, index) => {
         const rect = section.getBoundingClientRect();
-        if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
-          currentSectionIndex = index;
+        // Check if section is in the center of viewport
+        if (rect.top <= windowHeight * 0.4 && rect.bottom >= windowHeight * 0.6) {
+          newIndex = index;
         }
       });
+      
+      if (newIndex !== currentSectionIndex) {
+        currentSectionIndex = newIndex;
+        
+        // Update indicators based on scroll position
+        if (indicatorDots.length > 0) {
+          indicatorDots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSectionIndex);
+          });
+        }
+      }
     });
   }
 
@@ -144,31 +160,45 @@
   }
 
   // Active navigation link highlighting and section indicators
-  const sectionEls = Array.from(document.querySelectorAll('[data-section], .hero'));
-  const navLinks = Array.from(document.querySelectorAll('.nav__list a[href^="#"]'));
-  const indicatorDots = Array.from(document.querySelectorAll('.section-indicator__dot'));
   
   if ('IntersectionObserver' in window && sectionEls.length) {
     const sectionObserver = new IntersectionObserver(entries => {
+      // Find the section that's most in view
+      let mostVisibleSection = null;
+      let maxVisibility = 0;
+      
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const section = entry.target.getAttribute('data-section') || (entry.target.classList.contains('hero') ? 'hero' : '');
-          if (!section) return;
-          
-          // Update navigation links
-          navLinks.forEach(l => {
-            const href = l.getAttribute('href');
-            const targetId = href === '#' ? 'hero' : href.substring(1);
-            l.classList.toggle('active', targetId === section);
-          });
-          
-          // Update section indicator dots
-          indicatorDots.forEach(dot => {
-            dot.classList.toggle('active', dot.getAttribute('data-section') === section);
-          });
+          const visibility = entry.intersectionRatio;
+          if (visibility > maxVisibility) {
+            maxVisibility = visibility;
+            mostVisibleSection = entry.target;
+          }
         }
       });
-    }, { root: main, rootMargin: '-20% 0px -20% 0px', threshold: [0, 0.5, 1] });
+      
+      if (mostVisibleSection) {
+        const section = mostVisibleSection.getAttribute('data-section') || 
+                       (mostVisibleSection.classList.contains('hero') ? 'hero' : '');
+        if (!section) return;
+        
+        // Update navigation links
+        navLinks.forEach(l => {
+          const href = l.getAttribute('href');
+          const targetId = href === '#' ? 'hero' : href.substring(1);
+          l.classList.toggle('active', targetId === section);
+        });
+        
+        // Update section indicator dots
+        indicatorDots.forEach(dot => {
+          dot.classList.toggle('active', dot.getAttribute('data-section') === section);
+        });
+      }
+    }, { 
+      root: main, 
+      rootMargin: '-10% 0px -10% 0px', 
+      threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] 
+    });
     sectionEls.forEach(sec => sectionObserver.observe(sec));
   }
   
