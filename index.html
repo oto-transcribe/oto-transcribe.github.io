@@ -55,15 +55,29 @@
       </div>
       <button class="nav__toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
       <ul id="navMenu" class="nav__list">
-        <li><a href="#features">Features</a></li>
         <li><a href="#why">Why OTO</a></li>
+        <li><a href="#features">Features</a></li>
         <li><a href="#privacy">Privacy</a></li>
         <li><a href="#design">Design</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#demo">Demo</a></li>
         <li><a href="#download" class="cta-link">Download</a></li>
       </ul>
     </nav>
   </header>
+  
+  <!-- Section progress indicator -->
+  <div class="section-indicator" aria-hidden="true">
+    <div class="section-indicator__dot active" data-section="hero"></div>
+    <div class="section-indicator__dot" data-section="why"></div>
+    <div class="section-indicator__dot" data-section="features"></div>
+    <div class="section-indicator__dot" data-section="privacy"></div>
+    <div class="section-indicator__dot" data-section="design"></div>
+    <div class="section-indicator__dot" data-section="demo"></div>
+    <div class="section-indicator__dot" data-section="gallery"></div>
+    <div class="section-indicator__dot" data-section="download"></div>
+    <div class="section-indicator__dot" data-section="faq"></div>
+  </div>
+  
   <main id="main" tabindex="-1">
   <section class="hero" aria-labelledby="heroTitle" data-section="hero">
       <div class="hero__content reveal">

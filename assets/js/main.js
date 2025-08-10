@@ -10,17 +10,54 @@
     });
   }
 
-  // Smooth scroll for buttons with data-scroll
+  // Smooth scroll for buttons with data-scroll - updated for full-screen sections
   document.addEventListener('click', (e) => {
     const target = e.target;
     if (target instanceof HTMLElement && target.dataset.scroll) {
       const el = document.querySelector(target.dataset.scroll);
       if (el) {
         e.preventDefault();
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
       }
     }
   });
+
+  // Full-screen section navigation with keyboard support
+  let currentSectionIndex = 0;
+  const sections = Array.from(document.querySelectorAll('.section, .hero'));
+  
+  // Keyboard navigation for sections
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      e.preventDefault();
+      navigateToSection(currentSectionIndex + 1);
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      navigateToSection(currentSectionIndex - 1);
+    }
+  });
+
+  function navigateToSection(index) {
+    if (index >= 0 && index < sections.length) {
+      currentSectionIndex = index;
+      sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // Track current section for keyboard navigation
+  const main = document.querySelector('main');
+  if (main) {
+    main.addEventListener('scroll', () => {
+      const windowHeight = window.innerHeight;
+      
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
+          currentSectionIndex = index;
+        }
+      });
+    });
+  }
 
   // Update year
   const yearEl = document.getElementById('year');
@@ -106,21 +143,52 @@
     });
   }
 
-  // Active navigation link highlighting
-  const sectionEls = Array.from(document.querySelectorAll('[data-section]'));
+  // Active navigation link highlighting and section indicators
+  const sectionEls = Array.from(document.querySelectorAll('[data-section], .hero'));
   const navLinks = Array.from(document.querySelectorAll('.nav__list a[href^="#"]'));
-  if ('IntersectionObserver' in window && sectionEls.length && navLinks.length) {
+  const indicatorDots = Array.from(document.querySelectorAll('.section-indicator__dot'));
+  
+  if ('IntersectionObserver' in window && sectionEls.length) {
     const sectionObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          if (!id) return;
-          navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+          const section = entry.target.getAttribute('data-section') || (entry.target.classList.contains('hero') ? 'hero' : '');
+          if (!section) return;
+          
+          // Update navigation links
+          navLinks.forEach(l => {
+            const href = l.getAttribute('href');
+            const targetId = href === '#' ? 'hero' : href.substring(1);
+            l.classList.toggle('active', targetId === section);
+          });
+          
+          // Update section indicator dots
+          indicatorDots.forEach(dot => {
+            dot.classList.toggle('active', dot.getAttribute('data-section') === section);
+          });
         }
       });
-    }, { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5, 1] });
+    }, { root: main, rootMargin: '-20% 0px -20% 0px', threshold: [0, 0.5, 1] });
     sectionEls.forEach(sec => sectionObserver.observe(sec));
   }
+  
+  // Section indicator click handlers
+  indicatorDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const targetSection = dot.getAttribute('data-section');
+      let target;
+      
+      if (targetSection === 'hero') {
+        target = document.querySelector('.hero');
+      } else {
+        target = document.getElementById(targetSection);
+      }
+      
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 
   // Section & element reveal animations
   const revealNodes = Array.from(document.querySelectorAll('.reveal'));
@@ -142,4 +210,46 @@
     // Fallback: make them visible immediately
     revealNodes.forEach(n => n.classList.add('is-visible'));
   }
+  // Add scroll hint for first-time users
+  const scrollHint = document.createElement('div');
+  scrollHint.className = 'scroll-hint';
+  scrollHint.innerHTML = '<span>Scroll or use ↓↑ keys</span>';
+  scrollHint.style.cssText = `
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(20px);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    opacity: 0.8;
+    z-index: 50;
+    pointer-events: none;
+    animation: fadeInOut 4s ease-in-out;
+  `;
+  
+  // Add CSS for fade animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; transform: translateX(-50%) translateY(1rem); }
+      20%, 80% { opacity: 0.8; transform: translateX(-50%) translateY(0); }
+    }
+    @media (max-width: 768px) {
+      .scroll-hint { display: none !important; }
+    }
+  `;
+  document.head.appendChild(style);
+  document.body.appendChild(scrollHint);
+  
+  // Remove scroll hint after animation
+  setTimeout(() => {
+    if (scrollHint.parentNode) {
+      scrollHint.parentNode.removeChild(scrollHint);
+    }
+  }, 4500);
+
 })();
