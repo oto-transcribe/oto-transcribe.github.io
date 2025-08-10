@@ -192,32 +192,70 @@
       </div>
     </section>
 
+    <section id="demo" class="section" aria-labelledby="demoTitle">
+      <div class="section__header">
+        <h2 id="demoTitle">See OTO In Action</h2>
+        <p class="section__lead">From global hotkey to clean transcript in seconds—fully offline.</p>
+      </div>
+      <div class="demo-layout">
+        <figure class="demo-video-card organic-card">
+          <div class="video-wrapper" role="group" aria-labelledby="demoCaption">
+            <video id="otoDemoVideo" class="demo-video" playsinline muted loop preload="metadata" poster="assets/img/Voice.png">
+              <source src="assets/media/demo.mp4" type="video/mp4" />
+              <p>Your browser doesn’t support embedded video.</p>
+            </video>
+            <button class="warm-button primary video-play" id="videoPlayBtn" aria-label="Play demo video">Play</button>
+          </div>
+          <figcaption id="demoCaption" class="micro muted">Waveform capture → local inference → formatted transcript.</figcaption>
+        </figure>
+        <div class="demo-steps">
+          <ol class="steps-list" aria-label="Workflow steps">
+            <li><strong>Start:</strong> Press the global hotkey.</li>
+            <li><strong>Record:</strong> Speak naturally while waveform responds.</li>
+            <li><strong>Transcribe:</strong> Local model processes instantly.</li>
+            <li><strong>Use:</strong> Copy / export with one click.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
     <section id="gallery" class="section" aria-labelledby="galleryTitle">
       <div class="section__header">
-        <h2 id="galleryTitle">A Glimpse Inside</h2>
-        <p class="section__lead">Lightweight, warm, distraction‑free. Real UI screenshots from OTO.</p>
+        <h2 id="galleryTitle">Screenshots</h2>
+        <p class="section__lead">Key UI surfaces designed for speed and silence.</p>
       </div>
       <div class="screenshot-grid" role="list">
         <figure class="screenshot-card organic-card" role="listitem">
           <picture>
-            <img src="assets/img/screenshot-1.png" loading="lazy" alt="Recording interface with live waveform"/>
+            <img src="assets/img/Voice.png" width="640" height="512" loading="lazy" alt="Voice capture panel with waveform" />
           </picture>
-          <figcaption class="micro muted">Live recording with waveform feedback</figcaption>
+          <figcaption class="micro muted">Voice capture with live waveform</figcaption>
         </figure>
         <figure class="screenshot-card organic-card" role="listitem">
           <picture>
-            <img src="assets/img/screenshot-2.png" loading="lazy" alt="Transcription history list view"/>
+            <img src="assets/img/History.png" width="640" height="512" loading="lazy" alt="History window listing past transcriptions" />
           </picture>
-          <figcaption class="micro muted">Transcription history & quick actions</figcaption>
+          <figcaption class="micro muted">History & transcript actions</figcaption>
         </figure>
         <figure class="screenshot-card organic-card" role="listitem">
           <picture>
-            <img src="assets/img/screenshot-3.png" loading="lazy" alt="Settings panel with model selection"/>
+            <img src="assets/img/Model.png" width="640" height="512" loading="lazy" alt="Model selection interface" />
           </picture>
-          <figcaption class="micro muted">Model selection & preferences</figcaption>
+          <figcaption class="micro muted">Model selection & sizes</figcaption>
+        </figure>
+        <figure class="screenshot-card organic-card" role="listitem">
+          <picture>
+            <img src="assets/img/Language.png" width="640" height="512" loading="lazy" alt="Language selection panel" />
+          </picture>
+          <figcaption class="micro muted">Language preferences</figcaption>
+        </figure>
+        <figure class="screenshot-card organic-card" role="listitem">
+          <picture>
+            <img src="assets/img/Preference.png" width="640" height="512" loading="lazy" alt="General preferences view" />
+          </picture>
+          <figcaption class="micro muted">General preferences</figcaption>
         </figure>
       </div>
-      <p class="micro muted gallery-note">(Add or replace images in <code>assets/img/</code> — optimize to ~150–250KB each, PNG or WebP.)</p>
     </section>
 
     <section id="download" class="section cta" aria-labelledby="downloadTitle">

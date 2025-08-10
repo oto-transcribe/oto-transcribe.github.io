@@ -64,4 +64,20 @@
       wf.dataset.state = states[idx];
     }, 5000);
   }
+
+  // Demo video behavior
+  const demoVideo = document.getElementById('otoDemoVideo');
+  const videoBtn = document.getElementById('videoPlayBtn');
+  if (demoVideo) {
+    demoVideo.addEventListener('loadeddata', () => demoVideo.classList.add('loaded'));
+    videoBtn && videoBtn.addEventListener('click', () => {
+      if (demoVideo.paused) {
+        demoVideo.play();
+        videoBtn.textContent = 'Pause';
+      } else {
+        demoVideo.pause();
+        videoBtn.textContent = 'Play';
+      }
+    });
+  }
 })();
