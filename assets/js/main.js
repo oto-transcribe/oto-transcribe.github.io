@@ -134,7 +134,7 @@
     });
   }
 
-  // Lazy image blur-up enhancement
+  // Enhanced lazy image loading with Apple editorial optimizations
   const lazyImgs = Array.from(document.querySelectorAll('img.lazy-image'));
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(entries => {
@@ -142,20 +142,37 @@
         if (entry.isIntersecting) {
           const img = entry.target;
           if (img instanceof HTMLImageElement) {
+            // Preload high-res version for better UX
+            const picture = img.parentElement;
+            if (picture?.tagName === 'PICTURE') {
+              const webpSource = picture.querySelector('source[type="image/webp"]');
+              if (webpSource) {
+                const srcset = webpSource.getAttribute('srcset');
+                if (srcset?.includes('2x')) {
+                  const highResSrc = srcset.split(',').find(s => s.includes('2x'))?.trim().split(' ')[0];
+                  if (highResSrc) {
+                    const preloadImg = new Image();
+                    preloadImg.src = highResSrc;
+                  }
+                }
+              }
+            }
+            
             if (img.complete) {
-              img.classList.add('is-loaded');
+              img.classList.add('loaded');
             } else {
-              img.addEventListener('load', () => img.classList.add('is-loaded'), { once:true });
+              img.addEventListener('load', () => img.classList.add('loaded'), { once:true });
             }
           }
           io.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '120px 0px 120px' });
+    }, { rootMargin: '150px 0px 150px' });
     lazyImgs.forEach(img => io.observe(img));
   } else {
     lazyImgs.forEach(img => {
-      if (img.complete) img.classList.add('is-loaded'); else img.addEventListener('load', () => img.classList.add('is-loaded'), { once:true });
+      if (img.complete) img.classList.add('loaded'); 
+      else img.addEventListener('load', () => img.classList.add('loaded'), { once:true });
     });
   }
 
@@ -281,5 +298,103 @@
       scrollHint.parentNode.removeChild(scrollHint);
     }
   }, 4500);
+
+  // Apple Editorial Lightbox for Screenshots
+  function createLightbox() {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+      <div class="lightbox-content">
+        <img src="" alt="" />
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+    
+    // Close on click outside or escape key
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+    
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    return { lightbox, closeLightbox };
+  }
+
+  // Initialize lightbox for screenshot cards
+  const { lightbox, closeLightbox } = createLightbox();
+  const screenshotCards = document.querySelectorAll('.screenshot-card');
+  
+  screenshotCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const img = card.querySelector('img');
+      const lightboxImg = lightbox.querySelector('img');
+      
+      if (img && lightboxImg) {
+        // Use high-res version if available
+        const picture = img.parentElement;
+        let srcToUse = img.src;
+        
+        if (picture?.tagName === 'PICTURE') {
+          const webpSource = picture.querySelector('source[type="image/webp"]');
+          if (webpSource) {
+            const srcset = webpSource.getAttribute('srcset');
+            if (srcset?.includes('2x')) {
+              const highResSrc = srcset.split(',').find(s => s.includes('2x'))?.trim().split(' ')[0];
+              if (highResSrc) srcToUse = highResSrc;
+            }
+          }
+        }
+        
+        lightboxImg.src = srcToUse;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  // Apple Intelligence performance monitoring
+  if (typeof window.performance !== 'undefined' && window.performance.mark) {
+    // Mark key performance milestones
+    window.addEventListener('load', () => {
+      performance.mark('oto-app-showcase-loaded');
+      
+      // Measure image loading performance
+      const images = document.querySelectorAll('img.lazy-image');
+      let loadedCount = 0;
+      
+      images.forEach(img => {
+        if (img.complete) {
+          loadedCount++;
+        } else {
+          img.addEventListener('load', () => {
+            loadedCount++;
+            if (loadedCount === images.length) {
+              performance.mark('oto-all-images-loaded');
+            }
+          }, { once: true });
+        }
+      });
+      
+      if (loadedCount === images.length) {
+        performance.mark('oto-all-images-loaded');
+      }
+    });
+  }
+
+  // Neural Engine visual indicator
+  const neuralBadges = document.querySelectorAll('.neural-engine-badge');
+  neuralBadges.forEach(badge => {
+    badge.style.animationDelay = `${Math.random() * 2}s`;
+  });
 
 })();
