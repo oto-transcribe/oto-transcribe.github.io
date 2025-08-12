@@ -122,14 +122,47 @@
   const demoVideo = document.getElementById('otoDemoVideo');
   const videoBtn = document.getElementById('videoPlayBtn');
   if (demoVideo) {
-    demoVideo.addEventListener('loadeddata', () => demoVideo.classList.add('loaded'));
-    videoBtn && videoBtn.addEventListener('click', () => {
+    const markLoaded = () => demoVideo.classList.add('loaded');
+    demoVideo.addEventListener('loadedmetadata', markLoaded, { once:true });
+    demoVideo.addEventListener('canplay', markLoaded, { once:true });
+    demoVideo.addEventListener('loadeddata', markLoaded, { once:true });
+
+    const tryPlay = async () => {
+      try {
+        const p = demoVideo.play();
+        if (p && typeof p.then === 'function') await p;
+        demoVideo.classList.add('loaded');
+        if (videoBtn) videoBtn.textContent = 'Pause';
+      } catch (err) {
+        // Autoplay policy or other error; ensure muted and try again
+        demoVideo.muted = true;
+        try {
+          const p2 = demoVideo.play();
+          if (p2 && typeof p2.then === 'function') await p2;
+          demoVideo.classList.add('loaded');
+          if (videoBtn) videoBtn.textContent = 'Pause';
+        } catch {}
+      }
+    };
+
+    const toggle = () => {
       if (demoVideo.paused) {
-        demoVideo.play();
-        videoBtn.textContent = 'Pause';
+        void tryPlay();
       } else {
         demoVideo.pause();
-        videoBtn.textContent = 'Play';
+        if (videoBtn) videoBtn.textContent = 'Play';
+      }
+    };
+
+    videoBtn && videoBtn.addEventListener('click', toggle);
+    // Allow clicking the video itself to toggle
+    demoVideo.addEventListener('click', toggle);
+    // Keyboard accessibility when video is focused
+    demoVideo.setAttribute('tabindex', '0');
+    demoVideo.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        toggle();
       }
     });
   }
