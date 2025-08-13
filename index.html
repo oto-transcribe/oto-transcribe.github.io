@@ -28,6 +28,8 @@
   <!-- System font stack primarily; fallback to SF Pro if available -->
   <link rel="preload" href="assets/css/styles.css" as="style" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- Phosphor Icons (local) -->
+  <link rel="stylesheet" href="assets/vendor/phosphor/regular/style.css" />
   <link rel="dns-prefetch" href="//apps.apple.com" />
   <link rel="icon" type="image/png" href="assets/img/favicon.png" />
   <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
@@ -58,9 +60,8 @@
   <li><a href="#features">Features</a></li>
   <li><a href="#pricing">Pricing</a></li>
   <li><a href="#why">Why</a></li>
-  <li><a href="#roadmap">Roadmap</a></li>
   <li><a href="#faq">FAQ</a></li>
-        <li><a href="#pricing" class="cta-link">Get oto</a></li>
+        <li><a href="#pricing" class="cta-link">Download oto</a></li>
       </ul>
     </nav>
   </header>
@@ -77,14 +78,19 @@
   <main id="main" tabindex="-1">
   <section class="hero centered" aria-labelledby="heroTitle" data-section="hero">
     <div class="hero__content reveal">
-      <h1 id="heroTitle" class="hero__title"><span class="hero-line">Transcription, made for Mac.</span></h1>
+      <h1 id="heroTitle" class="hero__title"><span class="hero-line">Talk-to-Text, made for Mac.</span></h1>
       <p class="hero__lead">
         Private. Fast. Accurate.
-        <p class="hero__description">oto turns speech into text entirely on your Mac. No cloud, no accounts, no data collection. Start with a hotkey, get the transcript in an instant, and keep it private by design. Optimized for Apple silicon with support for 100+ languages.</p>
+        <p class="hero__description">oto turns speech into text entirely on your Mac. No cloud, no subscription, no data collection. Start with a hotkey, get the transcript in an instant, and keep it private by design. Optimized for Apple silicon with support for 100+ languages.</p>
       </p>
       <div class="hero__actions">
-        <a id="downloadBtnTop" class="warm-button primary large" href="https://apps.apple.com/" target="_blank" rel="noopener">Get oto</a>
-        <button class="warm-button secondary large" data-scroll="#features">See features</button>
+          <a id="downloadBtnTop" class="app-store-badge-link" href="https://apps.apple.com/" target="_blank" rel="noopener" aria-label="Download on the Mac App Store">
+            <picture class="app-store-badge">
+              <source media="(prefers-color-scheme: dark)" type="image/svg+xml" srcset="assets/img/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_wht_092917.svg" />
+              <source media="(prefers-color-scheme: light)" type="image/svg+xml" srcset="assets/img/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" />
+              <img src="assets/img/mac-app-store-badge.svg" alt="Download on the Mac App Store" width="180" height="54" />
+            </picture>
+          </a>
       </div>
       <p class="micro muted trust-line">
         Apple Silicon • Metal • Private by design
@@ -98,7 +104,7 @@
           </video>
           <button class="warm-button primary video-play" id="videoPlayBtn" aria-label="Play demo video">Play</button>
         </div>
-        <figcaption id="heroVideoCaption" class="micro muted">Hotkey → Recording → Transcription.</figcaption>
+        <figcaption id="heroVideoCaption" class="micro muted">Hotkey → Recording → Talk-to-Text.</figcaption>
       </figure>
     </div>
   </section>
@@ -113,11 +119,7 @@
         <article class="feature-card feature-card--lg organic-card tint-accuracy reveal" role="listitem">
           <header class="feature-card__header">
             <span class="feature-card__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M12 3v10a3 3 0 0 1-3 3m6-3a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <rect x="9" y="2" width="6" height="12" rx="3" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M5 11v1a7 7 0 0 0 14 0v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
+              <i class="ph ph-microphone"></i>
             </span>
             <h3>99% Accurate Transcription</h3>
           </header>
@@ -128,10 +130,7 @@
         <article class="feature-card feature-card--lg organic-card tint-privacy reveal" role="listitem">
           <header class="feature-card__header">
             <span class="feature-card__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="3.75" y="10" width="16.5" height="9.5" rx="2.5" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M8 10V7.5a4 4 0 1 1 8 0V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
+              <i class="ph ph-lock"></i>
             </span>
             <h3>Private by default</h3>
           </header>
@@ -142,10 +141,7 @@
         <article class="feature-card feature-card--md organic-card tint-speed reveal" role="listitem">
           <header class="feature-card__header">
             <span class="feature-card__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="5" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M2 9h3M2 15h3M19 9h3M19 15h3M9 2v3M15 2v3M9 19v3M15 19v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
+              <i class="ph ph-lightning"></i>
             </span>
             <h3>Lightning Fast</h3>
             <span class="neural-engine-badge" aria-hidden="true">Neural Engine</span>
@@ -157,10 +153,7 @@
         <article class="feature-card feature-card--md organic-card tint-languages reveal" role="listitem">
           <header class="feature-card__header">
             <span class="feature-card__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
+              <i class="ph ph-globe"></i>
             </span>
             <h3>100+ Languages</h3>
           </header>
@@ -171,10 +164,7 @@
   <article class="feature-card feature-card--md organic-card tint-dictionary reveal" role="listitem">
           <header class="feature-card__header">
             <span class="feature-card__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M5.5 4.5h10.5A2.5 2.5 0 0 1 18.5 7v12.5H7.5A2.5 2.5 0 0 1 5 17V7a2.5 2.5 0 0 1 .5-2.5Z" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M7.5 17V5.5" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
+              <i class="ph ph-book"></i>
             </span>
             <h3>Smart Vocabulary</h3>
           </header>
@@ -186,10 +176,7 @@
         <article class="feature-card feature-card--sm organic-card tint-hotkeys reveal" role="listitem">
           <header class="feature-card__header">
             <span class="feature-card__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="3" y="7" width="18" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M7 12h2M11 12h2M15 12h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
+              <i class="ph ph-keyboard"></i>
             </span>
             <h3>Custom Hotkeys</h3>
           </header>
@@ -199,11 +186,7 @@
         <article class="feature-card feature-card--sm organic-card tint-replacements reveal" role="listitem">
           <header class="feature-card__header">
             <span class="feature-card__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M5 17c3.5 0 6.5-3 6.5-6.5S8.5 4 5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M16 7l3-3m-3 0l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10 20h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
+              <i class="ph ph-arrows-left-right"></i>
             </span>
             <h3>Text Expansion</h3>
           </header>
@@ -213,10 +196,7 @@
         <article class="feature-card feature-card--sm organic-card tint-files reveal" role="listitem">
           <header class="feature-card__header">
             <span class="feature-card__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M7.5 3.5h5l4 4v11a2.5 2.5 0 0 1-2.5 2.5h-6A2.5 2.5 0 0 1 5.5 18.5v-13A2.5 2.5 0 0 1 8 3.5Z" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M12.5 3.5v4h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
+              <i class="ph ph-file-audio"></i>
             </span>
             <h3>Transcribe Files</h3>
           </header>
@@ -226,9 +206,7 @@
         <article class="feature-card feature-card--sm organic-card tint-compat reveal" role="listitem">
           <header class="feature-card__header">
             <span class="feature-card__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M5 5h6v6H5V5Zm8 0h6v6h-6V5ZM5 13h6v6H5v-6Zm8 0h6v6h-6v-6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-              </svg>
+              <i class="ph ph-squares-four"></i>
             </span>
             <h3>Use Anywhere</h3>
           </header>
@@ -237,27 +215,57 @@
       </div>
     </section>
 
-    <section id="pricing" class="section" aria-labelledby="pricingTitle" data-section="pricing">
+    <section id="pricing" class="section section--alt" aria-labelledby="pricingTitle" data-section="pricing">
       <div class="section__header reveal">
         <h2 id="pricingTitle">Pay once. Own forever.</h2>
-        <p class="section__lead">Professional transcription without the professional subscription. Everything included. All future updates free.</p>
+        <p class="section__lead">Professional transcription, no subscription. Lifetime updates included.</p>
       </div>
-      <div class="pricing-box organic-card reveal">
-        <div class="price-tag">Founder's Pricing: <span class="price-amount">$35</span></div>
-        <p class="micro muted">Founder pricing – includes all future Apple Silicon optimizations and WhisperKit model updates</p>
-        <ul class="pricing-benefits" role="list">
-          <li>Lifetime access – yours forever</li>
-          <li>All future updates included</li>
-          <li>No monthly fees, ever</li>
-          <li>No device limits</li>
-          <li>No online authentication required</li>
-        </ul>
-        <p class="value-compare muted">Cloud services charge $25/month for less privacy. oto pays for itself in two months—then it's yours forever.</p>
-        <div class="pricing-cta">
-          <a class="warm-button primary large" href="https://apps.apple.com/" target="_blank" rel="noopener" aria-describedby="refundNote">Get oto – $35</a>
-        </div>
-        <p id="refundNote" class="micro muted">30‑day money‑back guarantee via Apple.</p>
-      </div>
+  <div class="pricing-box organic-card reveal">
+          <div class="pricing-grid">
+            <!-- Our plan -->
+            <article class="pricing-subcard your-plan">
+              <span class="founders-label" aria-label="Founder's Pricing">Founder's Pricing</span>
+              <header class="subcard-header">
+                <div class="price-display" aria-label="Price">$35</div>
+                <p class="micro muted">One-time payment. Includes lifetime updates.</p>
+              </header>
+              <ul class="pricing-benefits" role="list">
+                <li>Own it forever</li>
+                <li>Free updates</li>
+                <li>Pay once, zero fees</li>
+                <li>Use on all your Macs</li>
+                <li>Talk-to-Text offline</li>
+              </ul>
+              <p class="value-compare muted">Costs less than two months of typical cloud services. Private by default. No data leaves your Mac.</p>
+            </article>
+
+            <!-- Competitor plan -->
+            <article class="pricing-subcard competitor-plan">
+              <span class="competitor-label" aria-label="Typical cloud service">Typical cloud service</span>
+              <header class="subcard-header">
+                <div class="price-compare" aria-label="Typical price">$8-$25<span class="per">/month</span></div>
+                <p class="micro muted">Recurring fees. Internet required.</p>
+              </header>
+              <ul class="pricing-benefits" role="list">
+                <li>Subscription forever</li>
+                <li>Data leaves your device</li>
+                <li>Usage limits and fees</li>
+                <li>Requires internet</li>
+                <li>Costs escalate over time</li>
+              </ul>
+              <p class="value-compare muted">oto pays for itself in just 2-4 months.</p>
+            </article>
+          </div>
+          <div class="pricing-cta">
+            <a id="downloadBtnBottom" class="app-store-badge-link" href="https://apps.apple.com/" target="_blank" rel="noopener" aria-label="Download on the Mac App Store" aria-describedby="refundNote">
+              <picture class="app-store-badge">
+                <source media="(prefers-color-scheme: dark)" type="image/svg+xml" srcset="assets/img/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_wht_092917.svg" />
+                <source media="(prefers-color-scheme: light)" type="image/svg+xml" srcset="assets/img/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" />
+                <img src="assets/img/mac-app-store-badge.svg" alt="Download on the Mac App Store" width="180" height="54" />
+              </picture>
+            </a>
+          </div>
+    </div>
     </section>
 
     <section id="why" class="section" aria-labelledby="whyTitle" data-section="why">
