@@ -224,6 +224,14 @@ main { height: 100vh; overflow-y: auto; overflow-x: visible; scroll-snap-type: y
   gap: var(--spacing-md);
 }
 
+/* Stack technology badges vertically on speed card */
+.badge-stack {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-left: auto; /* push to the right of the header row */
+}
+
 .feature-card__icon {
   display: inline-flex;
   align-items: center;
@@ -717,6 +725,38 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   .pricing-grid { grid-template-columns: 1.05fr 0.95fr; gap: var(--spacing-3xl); }
   .pricing-subcard { padding: 40px 36px 40px; }
   .price-display, .price-compare { font-size: clamp(3rem, 5.5vw, 5rem); }
+}
+
+/* Make competitor heading a normal title, not a giant price */
+.pricing-subcard.competitor-plan .price-compare {
+  font-size: clamp(1.25rem, 2.8vw, 2rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* Slightly lower the competitor subheader line */
+.pricing-subcard.competitor-plan .subcard-header .micro {
+  margin-top: 6px;
+  display: block;
+}
+
+/* Nudge competitor ROI pill down to align with Oto's ROI position */
+.pricing-subcard.competitor-plan .roi-callout {
+  margin-top: 18px;
+}
+@media (min-width: 860px) {
+  .pricing-subcard.competitor-plan .roi-callout { margin-top: 28px; }
+}
+
+/* Make Oto price ($35) a more modest headline size */
+.pricing-subcard.your-plan .price-display {
+  font-size: clamp(2rem, 4.8vw, 3.25rem);
+}
+@media (min-width: 860px) {
+  .pricing-subcard.your-plan .price-display {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+  }
 }
 
 /* Trust & Proof block */
