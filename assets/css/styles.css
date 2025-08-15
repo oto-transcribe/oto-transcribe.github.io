@@ -677,6 +677,18 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 /* Annual cost helper under competitor pricing */
 .annual-cost { margin: -6px 0 10px; }
 
+/* Transparent red-tinted background for competitor card */
+.pricing-subcard.competitor-plan {
+  background: linear-gradient(135deg, rgba(255, 59, 48, 0.08), rgba(255, 149, 0, 0.04));
+  border-color: rgba(255, 59, 48, 0.18);
+}
+@media (prefers-color-scheme: dark) {
+  .pricing-subcard.competitor-plan {
+    background: linear-gradient(135deg, rgba(255, 59, 48, 0.08), rgba(255, 59, 48, 0.04));
+    border-color: rgba(255, 99, 71, 0.28);
+  }
+}
+
 /* ROI callout emphasis */
 .roi-callout {
   display: inline-block;
@@ -741,6 +753,24 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   .price-display, .price-compare { font-size: clamp(3rem, 5.5vw, 5rem); }
 }
 
+/* Desktop visual scaling between our plan and competitor */
+@media (min-width: 860px) {
+  .pricing-subcard.your-plan {
+    transform: scale(1.05);
+    transform-origin: top center;
+    z-index: 2;
+    position: relative;
+  top: -12px; /* nudge up for vertical centering */
+  }
+  .pricing-subcard.competitor-plan {
+    transform: scale(0.95);
+    transform-origin: top center;
+    z-index: 1;
+  position: relative;
+  top: 42px; /* nudge down for vertical centering */
+  }
+}
+
 /* Make competitor heading a normal title, not a giant price */
 .pricing-subcard.competitor-plan .price-compare {
   font-size: clamp(1.25rem, 2.8vw, 2rem);
@@ -748,11 +778,23 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   letter-spacing: -0.01em;
   line-height: 1.2;
 }
+@media (min-width: 860px) {
+  /* Lower the 'Other Apps' heading slightly on desktop */
+  .pricing-subcard.competitor-plan .price-compare {
+    transform: translateY(20px);
+  }
+}
 
-/* Slightly lower the competitor subheader line */
+/* Lower the competitor subheader line to align with left card */
 .pricing-subcard.competitor-plan .subcard-header .micro {
-  margin-top: 6px;
+  /* On mobile keep it tight; on larger screens lower further for cross-card alignment */
+  margin-top: 8px;
   display: block;
+}
+@media (min-width: 860px) {
+  .pricing-subcard.competitor-plan .subcard-header .micro {
+    margin-top: 36px; /* aligns with the left card subtitle under $35 */
+  }
 }
 
 /* Nudge competitor ROI pill down to align with Oto's ROI position */
@@ -761,6 +803,15 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 }
 @media (min-width: 860px) {
   .pricing-subcard.competitor-plan .roi-callout { margin-top: 28px; }
+}
+
+/* Remove pill styling for competitor annual cost */
+.pricing-subcard.competitor-plan .roi-callout,
+.pricing-subcard.competitor-plan .roi-callout.roi-red {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  display: block;
 }
 
 /* Emphasize competitor value comparison line */
@@ -932,6 +983,17 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 .waveform.dynamic .bar:nth-child(3) { --i: 2; }
 .waveform.dynamic .bar:nth-child(4) { --i: 3; }
 .waveform.dynamic .bar:nth-child(5) { --i: 4; }
+
+  /* Center both cards within the grid on desktop */
+  @media (min-width: 860px) {
+    .pricing-grid {
+      grid-template-columns: auto auto; /* content-sized columns */
+      justify-content: center;          /* center the pair as a group */
+      align-items: start;               /* align tops */
+      justify-items: center;            /* center each card in its column */
+      gap: var(--spacing-3xl);
+    }
+  }
 .waveform.dynamic .bar:nth-child(6) { --i: 3; }
 .waveform.dynamic .bar:nth-child(7) { --i: 2; }
 .waveform.dynamic .bar:nth-child(8) { --i: 1; }
