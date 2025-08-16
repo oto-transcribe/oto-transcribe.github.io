@@ -657,16 +657,21 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 .price-tag { font-size: 1.625rem; font-weight:400; letter-spacing:-0.5px; margin-bottom: var(--spacing-xs); }
 .price-amount { font-weight:600; }
 .price-display { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight:100; line-height:1; letter-spacing:-0.5px; margin: 10px 0 6px; }
-.pricing-benefits { list-style:none; margin: var(--spacing-lg) 0 var(--spacing-xl); padding:0; display:grid; gap: var(--spacing-sm); font-size: 0.9375rem; }
+.pricing-benefits { list-style:none; margin: var(--spacing-lg) 0 var(--spacing-lg); padding:0; display:grid; gap: var(--spacing-sm); font-size: 1.0625rem; }
+.pricing-subcard.your-plan .pricing-benefits { padding-left: var(--spacing-lg); }
 .pricing-benefits li { padding-left: var(--spacing-lg); position:relative; }
 .pricing-benefits li::before { content:"✓"; position:absolute; left:0; top:0; font-size:14px; color: var(--color-accent-blue); }
-.value-compare { font-size:14px; margin:0 0 28px; line-height:1.4; }
+.value-compare { font-size:16px; margin:0 0 20px; line-height:1.5; }
+/* Push the Oto explanatory line a bit lower beneath the CTA */
+.pricing-subcard.your-plan .value-compare { margin-top: 0.6em; }
 /* Removed bottom-centered CTA; actions now live within the Oto subcard */
 .pricing-cta { display:none; }
 
 /* Two-card comparison */
 .pricing-grid { display:grid; grid-template-columns: 1fr; gap: var(--spacing-2xl); }
 .pricing-subcard { position:relative; border:1px solid var(--color-border); border-radius: var(--radius-large); padding: 32px 28px 32px; background: var(--color-primary-bg); box-shadow: var(--shadow-card); }
+/* Tighten bottom padding on competitor to reduce excess gap */
+.pricing-subcard.competitor-plan { padding-bottom: 24px; }
 .pricing-subcard .founders-label { position:absolute; top:14px; right:14px; }
 .subcard-header { margin-bottom: var(--spacing-lg); }
 .price-compare { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight:100; letter-spacing:-0.5px; line-height:1; }
@@ -729,7 +734,26 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   background:
     linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
 }
-.subcard-actions { display:flex; justify-content:center; margin: 12px 0 10px; }
+.subcard-actions { display:flex; justify-content:center; margin: 8px 0 6px; }
+.subcard-actions .cta-hero {
+  font-size: 1.15rem;              /* larger label */
+  padding: 0.95em 2.4em;           /* bigger box */
+  border-radius: 18px;             /* slightly chunkier */
+}
+@media (min-width: 860px) {
+  .subcard-actions { margin-top: 0.3em; }
+  .subcard-actions .cta-hero {
+    font-size: 1.25rem;
+    padding: 1.05em 2.85em;       /* wider on desktop */
+    transform: translateY(0);     /* lifted */
+  }
+}
+
+/* Stronger hover for primary CTA */
+.subcard-actions .cta-hero:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
 .pricing-subcard.your-plan::after {
   content: '';
   position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
@@ -750,24 +774,29 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   .pricing-box { max-width: 1100px; }
   .pricing-grid { grid-template-columns: 1.05fr 0.95fr; gap: var(--spacing-3xl); }
   .pricing-subcard { padding: 40px 36px 40px; }
+  /* Keep competitor bottom tighter on desktop as well */
+  .pricing-subcard.competitor-plan { padding-bottom: 28px; }
+  /* Slightly more space above the Oto explanatory line on desktop */
+  .pricing-subcard.your-plan .value-compare { margin-top: 0.9em; }
   .price-display, .price-compare { font-size: clamp(3rem, 5.5vw, 5rem); }
 }
 
 /* Desktop visual scaling between our plan and competitor */
 @media (min-width: 860px) {
   .pricing-subcard.your-plan {
-    transform: scale(1.05);
+    transform: scale(1);
     transform-origin: top center;
     z-index: 2;
     position: relative;
   top: -12px; /* nudge up for vertical centering */
+  left: 12px; /* nudge right away from left border */
   }
   .pricing-subcard.competitor-plan {
-    transform: scale(0.95);
+    transform: scale(1);
     transform-origin: top center;
     z-index: 1;
   position: relative;
-  top: 42px; /* nudge down for vertical centering */
+  top: 52px; /* nudge down for vertical centering */
   }
 }
 
@@ -797,6 +826,12 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   }
 }
 
+/* Slightly larger micro captions in pricing cards */
+.pricing-subcard .micro { font-size: 0.8125rem; }
+
+/* Increase feature bullet font-size in competitor list to match left */
+.pricing-subcard.competitor-plan .pricing-benefits { font-size: 1.0625rem; }
+
 /* Nudge competitor ROI pill down to align with Oto's ROI position */
 .pricing-subcard.competitor-plan .roi-callout {
   margin-top: 18px;
@@ -817,7 +852,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 /* Emphasize competitor value comparison line */
 .pricing-subcard.competitor-plan .value-compare {
   font-weight: 600;
-  font-size: 1.25rem; /* larger emphasis */
+  font-size: 1.375rem; /* larger emphasis */
   line-height: 1.35;
 }
 
@@ -987,10 +1022,10 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   /* Center both cards within the grid on desktop */
   @media (min-width: 860px) {
     .pricing-grid {
-      grid-template-columns: auto auto; /* content-sized columns */
+      grid-template-columns: 55% 45%;   /* 55/45 split */
       justify-content: center;          /* center the pair as a group */
       align-items: start;               /* align tops */
-      justify-items: center;            /* center each card in its column */
+      justify-items: stretch;           /* let cards fill their columns */
       gap: var(--spacing-3xl);
     }
   }
