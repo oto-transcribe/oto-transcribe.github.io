@@ -267,40 +267,47 @@
 
     <section id="pricing" class="section section--alt" aria-labelledby="pricingTitle" data-section="pricing">
       <div class="section__header reveal">
-        <h2 id="pricingTitle">Pay once. Own forever.</h2>
-        <p class="section__lead">Professional transcription, no subscription. Lifetime updates included.</p>
+  <h2 id="pricingTitle">Own fast, private transcription.</h2>
+  <p class="section__lead">One-time $35. Works offline. All future app updates included.</p>
       </div>
       <!-- Competitor summary moved up from the right card, now plain paragraph form (no card) -->
       <div class="pricing-competitor-text reveal" aria-label="Subscription competitor summary">
-        <p class="competitor-title">Monthly Payment Trap</p>
+  <p class="competitor-title">Why subscriptions cost more</p>
         <p class="competitor-sub micro muted">Pay every month, forever. Internet required.</p>
         <p class="competitor-annual">Annual cost: <strong class="annual-price">$96+</strong>/year</p>
         <p class="competitor-points">Subscription forever • Data leaves your device • Usage limits • Device limits • Requires internet • Costs escalate over time</p>
-        <p class="competitor-bottom muted">3x more than oto in just 1 year</p>
+  <p class="competitor-bottom muted">3× more than oto in the first year</p>
       </div>
   <div class="pricing-box organic-card reveal">
           <div class="pricing-grid">
             <!-- Our plan -->
             <article class="pricing-subcard your-plan">
-              <span class="founders-label" aria-label="Founder's Pricing">Founder's Pricing — Limited time</span>
-              <header class="subcard-header">
-                <div class="price-display" aria-label="Price">$35</div>
-                <p class="micro muted">One‑time payment. Lifetime updates included.</p>
-              </header>
-              <p class="roi-callout" aria-label="ROI">Pays for itself in just 4 months</p>
-              <ul class="pricing-benefits" role="list">
+              <span class="founders-label" aria-label="Founder's Pricing">Founder's Pricing</span>
+              
+              <!-- Left benefits -->
+              <ul class="pricing-benefits left-benefits" role="list">
                 <li>Own it forever</li>
                 <li>Lifetime updates</li>
                 <li>No subscription</li>
                 <li>No device limits</li>
+              </ul>
+              
+              <!-- Center price section -->
+              <header class="subcard-header center-price">
+                <div class="price-display" aria-label="Price">$35</div>
+                <p class="roi-callout" aria-label="ROI">Pays for itself in just 4 months</p>
+              </header>
+              
+              <!-- Right benefits -->
+              <ul class="pricing-benefits right-benefits" role="list">
                 <li>Transcribe offline</li>
                 <li>Works with any app</li>
                 <li>Lightning fast</li>
                 <li>Global hotkey activation</li>
               </ul>
               <div class="subcard-actions">
-                <a class="warm-button primary large cta-hero" href="https://apps.apple.com/" target="_blank" rel="noopener">
-                  <i class="ph ph-app-store-logo" aria-hidden="true"></i>Get oto
+    <a id="downloadBtnBottom" class="warm-button primary large cta-hero" href="https://apps.apple.com/" target="_blank" rel="noopener" aria-label="Get oto on the Mac App Store for $35">
+      <i class="ph ph-app-store-logo" aria-hidden="true"></i>Get oto — $35
                 </a>
               </div>
                 <p class="value-compare muted" style="text-align:center;">30‑day money‑back guarantee. No questions asked.</p>
@@ -450,6 +457,13 @@
       <p class="micro muted">©<span id="year"></span> oto. Talk-to-Text. Completely yours.</p>
     </footer>
   </main>
+  <!-- Sticky mobile buy bar -->
+  <div id="stickyBuy" class="sticky-buy" role="region" aria-label="Quick purchase">
+    <div class="sticky-buy__price" aria-hidden="true">$35 • One-time</div>
+    <a id="downloadBtnSticky" class="sticky-buy__cta" href="https://apps.apple.com/" target="_blank" rel="noopener" aria-label="Get oto on the Mac App Store for $35">
+      Get oto — $35
+    </a>
+  </div>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

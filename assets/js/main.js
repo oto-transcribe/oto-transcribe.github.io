@@ -72,6 +72,24 @@
           });
         }
       }
+      // Sticky buy bar visibility: show between hero and pricing/footer
+      const sticky = document.getElementById('stickyBuy');
+      if (sticky) {
+        const hero = document.querySelector('.hero');
+        const pricing = document.getElementById('pricing');
+        const footer = document.querySelector('footer.site-footer');
+        let show = false;
+        if (hero && pricing && footer) {
+          const heroRect = hero.getBoundingClientRect();
+          const pricingRect = pricing.getBoundingClientRect();
+          const footerRect = footer.getBoundingClientRect();
+          const pastHero = heroRect.bottom < windowHeight * 0.75;
+          const beforePricing = pricingRect.top > windowHeight * 0.5;
+          const beforeFooter = footerRect.top > windowHeight * 0.6;
+          show = pastHero && beforePricing && beforeFooter;
+        }
+        sticky.classList.toggle('is-visible', show);
+      }
     });
   }
 
@@ -82,13 +100,18 @@
   // Prefetch App Store link on hover for slight perceived speed (if same origin would apply)
   const dlTop = document.getElementById('downloadBtnTop');
   const dlBottom = document.getElementById('downloadBtnBottom');
-  [dlTop, dlBottom].forEach(link => {
+  const dlSticky = document.getElementById('downloadBtnSticky');
+  [dlTop, dlBottom, dlSticky].forEach(link => {
     if (link) {
       link.addEventListener('mouseenter', () => {
         if (!link.dataset.prefetched) {
           link.dataset.prefetched = 'true';
           // Placeholder for potential warm-up logic (cannot preconnect cross-origin restrictions sometimes)
         }
+      });
+      // lightweight analytics hook
+      link.addEventListener('click', () => {
+        try { window.dispatchEvent(new CustomEvent('oto:cta_click', { detail: { id: link.id || 'cta', ts: Date.now() } })); } catch {}
       });
     }
   });
