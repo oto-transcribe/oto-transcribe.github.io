@@ -118,54 +118,133 @@
     }, 5000);
   }
 
-  // Demo video behavior
-  const demoVideo = document.getElementById('otoDemoVideo');
-  const videoBtn = document.getElementById('videoPlayBtn');
-  if (demoVideo) {
-    const markLoaded = () => demoVideo.classList.add('loaded');
-    demoVideo.addEventListener('loadedmetadata', markLoaded, { once:true });
-    demoVideo.addEventListener('canplay', markLoaded, { once:true });
-    demoVideo.addEventListener('loadeddata', markLoaded, { once:true });
+  // Demo slideshow behavior (video removed)
+  const slideshow = document.getElementById('otoDemoSlideshow');
+  const slidePrevBtn = document.getElementById('slidePrev');
+  const slideNextBtn = document.getElementById('slideNext');
 
-    const tryPlay = async () => {
-      try {
-        const p = demoVideo.play();
-        if (p && typeof p.then === 'function') await p;
-        demoVideo.classList.add('loaded');
-        if (videoBtn) videoBtn.textContent = 'Pause';
-      } catch (err) {
-        // Autoplay policy or other error; ensure muted and try again
-        demoVideo.muted = true;
-        try {
-          const p2 = demoVideo.play();
-          if (p2 && typeof p2.then === 'function') await p2;
-          demoVideo.classList.add('loaded');
-          if (videoBtn) videoBtn.textContent = 'Pause';
-        } catch {}
-      }
-    };
+  // Slideshow of tutorial images (acts as primary demo)
+  const tutorialBase = 'oto-docs/demo';
+  const tutorialFrames = Array.from({ length: 9 }, (_, i) => `${tutorialBase}/${i + 1}.png`);
+  let slideTimer = null;
+  let slideIndex = 0;
+  let slideshowActive = false;
 
-    const toggle = () => {
-      if (demoVideo.paused) {
-        void tryPlay();
-      } else {
-        demoVideo.pause();
-        if (videoBtn) videoBtn.textContent = 'Play';
-      }
-    };
-
-    videoBtn && videoBtn.addEventListener('click', toggle);
-    // Allow clicking the video itself to toggle
-    demoVideo.addEventListener('click', toggle);
-    // Keyboard accessibility when video is focused
-    demoVideo.setAttribute('tabindex', '0');
-    demoVideo.addEventListener('keydown', (e) => {
-      if (e.key === ' ' || e.key === 'Enter') {
-        e.preventDefault();
-        toggle();
-      }
+  function preload(src) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(src);
+      img.onerror = reject;
+      img.src = src;
     });
   }
+
+  async function initSlideshow() {
+    if (!slideshow) return false;
+    try {
+      // Preload first image to verify availability
+      await preload(tutorialFrames[0]);
+      // Build two layers for crossfade
+      const layerA = document.createElement('img');
+      const layerB = document.createElement('img');
+      layerA.className = 'slide-layer visible';
+      layerB.className = 'slide-layer';
+      layerA.alt = 'oto tutorial step 1';
+      layerB.alt = 'oto tutorial';
+      layerA.decoding = 'async';
+      layerB.decoding = 'async';
+      layerA.fetchPriority = 'high';
+      layerA.src = tutorialFrames[0];
+      slideshow.appendChild(layerA);
+      slideshow.appendChild(layerB);
+  slideshow.classList.add('ready');
+  slideshowActive = true;
+
+      // Preload the rest in the background
+      tutorialFrames.slice(1).forEach(src => { const i = new Image(); i.src = src; });
+
+      const showIndex = (index) => {
+        const [front, back] = slideshow.querySelectorAll('img.slide-layer');
+        if (!front || !back) return;
+        back.src = tutorialFrames[index];
+        back.alt = `oto tutorial step ${index + 1}`;
+        front.classList.remove('visible');
+        back.classList.add('visible');
+        slideshow.appendChild(front);
+        slideIndex = index;
+      };
+
+      const advance = () => {
+        if (!slideshowActive) return;
+        const nextIndex = (slideIndex + 1) % tutorialFrames.length;
+        showIndex(nextIndex);
+      };
+
+  const start = () => {
+        if (slideTimer) return;
+        slideTimer = setInterval(advance, 3800);
+      };
+      const stop = () => {
+        if (slideTimer) { clearInterval(slideTimer); slideTimer = null; }
+      };
+
+      const restartTimer = () => {
+        const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        stop();
+        if (!prefersReduced) start();
+      };
+
+      // Start automatically unless user prefers reduced motion
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced) { start(); }
+
+      // Controls
+      if (slidePrevBtn) {
+        slidePrevBtn.addEventListener('click', () => {
+          if (!slideshowActive) return;
+          const prevIndex = (slideIndex - 1 + tutorialFrames.length) % tutorialFrames.length;
+          showIndex(prevIndex);
+          restartTimer();
+        });
+      }
+      if (slideNextBtn) {
+        slideNextBtn.addEventListener('click', () => {
+          if (!slideshowActive) return;
+          const nextIndex = (slideIndex + 1) % tutorialFrames.length;
+          showIndex(nextIndex);
+          restartTimer();
+        });
+      }
+
+      // Keyboard arrows when wrapper is focused
+      const wrapper = slideshow.closest('.video-wrapper');
+      if (wrapper) {
+        wrapper.setAttribute('tabindex', '0');
+        wrapper.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const prevIndex = (slideIndex - 1 + tutorialFrames.length) % tutorialFrames.length;
+            showIndex(prevIndex);
+            restartTimer();
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            const nextIndex = (slideIndex + 1) % tutorialFrames.length;
+            showIndex(nextIndex);
+            restartTimer();
+          }
+        });
+      }
+      return true;
+    } catch (e) {
+      // Images unavailable; keep area hidden
+      slideshowActive = false;
+      if (slideshow) slideshow.style.display = 'none';
+      return false;
+    }
+  }
+
+  // Initialize slideshow
+  (async () => { await initSlideshow(); })();
 
   // Enhanced lazy image loading with Apple editorial optimizations
   const lazyImgs = Array.from(document.querySelectorAll('img.lazy-image'));

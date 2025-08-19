@@ -69,6 +69,8 @@
   <!-- Section progress indicator -->
   <div class="section-indicator" aria-hidden="true">
     <div class="section-indicator__dot active" data-section="hero"></div>
+  <div class="section-indicator__dot" data-section="made-for-mac"></div>
+  <div class="section-indicator__dot" data-section="no-money"></div>
   <div class="section-indicator__dot" data-section="features"></div>
   <div class="section-indicator__dot" data-section="pricing"></div>
   <div class="section-indicator__dot" data-section="why"></div>
@@ -93,19 +95,64 @@
           </a>
       </div>
       <p class="micro muted trust-line">
-        Apple Silicon • Metal • Private by design
+        Apple Silicon • Apple Intel • Private by design
       </p>
     </div>
     <div class="hero__visual" aria-hidden="true">
       <figure class="demo-video-card">
         <div class="video-wrapper" role="group" aria-labelledby="heroVideoCaption">
-          <video id="otoDemoVideo" class="demo-video" playsinline muted loop preload="auto">
-            <source src="assets/img/oto3.mp4" type="video/mp4" />
-          </video>
-          <button class="warm-button primary video-play" id="videoPlayBtn" aria-label="Play demo video">Play</button>
+          <!-- Tutorial slideshow (primary demo) -->
+          <div id="otoDemoSlideshow" class="demo-slideshow" role="img" aria-label="oto onboarding tutorial slideshow"></div>
+          <button id="slidePrev" class="slideshow-control prev" aria-label="Previous slide" title="Previous">
+            &#10094;
+          </button>
+          <button id="slideNext" class="slideshow-control next" aria-label="Next slide" title="Next">
+            &#10095;
+          </button>
         </div>
-        <figcaption id="heroVideoCaption" class="micro muted">Hotkey → Recording → Talk-to-Text.</figcaption>
+        <figcaption id="heroVideoCaption" class="micro muted">Onboarding tutorial: Hotkey → Record → Transcribe → Paste.</figcaption>
       </figure>
+    </div>
+  </section>
+  <!-- Guarantee / Philosophy section before Features -->
+  <section id="no-money" class="section section--alt" aria-labelledby="noMoneyTitle" data-section="no-money">
+    <div class="section__header reveal">
+      <h2 id="noMoneyTitle">I don't want your money.</h2>
+      <p class="section__lead">I want you to choose this tool only if it truly helps you.</p>
+    </div>
+    <div class="organic-card reveal">
+      <div class="guarantee-split">
+        <div class="guarantee-left">
+          <div class="trust-proof">
+            <div class="trust-row">
+              <strong class="micro">Reality</strong>
+              <p class="trust-copy">The way apps are distributed today makes true 30‑day free trials hard without a subscription. I don’t want subscriptions.</p>
+            </div>
+            <div class="trust-row">
+              <strong class="micro">My promise</strong>
+              <p class="trust-copy">You get a full 30‑day, no‑questions‑asked money‑back guarantee. Buy it, use it to its fullest. If it’s not for you, get a refund.</p>
+            </div>
+            <div class="trust-row">
+              <strong class="micro">Your call</strong>
+              <p class="trust-copy">Even if you only need it for one task and never again—that’s fine. You shouldn’t pay for something that doesn’t truly help.</p>
+            </div>
+          </div>
+          <p class="micro muted" style="margin-top:10px;">I built the tool I needed. If it helps you too, please support us. If not, get your money back and find what fits.</p>
+        </div>
+        <div class="guarantee-right">
+          <h3>How to request a refund (App Store)</h3>
+          <ol class="steps-list">
+            <li>Go to <a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener">reportaproblem.apple.com</a> and sign in with your Apple ID.</li>
+            <li>Choose <em>Request a refund</em>, select a reason, and continue.</li>
+            <li>Select <em>oto</em> from your purchases.</li>
+            <li>Submit your request. Apple usually responds within a few days.</li>
+          </ol>
+          <div class="subcard-actions" style="justify-content:flex-start;margin-top:12px;">
+            <a class="warm-button secondary" href="https://reportaproblem.apple.com/" target="_blank" rel="noopener">Request a refund</a>
+          </div>
+          <p class="micro muted" style="margin-top:8px;">30‑day, no‑questions‑asked guarantee. Prefer help? Apple Support can guide you through the process.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -223,11 +270,19 @@
         <h2 id="pricingTitle">Pay once. Own forever.</h2>
         <p class="section__lead">Professional transcription, no subscription. Lifetime updates included.</p>
       </div>
+      <!-- Competitor summary moved up from the right card, now plain paragraph form (no card) -->
+      <div class="pricing-competitor-text reveal" aria-label="Subscription competitor summary">
+        <p class="competitor-title">Monthly Payment Trap</p>
+        <p class="competitor-sub micro muted">Pay every month, forever. Internet required.</p>
+        <p class="competitor-annual">Annual cost: <strong class="annual-price">$96+</strong>/year</p>
+        <p class="competitor-points">Subscription forever • Data leaves your device • Usage limits • Device limits • Requires internet • Costs escalate over time</p>
+        <p class="competitor-bottom muted">3x more than oto in just 1 year</p>
+      </div>
   <div class="pricing-box organic-card reveal">
           <div class="pricing-grid">
             <!-- Our plan -->
             <article class="pricing-subcard your-plan">
-              <span class="founders-label" aria-label="Founder's Pricing — Limited time">Founder's Pricing — Limited time</span>
+              <span class="founders-label" aria-label="Founder's Pricing">Founder's Pricing — Limited time</span>
               <header class="subcard-header">
                 <div class="price-display" aria-label="Price">$35</div>
                 <p class="micro muted">One‑time payment. Lifetime updates included.</p>
@@ -248,27 +303,8 @@
                   <i class="ph ph-app-store-logo" aria-hidden="true"></i>Get oto
                 </a>
               </div>
-                <p class="value-compare muted" style="text-align:center;">Try the whole app. Free for 30 days.</p>
+                <p class="value-compare muted" style="text-align:center;">30‑day money‑back guarantee. No questions asked.</p>
             </article>
-
-            <!-- Competitor plan -->
-            <article class="pricing-subcard competitor-plan">
-              <header class="subcard-header">
-                <div class="price-compare" aria-label="Subscription service">Monthly Payment Trap</div>
-                <p class="micro muted">Pay every month, forever. Internet required.</p>
-              </header>
-              <p class="roi-callout roi-red">Annual cost: <strong style="color:#d32f2f;">$<span style="font-weight:bold;">96</span>+</strong>/year</p>
-              <ul class="pricing-benefits" role="list">
-                <li>Subscription forever</li>
-                <li>Data leaves your device</li>
-                <li>Usage limits</li>
-                <li>Device limits</li>
-                <li>Requires internet</li>
-                <li>Costs escalate over time</li>
-              </ul>
-              <p class="value-compare competitor-impact muted">3x more than oto in just 1 year</p>
-            </article>
-          
           </div>
     </div>
     </section>
