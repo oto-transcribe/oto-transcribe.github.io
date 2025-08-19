@@ -849,10 +849,13 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   .pricing-box { 
     max-width: min(880px, 45vw); 
     max-height: min(880px, 60vh); /* Example: set max-height similar to max-width */
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
   }
   /* Single wide layout with centered card */
   .pricing-grid { grid-template-columns: 1fr; gap: var(--spacing-3xl); align-items: start; justify-items: stretch; }
-  .pricing-subcard { padding: 50px; }
+  .pricing-subcard { padding: 0px; }
   /* Keep competitor bottom tighter on desktop as well */
   .pricing-subcard.competitor-plan { padding-bottom: 28px; }
   /* Slightly more space above the Oto explanatory line on desktop */
@@ -871,9 +874,9 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 }
 
 /* Center the single Oto card and let it span the container on wide screens */
-.pricing-subcard.your-plan { width: 100%; max-width: none; margin: 0 auto; }
-@media (min-width: 1100px) {
-  .pricing-subcard.your-plan { min-width: 960px; }
+.pricing-subcard.your-plan { width: 50%; max-width: none; margin: 0 auto; }
+@media (min-width: 100px) {
+  .pricing-subcard.your-plan { min-width: 460px; }
 }
 
 /* Two-column benefits on desktop for a flatter look */
@@ -888,9 +891,18 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   .pricing-subcard.your-plan > * { min-width: 0; }
   
   /* Position elements in the new grid */
-  .pricing-subcard.your-plan .left-benefits { grid-column: 1; }
-  .pricing-subcard.your-plan .center-price { grid-column: 2; text-align: center; }
-  .pricing-subcard.your-plan .right-benefits { grid-column: 3; }
+  .pricing-subcard.your-plan .left-benefits { 
+    grid-column: 1; 
+    justify-self: center;
+  }
+  .pricing-subcard.your-plan .center-price { 
+    grid-column: 2; 
+    text-align: center;
+  }
+  .pricing-subcard.your-plan .right-benefits { 
+    grid-column: 3; 
+    justify-self: center;
+  }
   
   /* Reset benefits styling for single column layout */
   .pricing-subcard.your-plan .pricing-benefits {
@@ -900,7 +912,6 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
     padding-left: 0;
   }
   
-  .pricing-subcard.your-plan .subcard-actions { grid-column: 1 / -1; }
   .pricing-subcard.your-plan .value-compare { grid-column: 1 / -1; text-align: center; }
 }
 
@@ -1176,7 +1187,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
       max-width: none;
       margin: 0;
       transform: scale(0.85);           /* compress overall by 15% */
-      padding: 50px;                    /* increased padding for better breathing room */
+      padding: 30px;                    /* shrink the card */
     }
     
     /* Make the CTA button bigger and more prominent naturally */
