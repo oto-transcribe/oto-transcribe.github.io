@@ -874,9 +874,9 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 }
 
 /* Center the single Oto card and let it span the container on wide screens */
-.pricing-subcard.your-plan { width: 50%; max-width: none; margin: 0 auto; }
+.pricing-subcard.your-plan { width: 5%; max-width: none; margin: 0 auto; }
 @media (min-width: 100px) {
-  .pricing-subcard.your-plan { min-width: 460px; }
+  .pricing-subcard.your-plan { min-width: 370px; }
 }
 
 /* Two-column benefits on desktop for a flatter look */
