@@ -734,7 +734,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   right: 16px;            /* move to upper-right */
   left: auto;
   transform: none;
-  background: var(--color-accent-blue);
+  background: #8CAAC8;
   color: #fff;
   padding: 8px 14px;       /* ~30% smaller */
   border-radius: 999px;
@@ -1202,7 +1202,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   margin: 0;
   transform: none;
   padding: 42px 40px;               /* more breathing room */
-  min-height: clamp(480px, 58vh, 640px);
+  min-height: clamp(420px, 52vh, 560px); /* shrink inner card vertically */
     }
     
   /* CTA inherits base size; desktop keeps same values unless edited above */
@@ -1245,12 +1245,12 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 /* Move Founder's badge above and centered on the card */
 .pricing-subcard.your-plan .founders-label {
   position: absolute;
-  top: -22px;                 /* float above the rounded top */
+  top: 0;                     /* center on the top edge */
   left: 50%;
   right: auto;
-  transform: translateX(-50%);
+  transform: translate(-50%, -45%); /* moved down by ~5% more */
   z-index: 2;
-  background: var(--color-accent-blue);
+  background: #8CAAC8;
   color: #fff;
   padding: 8px 14px;
   border-radius: 999px;
