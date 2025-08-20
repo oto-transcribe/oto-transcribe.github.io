@@ -1,3 +1,33 @@
+/* Savings card styles */
+.savings-card {
+  max-width: 450px;
+  width: 100%;
+  margin: 24px auto 0 auto;
+  background: #f6fcf7;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 0;
+}
+.savings-card-content {
+  text-align: center;
+}
+.savings-card-headline {
+  font-size: 1.15rem;
+  color: #2e7d32;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.savings-card-breakdown {
+  font-size: 1rem;
+  color: #444;
+}
+.savings-card-highlight {
+  color: #2e7d32;
+  font-weight: 500;
+}
 /* oto Website Styles - Warm, Organic, Native - Optimized for Apple Editorial */
 
 :root {
@@ -792,7 +822,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   align-self: center;
   padding: 12px 28px;
   border-radius: 999px;
-  font-size: 1rem;
+  font-size: .75rem;
   font-weight: 700;
   letter-spacing: 0.1px;
   background: linear-gradient(135deg, rgba(0,122,255,0.12), rgba(218,199,176,0.12));
@@ -1157,7 +1187,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   display: inline-flex;           /* tighter centering */
   align-items: center;
   justify-content: center;
-  font-size: clamp(0.9rem, 1.6vw, 1rem);   /* shrink a touch when narrower */
+  font-size: clamp(0.75rem, 2vw, 0.85rem);   /* larger emphasis, responsive */
   padding: clamp(10px, 1.6vw, 12px) clamp(16px, 3.5vw, 28px);
   min-width: max-content;        /* never smaller than the text */
   max-width: 100%;               /* but don’t exceed the inner card */
