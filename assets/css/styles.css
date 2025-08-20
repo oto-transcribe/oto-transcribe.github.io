@@ -799,6 +799,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   border: 1px solid var(--color-border);
   color: var(--color-text-primary);
   margin: 8px 0 24px;
+  white-space: nowrap; /* keep text on one line */
 }
 
 .roi-callout.roi-red {
@@ -1003,10 +1004,17 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 /* Make Oto price ($35) a more modest headline size */
 .pricing-subcard.your-plan .price-display {
   font-size: clamp(2rem, 4.8vw, 3.25rem);
+  /* Center only the $35 within the inner card header */
+  justify-self: center;
+  text-align: center;
+  margin-left: 0;
 }
 @media (min-width: 860px) {
   .pricing-subcard.your-plan .price-display {
     font-size: clamp(2.25rem, 4vw, 3.5rem);
+    /* Keep it centered on desktop as well */
+    justify-self: center;
+    margin-left: 0;
   }
 }
 
@@ -1144,6 +1152,17 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   color: var(--color-text-secondary);
   text-align: center;
 }
+/* Keep the ROI pill fully inside the inner card */
+.pricing-subcard.your-plan .roi-callout {
+  display: inline-flex;           /* tighter centering */
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(0.9rem, 1.6vw, 1rem);   /* shrink a touch when narrower */
+  padding: clamp(10px, 1.6vw, 12px) clamp(16px, 3.5vw, 28px);
+  min-width: max-content;        /* never smaller than the text */
+  max-width: 100%;               /* but don’t exceed the inner card */
+  box-sizing: border-box;
+}
 
 .screenshot-card figcaption::before {
   content: '●';
@@ -1198,7 +1217,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
     
     .pricing-subcard.your-plan {
   width: auto;
-    max-width: 480px;
+  max-width: 260px; /* shrink by 10px each side (20px total) */
   margin: 0;
   transform: none;
   padding: 42px 40px;               /* more breathing room */
@@ -1209,18 +1228,38 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   }
 
 /* Add a touch more breathing room around the price block */
-.subcard-header.center-price { padding-top: 6px; padding-bottom: 6px; }
+.subcard-header.center-price {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  display: grid;
+  justify-items: center; /* center alignment */
+}
+/* Center the ROI pill within the header */
+.subcard-header.center-price .roi-callout { justify-self: center; }
+
+/* Center align the price section elements under Founder's Pricing pill */
+.pricing-subcard.your-plan .subcard-header.center-price {
+  justify-items: center;
+  text-align: center;
+}
+/* Span the full inner card width and center-align */
+.pricing-subcard.your-plan .center-price {
+  grid-column: 1 / -1;
+  justify-self: center;
+  text-align: center;
+}
 /* Centered one-liner between ROI and CTA */
 .center-note.fully-yours {
   text-align: center;
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: #000;
   /* Position it visually in the open space above the CTA */
   position: absolute;
   left: 16px;
   right: 16px;
   bottom: 250px; /* nudged up by 20px */
   margin: 0;
+  font-size: 1.55rem; /* make the text bigger */
 }
 
 /* Anchor the money-back line to the bottom of the inner card */
