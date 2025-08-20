@@ -2,6 +2,8 @@
 
 :root {
   --color-primary-bg: #fefcf9;
+  /* soft beige canvas behind pricing card */
+  --color-pricing-backdrop: #f3eee8;
   --color-sidebar-bg: #f9f7f4;
   --color-content-bg: #eee9e3;
   --color-text-primary: rgba(0,0,0,0.85);
@@ -714,25 +716,40 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 
 /* Pricing */
 .pricing-box { 
-  padding: clamp(12px, 1.5vw, 16px); 
-  max-width: min(700px, 50vw); 
-  margin:0 auto; 
-  position:relative; 
+  padding: clamp(18px, 2vw, 22px);
+  max-width: min(840px, 92vw);
+  margin: 0 auto; 
+  position: relative; 
   background: var(--color-primary-bg); 
   border: 1px solid var(--color-border); 
-  border-radius: 24px; 
+  border-radius: 36px; 
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
 }
-@media (max-width: 860px) {
+@media (max-width: 960px) {
   .pricing-box { padding: 36px 22px; }
 }
-.pricing-box .founders-label { position:absolute; top:16px; right:16px; background: var(--color-accent-blue); color:#fff; padding: 6px 10px; border-radius: var(--radius-stadium); font-size: var(--font-size-micro); font-weight:600; letter-spacing:0.6px; }
+.pricing-box .founders-label {
+  position: absolute;
+  top: 16px;
+  right: 16px;            /* move to upper-right */
+  left: auto;
+  transform: none;
+  background: var(--color-accent-blue);
+  color: #fff;
+  padding: 8px 14px;       /* ~30% smaller */
+  border-radius: 999px;
+  font-size: 0.7rem;       /* ~30% smaller */
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
 .price-tag { font-size: 1.625rem; font-weight:400; letter-spacing:-0.5px; margin-bottom: var(--spacing-xs); }
 .price-amount { font-weight:600; }
-.price-display { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight:100; line-height:1; letter-spacing:-0.5px; margin: 10px 0 6px; }
+.price-display { font-size: clamp(3.5rem, 8vw, 6rem); font-weight:200; line-height:1; letter-spacing:-1px; margin: 26px 0 16px; }
 .pricing-benefits { list-style:none; margin: var(--spacing-lg) 0 var(--spacing-lg); padding:0; display:grid; gap: var(--spacing-sm); font-size: 1.0625rem; }
 .pricing-subcard.your-plan .pricing-benefits { padding-left: var(--spacing-lg); }
 .pricing-benefits li { padding-left: var(--spacing-lg); position:relative; line-height: 1.6; }
-.pricing-benefits li::before { content:"✓"; position:absolute; left:0; top: 2px; font-size:14px; color: var(--color-accent-blue); }
+/* green checks like screenshot */
+.pricing-benefits li::before { content:"\2714"; position:absolute; left:0; top: 2px; font-size:16px; color: #22c55e; }
 .value-compare { font-size:16px; margin:0 0 20px; line-height:1.5; }
 /* Push the Oto explanatory line a bit lower beneath the CTA */
 .pricing-subcard.your-plan .value-compare { margin-top: 0.6em; }
@@ -772,16 +789,16 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 /* ROI callout emphasis */
 .roi-callout {
   display: inline-block;
-  align-self: flex-start;
-  padding: 6px 10px;
-  border-radius: var(--radius-stadium);
-  font-size: 0.95rem;
-  font-weight: 600;
+  align-self: center;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
   letter-spacing: 0.1px;
-  background: linear-gradient(135deg, rgba(0,122,255,0.08), rgba(218,199,176,0.08));
+  background: linear-gradient(135deg, rgba(0,122,255,0.12), rgba(218,199,176,0.12));
   border: 1px solid var(--color-border);
   color: var(--color-text-primary);
-  margin: 2px 0 10px;
+  margin: 8px 0 24px;
 }
 
 .roi-callout.roi-red {
@@ -811,16 +828,14 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 }
 .subcard-actions { display:flex; justify-content:center; margin: 8px 0 6px; }
 .subcard-actions .cta-hero {
-  font-size: 1.15rem;              /* larger label */
-  padding: 0.95em 2.4em;           /* bigger box */
-  border-radius: 18px;             /* slightly chunkier */
+  font-size: 1.25rem;              /* dialed back */
+  padding: 1em 2.6em;              /* moderate size */
+  border-radius: 22px;             /* chunky */
 }
 @media (min-width: 860px) {
   .subcard-actions { margin-top: 0.3em; }
   .subcard-actions .cta-hero {
-    font-size: 1.25rem;
-    padding: 1.05em 2.85em;       /* wider on desktop */
-    transform: translateY(0);     /* lifted */
+    transform: translateY(0); /* don't override font-size/padding on desktop */
   }
 }
 
@@ -847,8 +862,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 
 @media (min-width: 860px) {
   .pricing-box { 
-    max-width: min(880px, 45vw); 
-    max-height: min(880px, 60vh); /* Example: set max-height similar to max-width */
+    max-width: min(1000px, 90vw); 
     display: flex;
     align-items: center;
     gap: var(--spacing-xl);
@@ -876,7 +890,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 /* Center the single Oto card and let it span the container on wide screens */
 .pricing-subcard.your-plan { width: 5%; max-width: none; margin: 0 auto; }
 @media (min-width: 100px) {
-  .pricing-subcard.your-plan { min-width: 370px; }
+  .pricing-subcard.your-plan { min-width: 360px; }
 }
 
 /* Two-column benefits on desktop for a flatter look */
@@ -1183,23 +1197,68 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
     }
     
     .pricing-subcard.your-plan {
-      width: 26.67%;                    /* shrink outer box by 20% (33.333% * 0.8) */
-      max-width: none;
-      margin: 0;
-      transform: scale(0.85);           /* compress overall by 15% */
-      padding: 30px;                    /* shrink the card */
+  width: auto;
+    max-width: 480px;
+  margin: 0;
+  transform: none;
+  padding: 42px 40px;               /* more breathing room */
+  min-height: clamp(480px, 58vh, 640px);
     }
     
-    /* Make the CTA button bigger and more prominent naturally */
-    .pricing-subcard.your-plan .subcard-actions .cta-hero {
-      font-size: 1.1rem;                /* bigger text instead of scaling */
-      padding: 16px 32px;               /* larger padding for bigger button */
-      font-weight: 600;                 /* slightly bolder */
-      letter-spacing: 0.2px;            /* subtle letter spacing */
-      box-shadow: 0 3px 12px rgba(0,0,0,0.12); /* gentle shadow */
-      border-radius: 16px;              /* slightly more rounded */
-    }
+  /* CTA inherits base size; desktop keeps same values unless edited above */
   }
+
+/* Add a touch more breathing room around the price block */
+.subcard-header.center-price { padding-top: 6px; padding-bottom: 6px; }
+/* Centered one-liner between ROI and CTA */
+.center-note.fully-yours {
+  text-align: center;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  /* Position it visually in the open space above the CTA */
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 250px; /* nudged up by 20px */
+  margin: 0;
+}
+
+/* Anchor the money-back line to the bottom of the inner card */
+.pricing-subcard.your-plan { position: relative; }
+.pricing-subcard.your-plan .value-compare {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;               /* mirror the top padding used by founders badge */
+  margin: 0 !important;       /* override earlier margin rules */
+  text-align: center;
+}
+/* Set CTA above the guarantee line inside the card */
+.pricing-subcard.your-plan .subcard-actions {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 90px;               /* sits above the 30-day line (16px) with 48px gap */
+  margin: 0;
+  justify-content: center;
+}
+/* Move Founder's badge above and centered on the card */
+.pricing-subcard.your-plan .founders-label {
+  position: absolute;
+  top: -22px;                 /* float above the rounded top */
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: var(--color-accent-blue);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
 .waveform.dynamic .bar:nth-child(6) { --i: 3; }
 .waveform.dynamic .bar:nth-child(7) { --i: 2; }
 .waveform.dynamic .bar:nth-child(8) { --i: 1; }
