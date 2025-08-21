@@ -134,7 +134,7 @@
 
 /* Reset / Base */
 * { box-sizing: border-box; }
-html { font-family: var(--font-system); -webkit-font-smoothing: antialiased; scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+html { font-family: var(--font-system); -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
 body { margin:0; background: var(--color-primary-bg); color: var(--color-text-primary); font-size: var(--font-size-body); line-height: var(--line-height-body); font-weight:300; letter-spacing:0.3px; }
 body::before { content:""; position:fixed; inset:0; pointer-events:none; background:
   radial-gradient(circle at 20% 80%, var(--color-accent-gradient-start) 0%, transparent 50%),
@@ -162,14 +162,14 @@ a:focus-visible { outline: 2px solid var(--color-accent-blue); outline-offset:3p
   .nav__list[data-open="true"] { transform: translateY(0); opacity:1; pointer-events:auto; }
 }
 
-main { height: 100vh; overflow-y: auto; overflow-x: visible; scroll-snap-type: y mandatory; }
-.section { max-width: min(1800px, 96vw); margin:0 auto; padding: 6rem 1.875rem 5rem; position:relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; scroll-snap-align: start; scroll-snap-stop: always; }
+main { overflow-x: visible; }
+.section { max-width: min(1800px, 96vw); margin:0 auto; padding: 6rem 1.875rem 5rem; position:relative; min-height: auto; display: flex; flex-direction: column; justify-content: center; }
 .section--alt { background: linear-gradient(to bottom, transparent 0%, var(--color-content-bg) 100%); }
 .section__header { max-width:50rem; margin-bottom: var(--spacing-3xl); text-align:left; margin-left:0; }
 .section__lead { font-weight:400; color: var(--color-text-secondary); font-size:1.25rem; line-height: var(--line-height-body); max-width: 40rem; margin: var(--spacing-md) auto 0; }
 
 /* Hero */
-.hero { display:grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: var(--spacing-2xl); align-items:center; max-width: var(--max-width-content); margin:0 auto; padding: 1.75rem 1.875rem; min-height: 86vh; scroll-snap-align: start; overflow: visible; }
+.hero { display:grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: var(--spacing-2xl); align-items:center; max-width: var(--max-width-content); margin:0 auto; padding: 1.75rem 1.875rem; min-height: auto; overflow: visible; }
 .hero.centered { text-align:center; grid-template-columns:1fr; justify-items:center; padding-top:2.5rem; padding-bottom:1.25rem; gap: var(--spacing-sm); place-content: start center; }
 .hero.centered { max-width: min(1100px, 88vw); }
 .hero__content { overflow: visible !important; position: relative; max-width: clamp(560px, 70vw, 780px); margin-inline: auto; }
