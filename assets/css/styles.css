@@ -781,8 +781,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 /* green checks like screenshot */
 .pricing-benefits li::before { content:"\2714"; position:absolute; left:0; top: 2px; font-size:16px; color: #22c55e; }
 .value-compare { font-size:16px; margin:0 0 20px; line-height:1.5; }
-/* Push the Oto explanatory line a bit lower beneath the CTA */
-.pricing-subcard.your-plan .value-compare { margin-top: 0.6em; }
+/* Removed - conflicted with new positioning */
 /* Removed bottom-centered CTA; actions now live within the Oto subcard */
 .pricing-cta { display:none; }
 
@@ -904,7 +903,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   /* Keep competitor bottom tighter on desktop as well */
   .pricing-subcard.competitor-plan { padding-bottom: 28px; }
   /* Slightly more space above the Oto explanatory line on desktop */
-  .pricing-subcard.your-plan .value-compare { margin-top: 0.9em; }
+  /* Removed - conflicted with new positioning */
   .price-display, .price-compare { font-size: clamp(3rem, 5.5vw, 5rem); }
 }
 
@@ -1031,20 +1030,29 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   line-height: 1.35;
 }
 
+/* Style the "One time payment of" label */
+.pricing-subcard.your-plan .price-label {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 15px 0;
+  text-align: center;
+  font-weight: 400;
+}
+
 /* Make Oto price ($35) a more modest headline size */
 .pricing-subcard.your-plan .price-display {
-  font-size: clamp(2rem, 4.8vw, 3.25rem);
+  font-size: clamp(2.75rem, 6vw, 4.25rem);
   /* Center only the $35 within the inner card header */
   justify-self: center;
   text-align: center;
-  margin-left: 0;
+  margin: 0; /* Reset all margins to remove default spacing */
 }
 @media (min-width: 860px) {
   .pricing-subcard.your-plan .price-display {
-    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-size: clamp(5rem, 6vw, 7rem);
     /* Keep it centered on desktop as well */
     justify-self: center;
-    margin-left: 0;
+    margin: 0; /* Reset all margins on desktop too */
   }
 }
 
@@ -1264,6 +1272,11 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   display: grid;
   justify-items: center; /* center alignment */
 }
+
+/* Move the entire pricing content block down */
+.pricing-subcard.your-plan .subcard-header.center-price {
+  margin-top: 50px; /* Push the entire block down */
+}
 /* Center the ROI pill within the header */
 .subcard-header.center-price .roi-callout { justify-self: center; }
 
@@ -1295,20 +1308,13 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 /* Anchor the money-back line to the bottom of the inner card */
 .pricing-subcard.your-plan { position: relative; }
 .pricing-subcard.your-plan .value-compare {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;               /* mirror the top padding used by founders badge */
-  margin: 0 !important;       /* override earlier margin rules */
+  margin: 10px 0 0 0;  /* 10px below the button */
   text-align: center;
 }
 /* Set CTA above the guarantee line inside the card */
 .pricing-subcard.your-plan .subcard-actions {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 90px;               /* sits above the 30-day line (16px) with 48px gap */
-  margin: 0;
+  position: relative;
+  margin: 60px 0 0 0 !important;         /* 60px below the price, override default margins */
   justify-content: center;
 }
 /* Move Founder's badge above and centered on the card */
