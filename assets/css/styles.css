@@ -1092,6 +1092,104 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   }
 }
 
+/* New two-card guarantee layout */
+.guarantee-layout {
+  display: grid;
+  gap: var(--spacing-2xl);
+}
+
+.guarantee-cards {
+  display: grid;
+  gap: var(--spacing-xl);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 860px) {
+  .guarantee-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.guarantee-card {
+  background: var(--color-primary-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-card);
+  transition: transform 300ms var(--transition-standard), box-shadow 300ms var(--transition-standard);
+}
+
+.guarantee-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.reality-card {
+  background: var(--color-content-bg);
+  opacity: 0.95;
+}
+
+.promise-card {
+  background: var(--color-primary-bg);
+  border-color: var(--color-accent-blue);
+  position: relative;
+}
+
+.promise-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-primary));
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-primary));
+  margin-bottom: var(--spacing-md);
+}
+
+.card-icon i {
+  font-size: 24px;
+  color: white;
+}
+
+.card-header {
+  margin: 0 0 var(--spacing-md);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.card-body {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.guarantee-refund {
+  background: var(--color-primary-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.guarantee-refund h3 {
+  margin: 0 0 var(--spacing-md);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
 /* Roadmap */
 .roadmap-grid { display:grid; gap: var(--spacing-2xl); grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); margin-top: var(--spacing-sm); }
 .roadmap-item { padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-2xl); }
