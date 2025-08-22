@@ -147,7 +147,7 @@
   const slideNextBtn = document.getElementById('slideNext');
 
   // Slideshow of tutorial images (acts as primary demo)
-  const tutorialBase = 'oto-docs/demo';
+  const tutorialBase = 'assets/img/demo';
   const tutorialFrames = Array.from({ length: 9 }, (_, i) => `${tutorialBase}/${i + 1}.png`);
   let slideTimer = null;
   let slideIndex = 0;
