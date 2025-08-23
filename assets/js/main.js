@@ -148,7 +148,7 @@
 
   // Slideshow of tutorial images (acts as primary demo)
   const tutorialBase = 'assets/img/demo';
-  const tutorialFrames = Array.from({ length: 9 }, (_, i) => `${tutorialBase}/${i + 1}.png`);
+  const tutorialFrames = Array.from({ length: 10 }, (_, i) => `${tutorialBase}/${i + 1}.png`);
   let slideTimer = null;
   let slideIndex = 0;
   let slideshowActive = false;
