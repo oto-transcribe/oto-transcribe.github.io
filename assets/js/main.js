@@ -130,6 +130,88 @@
     });
   });
 
+  // Language list toggle and search functionality
+  const languageToggle = document.querySelector('.language-list-toggle');
+  const languageList = document.getElementById('languageList');
+  const languageSearchInput = document.querySelector('.language-search-input');
+  const languageItems = document.querySelectorAll('.language-item');
+
+  if (languageToggle && languageList) {
+    languageToggle.addEventListener('click', () => {
+      const expanded = languageToggle.getAttribute('aria-expanded') === 'true';
+      languageToggle.setAttribute('aria-expanded', String(!expanded));
+      
+      if (expanded) {
+        languageList.setAttribute('hidden', '');
+        languageToggle.querySelector('.toggle-text').textContent = '📋 View complete list of 99 languages';
+      } else {
+        languageList.removeAttribute('hidden');
+        languageToggle.querySelector('.toggle-text').textContent = '📋 Hide language list';
+        // Focus search input when opening
+        if (languageSearchInput) {
+          setTimeout(() => languageSearchInput.focus(), 100);
+        }
+      }
+    });
+  }
+
+  // Handle language feature link - scroll to FAQ and expand language list
+  const languageFeatureLink = document.querySelector('.language-feature-link[data-expand-language]');
+  if (languageFeatureLink) {
+    languageFeatureLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // First, find and expand the language FAQ item
+      const languageFaqBtn = document.getElementById('faqBtn4');
+      const languageFaqPanel = document.getElementById('faq4');
+      
+      if (languageFaqBtn && languageFaqPanel) {
+        // Expand the FAQ item
+        languageFaqBtn.setAttribute('aria-expanded', 'true');
+        languageFaqPanel.removeAttribute('hidden');
+        
+        // Then expand the language list
+        if (languageToggle && languageList) {
+          languageToggle.setAttribute('aria-expanded', 'true');
+          languageList.removeAttribute('hidden');
+          languageToggle.querySelector('.toggle-text').textContent = '📋 Hide language list';
+        }
+        
+        // Scroll to the FAQ section
+        const faqSection = document.getElementById('faq');
+        if (faqSection) {
+          setTimeout(() => {
+            faqSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }
+    });
+  }
+
+  // Language search functionality
+  if (languageSearchInput && languageItems.length > 0) {
+    languageSearchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase().trim();
+      
+      languageItems.forEach(item => {
+        const langName = item.getAttribute('data-lang').toLowerCase();
+        if (searchTerm === '' || langName.includes(searchTerm)) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+
+    // Clear search on Escape key
+    languageSearchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        languageSearchInput.value = '';
+        languageItems.forEach(item => item.classList.remove('hidden'));
+      }
+    });
+  }
+
   // Dynamic waveform state cycling
   const wf = document.getElementById('waveformDynamic');
   if (wf) {
