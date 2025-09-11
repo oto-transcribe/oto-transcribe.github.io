@@ -61,6 +61,7 @@
   <li><a href="#pricing">Pricing</a></li>
   <li><a href="#why">Why</a></li>
   <li><a href="#faq">FAQ</a></li>
+  <li><a href="#policy">Privacy</a></li>
         <li><a href="#pricing" class="cta-link">Download oto</a></li>
       </ul>
     </nav>
@@ -75,6 +76,7 @@
   <div class="section-indicator__dot" data-section="pricing"></div>
   <div class="section-indicator__dot" data-section="why"></div>
   <div class="section-indicator__dot" data-section="faq"></div>
+  <div class="section-indicator__dot" data-section="policy"></div>
   </div>
   
   <main id="main" tabindex="-1">
@@ -566,6 +568,104 @@
           </div>
         </div>
     </section>
+
+    <section id="policy" class="section" aria-labelledby="policyTitle" data-section="policy">
+      <div class="section__header reveal">
+        <h2 id="policyTitle">Privacy Policy</h2>
+        <p class="section__lead">Your privacy is our priority.</p>
+      </div>
+      <div class="organic-card policy-content reveal">
+        <p>oto is built with privacy as its foundation. We believe in the principle: "Your voice. Your hardware. Your rules." This means <strong>we collect absolutely no personal data from you</strong>.</p>
+        <p>oto processes your voice locally on your Mac. No personal data is collected, stored remotely, or shared with third parties. Your privacy is completely protected because your data never leaves your device.</p>
+
+        <div class="policy-accordion" role="list">
+          <div class="policy-item reveal" role="listitem">
+            <h3><button class="policy-toggle" aria-expanded="false" aria-controls="policy1" id="policyBtn1">Data Collection</button></h3>
+            <div id="policy1" class="policy-panel" role="region" aria-labelledby="policyBtn1" hidden>
+              <p><strong>We collect zero personal data.</strong> Specifically:</p>
+              <ul>
+                <li>No audio recordings are stored or transmitted</li>
+                <li>No transcriptions leave your device</li>
+                <li>No usage analytics or telemetry</li>
+                <li>No personal information or identifiers</li>
+                <li>No behavioral tracking or profiling</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="policy-item reveal" role="listitem">
+            <h3><button class="policy-toggle" aria-expanded="false" aria-controls="policy2" id="policyBtn2">Local Processing</button></h3>
+            <div id="policy2" class="policy-panel" role="region" aria-labelledby="policyBtn2" hidden>
+              <p>All voice-to-text processing occurs entirely on your Mac using:</p>
+              <ul>
+                <li>Local AI models (WhisperKit) running on your device</li>
+                <li>No cloud services or remote servers involved</li>
+                <li>No internet connection required for core functionality</li>
+                <li>Complete offline operation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="policy-item reveal" role="listitem">
+            <h3><button class="policy-toggle" aria-expanded="false" aria-controls="policy3" id="policyBtn3">Permissions</button></h3>
+            <div id="policy3" class="policy-panel" role="region" aria-labelledby="policyBtn3" hidden>
+              <p>oto only requests the following system permissions:</p>
+              <ul>
+                <li><strong>Microphone Access:</strong> Required for local audio processing and transcription</li>
+              </ul>
+              <p>We do not request or use:</p>
+              <ul>
+                <li>Network/internet access for transcription</li>
+                <li>Location services</li>
+                <li>Contacts or calendar access</li>
+                <li>File system access beyond standard app storage</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="policy-item reveal" role="listitem">
+            <h3><button class="policy-toggle" aria-expanded="false" aria-controls="policy4" id="policyBtn4">Data Storage</button></h3>
+            <div id="policy4" class="policy-panel" role="region" aria-labelledby="policyBtn4" hidden>
+              <ul>
+                <li>User preferences are stored locally using standard macOS mechanisms</li>
+                <li>No data is synchronized to cloud services</li>
+                <li>No automatic backups to external services</li>
+                <li>All data remains on your device under your control</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="policy-item reveal" role="listitem">
+            <h3><button class="policy-toggle" aria-expanded="false" aria-controls="policy5" id="policyBtn5">Third-Party Services</button></h3>
+            <div id="policy5" class="policy-panel" role="region" aria-labelledby="policyBtn5" hidden>
+              <p>oto does not integrate with:</p>
+              <ul>
+                <li>Cloud transcription services</li>
+                <li>Analytics or tracking platforms</li>
+                <li>Advertising networks</li>
+                <li>Social media platforms</li>
+                <li>Any external APIs or services</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="policy-item reveal" role="listitem">
+            <h3><button class="policy-toggle" aria-expanded="false" aria-controls="policy6" id="policyBtn6">Network Usage</button></h3>
+            <div id="policy6" class="policy-panel" role="region" aria-labelledby="policyBtn6" hidden>
+              <p>oto is designed as an <strong>offline-first application</strong>:</p>
+              <ul>
+                <li>No network requests</li>
+                <li>No telemetry or crash reporting sent to external services</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <p class="micro muted" style="text-align: center; font-style: italic;">oto - Your voice. Your hardware. Your rules.</p>
+      </div>
+    </section>
+
     <footer class="site-footer" role="contentinfo">
       <p class="micro muted">©<span id="year"></span> oto. Talk-to-Text. Completely yours.</p>
     </footer>
