@@ -58,6 +58,16 @@
   letter-spacing: 0.5px;
 }
 
+/* Original price with strikethrough */
+.price-original {
+  text-decoration: line-through;
+  opacity: 0.5;
+  font-size: 0.7em;
+  margin-right: 12px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
 @keyframes subtle-pulse {
   0%, 100% { 
     transform: scale(1);
