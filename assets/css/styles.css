@@ -28,6 +28,59 @@
   color: #2e7d32;
   font-weight: 500;
 }
+
+/* Pricing Card Sale Banner Styles */
+.pricing-sale-banner {
+  background: linear-gradient(135deg, #FF3B30 0%, #FF9500 100%);
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  margin: 0;
+  border-radius: 12px;
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: subtle-pulse 3s ease-in-out infinite;
+  width: auto;
+  min-width: 200px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(255, 59, 48, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  z-index: 10;
+}
+
+.pricing-sale-text {
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(255, 59, 48, 0.2);
+  }
+  50% { 
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(255, 59, 48, 0.3);
+  }
+}
+
+@media (max-width: 600px) {
+  .pricing-sale-banner {
+    padding: 8px 16px;
+    min-width: 180px;
+    font-size: 0.8rem;
+  }
+  
+  .pricing-sale-text {
+    font-size: 0.8rem;
+  }
+}
+
 /* oto Website Styles - Warm, Organic, Native - Optimized for Apple Editorial */
 
 :root {
@@ -881,7 +934,8 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 .pricing-box { 
   padding: clamp(18px, 2vw, 22px);
   max-width: min(840px, 92vw);
-  margin: 0 auto; 
+  margin: 0 auto;
+  overflow: visible;
   position: relative; 
   background: var(--color-primary-bg); 
   border: 1px solid var(--color-border); 
@@ -921,7 +975,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 /* Two-card comparison */
 .pricing-grid { display:grid; grid-template-columns: 1fr; gap: var(--spacing-2xl); justify-items: stretch; }
 .pricing-grid > * { min-width: 0; width: 100%; }
-.pricing-subcard { position:relative; border:1px solid var(--color-border); border-radius: var(--radius-large); padding: 32px 28px 32px; background: var(--color-primary-bg); box-shadow: var(--shadow-card); }
+.pricing-subcard { position:relative; overflow: visible; border:1px solid var(--color-border); border-radius: var(--radius-large); padding: 32px 28px 32px; background: var(--color-primary-bg); box-shadow: var(--shadow-card); }
 /* Allow a wider, horizontal feel */
 .pricing-subcard.your-plan { padding: 36px clamp(20px, 3vw, 50px) 36px; }
 /* Tighten bottom padding on competitor to reduce excess gap */
