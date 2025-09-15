@@ -1915,3 +1915,114 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 @media (min-width: 860px) {
   .sticky-buy { display: none; }
 }
+
+/* ESL Section Styles */
+.esl-content {
+  padding: 1.5rem;
+  max-width: 1000px;
+  margin: 1rem auto;
+}
+
+.esl-features {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.esl-features .feature-card {
+  flex: 1;
+  min-width: 280px;
+  padding: 1rem;
+}
+
+.esl-features .feature-card h3 {
+  font-size: 1rem;
+}
+
+.esl-features .feature-card__desc {
+  font-size: 0.875rem;
+}
+
+.language-examples {
+  margin: 1.5rem 0 1rem;
+}
+
+.language-examples h3 {
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.examples-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.example-card {
+  flex: 1;
+  min-width: 280px;
+  padding: 1rem;
+  background: var(--color-surface-soft);
+  border-radius: 20px;
+  border: 2px solid var(--color-warm-accent);
+}
+
+.example-header {
+  margin-bottom: 0.5rem;
+}
+
+.language-badge {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  background: var(--color-warm-accent);
+  color: var(--color-text-primary);
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
+
+.example-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.spoken-text, .english-text {
+  padding: 0.5rem 0.75rem;
+  background: var(--color-primary-bg);
+  border-radius: 12px;
+}
+
+.spoken-text p, .english-text p {
+  margin: 0;
+}
+
+.spoken-text p:first-child, .english-text p:first-child {
+  margin-bottom: 0.25rem;
+}
+
+.arrow-down {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--color-warm-accent);
+  opacity: 0.6;
+  line-height: 1;
+  margin: 0;
+}
+
+/* Dark mode adjustments for ESL */
+@media (prefers-color-scheme: dark) {
+  .example-card {
+    background: var(--color-surface-elevated);
+  }
+  
+  .spoken-text, .english-text {
+    background: var(--color-surface-soft);
+  }
+  
+  .language-badge {
+    background: var(--color-warm-accent);
+    color: var(--color-primary-bg);
+  }
+}
