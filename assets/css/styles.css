@@ -244,10 +244,22 @@ main { overflow-x: visible; }
 /* Prevent descender clipping on gradient line */
 .hero__title .accent-gradient { padding-bottom:0.08em; }
 .hero__tag { font-size:19px; font-weight:400; letter-spacing:1.2px; margin:0 0 12px; text-transform:uppercase; font-weight:300; }
-.hero__lead { font-size:1.125rem; font-weight:400; max-width:34rem; margin:12px 0 10px; color: var(--color-text-secondary); line-height: 1.5; }
+.hero__lead { font-size:1.125rem; font-weight:400; max-width:44rem; margin:12px auto 10px; color: var(--color-text-secondary); line-height: 1.5; }
+.hero__transformation { font-size:1.2rem; font-weight:500; max-width:36rem; margin: var(--spacing-sm) auto var(--spacing-md); color: var(--color-text-primary); line-height:1.5; }
 .hero__actions { display:flex; gap: var(--spacing-lg); flex-wrap:wrap; margin-bottom: var(--spacing-sm); justify-content: center; }
+.hero__cta-benefit { max-width:34rem; margin: 0 auto var(--spacing-md); color: var(--color-text-secondary); text-align:center; }
 .hero__bullets { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap: var(--spacing-md); font-size: var(--font-size-caption); color: var(--color-text-secondary); font-weight:500; }
 .hero__visual { min-height:auto; display:flex; align-items:center; justify-content:center; width: 100%; max-width: min(980px, 88vw); margin: 0 auto; }
+
+.statement-card { max-width: min(50rem, 90%); margin: var(--spacing-2xl) auto 0; padding: var(--spacing-xl) clamp(1.5rem, 4vw, 3rem); border-radius: var(--radius-large); background: var(--color-primary-bg); border: 1px solid var(--color-border); box-shadow: var(--shadow-card); text-align:center; }
+.statement-card .statement { margin-bottom: var(--spacing-sm); }
+.statement-card--bottleneck {
+  margin-top: clamp(1.5rem, 5vw, 2.5rem);
+  max-width: min(44rem, 92%);
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 14px 28px rgba(28,28,28,0.05);
+}
 
 @media (min-width: 860px) {
   .hero__visual { margin-top: 10px; }
@@ -281,6 +293,19 @@ main { overflow-x: visible; }
   display: grid;
   gap: var(--spacing-lg);
   grid-template-columns: repeat(12, 1fr);
+}
+.bottleneck-grid {
+  display:grid;
+  grid-template-columns: repeat(12, minmax(0,1fr));
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  align-items:start;
+  margin-top: var(--spacing-2xl);
+}
+.bottleneck-grid > .feature-card { grid-column: span 12; }
+.bottleneck-grid > .feature-card:nth-of-type(-n+2) { grid-column: span 12; }
+
+@media (min-width: 900px) {
+  .bottleneck-grid > .feature-card:nth-of-type(-n+2) { grid-column: span 6; }
 }
 
 .feature-card {
@@ -2040,3 +2065,42 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
     color: var(--color-primary-bg);
   }
 }
+.bottleneck-grid .feature-card {
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 18px 30px rgba(28,28,28,0.06);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-radius: 24px;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+.bottleneck-grid .feature-card__header {
+  display:flex;
+  align-items:center;
+  gap: var(--spacing-md);
+}
+.bottleneck-grid .feature-card__desc {
+  margin:0;
+  color: var(--color-text-secondary);
+  min-height: clamp(0rem, 2vw, 2.4rem);
+}
+.bottleneck-grid ul {
+  margin: clamp(0.25rem, 1.5vw, 0.75rem) 0 0;
+  padding-left: 1.25rem;
+  display:flex;
+  flex-direction:column;
+  gap: 0.4rem;
+}
+.bottleneck-grid li { color: var(--color-text-secondary); }
+.bottleneck-grid .feature-card__icon {
+  width: 44px;
+  height: 44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+}
+.bottleneck-grid .feature-card__icon i { font-size: 22px; }
+.bottleneck-grid .feature-card:nth-of-type(1) .feature-card__icon { color: #f0875d; background: rgba(240,135,93,0.12); }
+.bottleneck-grid .feature-card:nth-of-type(2) .feature-card__icon { color: #6b7bff; background: rgba(107,123,255,0.12); }
