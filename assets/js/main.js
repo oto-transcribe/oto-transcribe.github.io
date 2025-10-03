@@ -27,7 +27,6 @@
   const sections = Array.from(document.querySelectorAll('.section, .hero'));
   const sectionEls = Array.from(document.querySelectorAll('[data-section], .hero'));
   const navLinks = Array.from(document.querySelectorAll('.nav__list a[href^="#"]'));
-  const indicatorDots = Array.from(document.querySelectorAll('.section-indicator__dot'));
   
   // Keyboard navigation for sections
   document.addEventListener('keydown', (e) => {
@@ -47,7 +46,7 @@
     }
   }
 
-  // Track current section for keyboard navigation and sync with indicators
+  // Track current section for keyboard navigation
   const main = document.querySelector('main');
   if (main) {
     main.addEventListener('scroll', () => {
@@ -64,13 +63,6 @@
       
       if (newIndex !== currentSectionIndex) {
         currentSectionIndex = newIndex;
-        
-        // Update indicators based on scroll position
-        if (indicatorDots.length > 0) {
-          indicatorDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSectionIndex);
-          });
-        }
       }
       // Sticky buy bar visibility: show between hero and pricing/footer
       const sticky = document.getElementById('stickyBuy');
@@ -405,8 +397,7 @@
     });
   }
 
-  // Active navigation link highlighting and section indicators
-  
+  // Active navigation link highlighting
   if ('IntersectionObserver' in window && sectionEls.length) {
     const sectionObserver = new IntersectionObserver(entries => {
       // Find the section that's most in view
@@ -435,10 +426,6 @@
           l.classList.toggle('active', targetId === section);
         });
         
-        // Update section indicator dots
-        indicatorDots.forEach(dot => {
-          dot.classList.toggle('active', dot.getAttribute('data-section') === section);
-        });
       }
     }, { 
       root: main, 
@@ -447,24 +434,6 @@
     });
     sectionEls.forEach(sec => sectionObserver.observe(sec));
   }
-  
-  // Section indicator click handlers
-  indicatorDots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      const targetSection = dot.getAttribute('data-section');
-      let target;
-      
-      if (targetSection === 'hero') {
-        target = document.querySelector('.hero');
-      } else {
-        target = document.getElementById(targetSection);
-      }
-      
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
 
   // Section & element reveal animations
   const revealNodes = Array.from(document.querySelectorAll('.reveal'));

@@ -1,30 +1,32 @@
 /* Savings card styles */
 .savings-card {
-  max-width: 450px;
-  width: 100%;
-  margin: clamp(18px, 4vw, 36px) auto 0;
+  width: min(calc(100% - 30px), max-content);
+  margin: clamp(-46px, -7vw, -28px) auto 0;
   background: #f6fcf7;
   border-radius: 18px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 14px 0;
+  padding: clamp(16px, 3.2vw, 22px) 15px;
+  position: relative;
+  z-index: 3;
 }
+
 
 .savings-card-content {
   text-align: center;
 }
 
 .savings-card-headline {
-  font-size: 1.15rem;
+  font-size: clamp(0.76rem, 1.8vw, 0.92rem);
   color: #2e7d32;
   font-weight: 600;
   margin-bottom: 4px;
 }
 
 .savings-card-breakdown {
-  font-size: 1rem;
+  font-size: clamp(0.7rem, 1.6vw, 0.86rem);
   color: #444;
 }
 
@@ -811,41 +813,6 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 .section.section-active { transform: translateY(0); opacity: 1; }
 .section.section-exiting { transform: translateY(-100vh); opacity: 0; }
 
-/* Section progress indicator */
-.section-indicator {
-  position: fixed;
-  right: var(--spacing-lg);
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  z-index: 100;
-}
-
-.section-indicator__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-border-strong);
-  transition: all 0.3s var(--transition-standard);
-  cursor: pointer;
-}
-
-.section-indicator__dot.active {
-  background: var(--color-accent-blue);
-  transform: scale(1.5);
-}
-
-.section-indicator__dot:hover {
-  background: var(--color-accent-primary);
-  transform: scale(1.2);
-}
-
-@media (max-width: 768px) {
-  .section-indicator { display: none; }
-}
-
 /* Smooth scroll enhancements */
 @media (prefers-reduced-motion: no-preference) {
   main { scroll-behavior: smooth; }
@@ -1013,9 +980,9 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 
 .pricing-card__badge {
   position: absolute;
-  top: -18px;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -55%);
   background: #8caac8;
   color: #ffffff;
   padding: 8px 24px;
@@ -1025,6 +992,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   letter-spacing: 0.48px;
   text-transform: uppercase;
   box-shadow: 0 12px 26px rgba(67, 84, 102, 0.25);
+  z-index: 5;
 }
 
 .pricing-card__ribbon {
@@ -1042,16 +1010,7 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 }
 
 .pricing-card__ribbon::after {
-  content: '';
-  position: absolute;
-  bottom: -9px;
-  right: 18px;
-  width: 14px;
-  height: 14px;
-  background: linear-gradient(145deg, rgba(214, 148, 132, 0.9), rgba(174, 108, 98, 0.85));
-  transform: skewX(-25deg);
-  border-radius: 2px;
-  box-shadow: 0 8px 18px rgba(202, 139, 121, 0.35);
+  content: none;
 }
 
 .pricing-card__ribbon-title {
@@ -1074,12 +1033,6 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 
   .pricing-card__ribbon-subtitle {
     font-size: 0.85rem;
-  }
-
-  .pricing-card__ribbon::after {
-    right: 12px;
-    width: 12px;
-    height: 12px;
   }
 }
 
