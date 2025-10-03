@@ -2,7 +2,7 @@
 .savings-card {
   max-width: 450px;
   width: 100%;
-  margin: 24px auto 0 auto;
+  margin: clamp(18px, 4vw, 36px) auto 0;
   background: #f6fcf7;
   border-radius: 18px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
@@ -11,76 +11,26 @@
   align-items: center;
   padding: 14px 0;
 }
+
 .savings-card-content {
   text-align: center;
 }
+
 .savings-card-headline {
   font-size: 1.15rem;
   color: #2e7d32;
   font-weight: 600;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
+
 .savings-card-breakdown {
   font-size: 1rem;
   color: #444;
 }
+
 .savings-card-highlight {
   color: #2e7d32;
   font-weight: 500;
-}
-
-/* Pricing Card Sale Banner Styles */
-.pricing-sale-banner {
-  background: linear-gradient(135deg, #E5C0B9 0%, #DDB0A8 100%);
-  color: #2A2A2A;
-  text-align: center;
-  padding: 10px 20px;
-  margin: 0;
-  border-radius: 12px;
-  position: absolute;
-  top: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: subtle-pulse 3s ease-in-out infinite;
-  width: auto;
-  min-width: 200px;
-  display: block;
-  box-shadow: 0 4px 12px rgba(229, 192, 185, 0.4);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  z-index: 10;
-}
-
-.pricing-sale-text {
-  font-size: 0.9rem;
-  font-weight: 700;
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Original price with strikethrough */
-
-@keyframes subtle-pulse {
-  0%, 100% { 
-    transform: scale(1);
-    box-shadow: 0 2px 8px rgba(229, 192, 185, 0.3);
-  }
-  50% { 
-    transform: scale(1.02);
-    box-shadow: 0 4px 16px rgba(229, 192, 185, 0.5);
-  }
-}
-
-@media (max-width: 600px) {
-  .pricing-sale-banner {
-    padding: 8px 16px;
-    min-width: 180px;
-    font-size: 0.8rem;
-  }
-  
-  .pricing-sale-text {
-    font-size: 0.8rem;
-  }
 }
 
 /* oto Website Styles - Warm, Organic, Native - Optimized for Apple Editorial */
@@ -757,13 +707,13 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 .warm-button:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
 
 /* Slightly larger icon for CTA buttons with icons */
-.pricing-subcard .subcard-actions .warm-button i.ph {
+.pricing-card__cta i.ph {
   font-size: 1.25em;
   line-height: 1;
 }
 
 /* Make pricing CTA label bold */
-.pricing-subcard .subcard-actions .warm-button {
+.pricing-card__cta {
   font-weight: 600;
 }
 
@@ -972,322 +922,296 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 .additional-features li::before { content:""; position:absolute; left:0; top:6px; width:10px; height:10px; border-radius:3px; background: linear-gradient(135deg,var(--color-accent-blue),var(--color-accent-primary)); opacity:0.85; }
 
 /* Pricing */
-.pricing-box { 
-  padding: clamp(18px, 2vw, 22px);
-  max-width: min(840px, 92vw);
+.pricing-box {
+  position: relative;
+  display: grid;
+  gap: clamp(24px, 4vw, 48px);
+  padding: clamp(36px, 5vw, 64px);
   margin: 0 auto;
-  overflow: visible;
-  position: relative; 
-  background: var(--color-primary-bg); 
-  border: 1px solid var(--color-border); 
-  border-radius: 36px; 
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-}
-@media (max-width: 960px) {
-  .pricing-box { padding: 36px 22px; }
-}
-.pricing-box .founders-label {
-  position: absolute;
-  top: 16px;
-  right: 16px;            /* move to upper-right */
-  left: auto;
-  transform: none;
-  background: #8CAAC8;
-  color: #fff;
-  padding: 8px 14px;       /* ~30% smaller */
-  border-radius: 999px;
-  font-size: 0.7rem;       /* ~30% smaller */
-  font-weight: 700;
-  letter-spacing: 0.3px;
-}
-.price-tag { font-size: 1.625rem; font-weight:400; letter-spacing:-0.5px; margin-bottom: var(--spacing-xs); }
-.price-amount { font-weight:600; }
-.price-display { font-size: clamp(3.5rem, 8vw, 6rem); font-weight:200; line-height:1; letter-spacing:-1px; margin: 26px 0 16px; }
-.pricing-benefits { list-style:none; margin: var(--spacing-lg) 0 var(--spacing-lg); padding:0; display:grid; gap: var(--spacing-sm); font-size: 1.0625rem; }
-.pricing-subcard.your-plan .pricing-benefits { padding-left: var(--spacing-lg); }
-.pricing-benefits li { padding-left: var(--spacing-lg); position:relative; line-height: 1.6; }
-/* green checks like screenshot */
-.pricing-benefits li::before { content:"\2714"; position:absolute; left:0; top: 2px; font-size:16px; color: #22c55e; }
-.value-compare { font-size:16px; margin:0 0 20px; line-height:1.5; }
-/* Removed - conflicted with new positioning */
-/* Removed bottom-centered CTA; actions now live within the Oto subcard */
-.pricing-cta { display:none; }
-
-/* Two-card comparison */
-.pricing-grid { display:grid; grid-template-columns: 1fr; gap: var(--spacing-2xl); justify-items: stretch; }
-.pricing-grid > * { min-width: 0; width: 100%; }
-.pricing-subcard { position:relative; overflow: visible; border:1px solid var(--color-border); border-radius: var(--radius-large); padding: 32px 28px 32px; background: var(--color-primary-bg); box-shadow: var(--shadow-card); }
-/* Allow a wider, horizontal feel */
-.pricing-subcard.your-plan { padding: 36px clamp(20px, 3vw, 50px) 36px; }
-/* Tighten bottom padding on competitor to reduce excess gap */
-.pricing-subcard.competitor-plan { padding-bottom: 24px; }
-.pricing-subcard .founders-label { position:absolute; top:14px; right:14px; }
-.subcard-header { margin-bottom: var(--spacing-lg); }
-.price-compare { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight:100; letter-spacing:-0.5px; line-height:1; }
-.price-compare .per { font-size: 0.6em; opacity:0.7; margin-left: 2px; }
-.competitor-plan { opacity:0.85; }
-.competitor-plan .pricing-benefits li::before { content:"–"; color: var(--color-text-secondary); font-weight:700; top: -1px; }
-.competitor-label { position:absolute; top:14px; right:14px; background: rgba(255,0,0,0.08); color: rgba(0,0,0,0.6); padding: 6px 10px; border-radius: var(--radius-stadium); font-size: var(--font-size-micro); font-weight:600; letter-spacing:0.6px; }
-/* Annual cost helper under competitor pricing */
-.annual-cost { margin: -6px 0 10px; }
-
-/* Transparent red-tinted background for competitor card */
-.pricing-subcard.competitor-plan {
-  background: linear-gradient(135deg, rgba(255, 59, 48, 0.08), rgba(255, 149, 0, 0.04));
-  border-color: rgba(255, 59, 48, 0.18);
-}
-@media (prefers-color-scheme: dark) {
-  .pricing-subcard.competitor-plan {
-    background: linear-gradient(135deg, rgba(255, 59, 48, 0.08), rgba(255, 59, 48, 0.04));
-    border-color: rgba(255, 99, 71, 0.28);
-  }
+  max-width: min(1100px, 92vw);
+  border-radius: 40px;
+  background: linear-gradient(135deg, rgba(244, 239, 234, 0.97), rgba(243, 220, 216, 0.92));
+  border: 1px solid rgba(227, 200, 186, 0.6);
+  box-shadow: 0 28px 90px rgba(149, 118, 93, 0.25);
+  justify-items: center;
+  align-items: start;
 }
 
-/* ROI callout emphasis */
-.roi-callout {
-  display: inline-block;
-  align-self: center;
-  padding: 12px 28px;
-  border-radius: 999px;
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: 0.1px;
-  background: linear-gradient(135deg, rgba(0,122,255,0.12), rgba(218,199,176,0.12));
-  border: 1px solid var(--color-border);
-  color: var(--color-text-primary);
-  margin: 8px 0 24px;
-  white-space: nowrap; /* keep text on one line */
-}
-
-.roi-callout.roi-red {
-  background: linear-gradient(135deg, rgba(255, 59, 48, 0.12), rgba(255, 149, 0, 0.06)); /* red to warm */
-  border-color: rgba(255, 59, 48, 0.25);
-}
-
-@media (prefers-color-scheme: dark) {
-  .roi-callout {
-    background: rgba(255,255,255,0.06);
-    border-color: var(--color-border-strong);
-  }
-  .roi-callout.roi-red {
-    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-    border-color: rgba(255,255,255,0.18);
-  }
-}
-
-/* Apple-elevated emphasis for our card */
-.pricing-subcard.your-plan {
-  border-color: var(--color-border-strong);
-  box-shadow:
-    0 1px 2px rgba(42,42,42,0.06),
-    0 10px 28px rgba(42,42,42,0.12);
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
-}
-.subcard-actions { display:flex; justify-content:center; margin: 8px 0 6px; }
-.subcard-actions .cta-hero {
-  font-size: 1.25rem;              /* dialed back */
-  padding: 1em 2.6em;              /* moderate size */
-  border-radius: 22px;             /* chunky */
-}
-@media (min-width: 860px) {
-  .subcard-actions { margin-top: 0.3em; }
-  .subcard-actions .cta-hero {
-    transform: translateY(0); /* don't override font-size/padding on desktop */
-  }
-}
-
-/* Stronger hover for primary CTA */
-.subcard-actions .cta-hero:hover {
-  filter: brightness(1.06);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-}
-.pricing-subcard.your-plan::after {
-  content: '';
-  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
-}
-
-@media (prefers-color-scheme: dark) {
-  .pricing-subcard.your-plan {
-    background: linear-gradient(135deg, rgba(39,39,38,0.95), rgba(39,39,38,0.9));
-    box-shadow:
-      0 2px 6px rgba(0,0,0,0.45),
-      0 16px 40px rgba(0,0,0,0.6);
-  }
-  .competitor-label { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); }
-}
-
-@media (min-width: 860px) {
-  .pricing-box { 
-    max-width: min(1000px, 90vw); 
-    display: flex;
+@media (min-width: 960px) {
+  .pricing-box {
+    grid-template-columns: 1fr minmax(320px, 380px) 1fr;
     align-items: center;
-    gap: var(--spacing-xl);
-  }
-  /* Single wide layout with centered card */
-  .pricing-grid { grid-template-columns: 1fr; gap: var(--spacing-3xl); align-items: start; justify-items: stretch; }
-  .pricing-subcard { padding: 0px; }
-  /* Keep competitor bottom tighter on desktop as well */
-  .pricing-subcard.competitor-plan { padding-bottom: 28px; }
-  /* Slightly more space above the Oto explanatory line on desktop */
-  /* Removed - conflicted with new positioning */
-  .price-display, .price-compare { font-size: clamp(3rem, 5.5vw, 5rem); }
-}
-
-/* Desktop visual scaling between our plan and competitor */
-@media (min-width: 860px) {
-  .pricing-subcard.your-plan,
-  .pricing-subcard.competitor-plan {
-    transform: none;
-    top: auto;
-    left: auto;
   }
 }
 
-/* Center the single Oto card and let it span the container on wide screens */
-.pricing-subcard.your-plan { width: 5%; max-width: none; margin: 0 auto; }
-@media (min-width: 100px) {
-  .pricing-subcard.your-plan { min-width: 360px; }
-}
-
-/* Two-column benefits on desktop for a flatter look */
-@media (min-width: 860px) {
-  /* Make the oto card a three-column grid: benefits | price | benefits */
-  .pricing-subcard.your-plan {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: var(--spacing-xl);
-    align-items: start;
-  }
-  .pricing-subcard.your-plan > * { min-width: 0; }
-  
-  /* Position elements in the new grid */
-  .pricing-subcard.your-plan .left-benefits { 
-    grid-column: 1; 
-    justify-self: center;
-  }
-  .pricing-subcard.your-plan .center-price { 
-    grid-column: 2; 
-    text-align: center;
-  }
-  .pricing-subcard.your-plan .right-benefits { 
-    grid-column: 3; 
-    justify-self: center;
-  }
-  
-  /* Reset benefits styling for single column layout */
-  .pricing-subcard.your-plan .pricing-benefits {
-    grid-template-columns: 1fr;
-    column-gap: 0;
-    row-gap: var(--spacing-sm);
-    padding-left: 0;
-  }
-  
-  .pricing-subcard.your-plan .value-compare { grid-column: 1 / -1; text-align: center; }
-}
-
-
-
-/* On desktop, create a bit more lateral layout breathing room */
-@media (min-width: 1100px) {
-  .pricing-subcard.your-plan .subcard-header { margin-bottom: 18px; }
-  .pricing-subcard.your-plan .roi-callout { margin: 4px 0 14px; }
-}
-
-/* Make competitor heading a normal title, not a giant price */
-.pricing-subcard.competitor-plan .price-compare {
-  font-size: clamp(1.25rem, 2.8vw, 2rem);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-}
-@media (min-width: 860px) {
-  /* Lower the 'Other Apps' heading slightly on desktop */
-  .pricing-subcard.competitor-plan .price-compare {
-    transform: translateY(20px);
+@media (max-width: 959px) {
+  .pricing-box {
+    grid-template-columns: minmax(260px, 520px);
   }
 }
 
-/* Lower the competitor subheader line to align with left card */
-.pricing-subcard.competitor-plan .subcard-header .micro {
-  /* On mobile keep it tight; on larger screens lower further for cross-card alignment */
-  margin-top: 8px;
-  display: block;
-}
-@media (min-width: 860px) {
-  .pricing-subcard.competitor-plan .subcard-header .micro {
-    margin-top: 36px; /* aligns with the left card subtitle under $35 */
-  }
+.pricing-benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(10px, 1.8vw, 22px);
+  font-size: 1.0625rem;
+  color: var(--color-text-primary);
 }
 
-/* Slightly larger micro captions in pricing cards */
-.pricing-subcard .micro { font-size: 0.8125rem; }
-
-/* Increase feature bullet font-size in competitor list to match left */
-.pricing-subcard.competitor-plan .pricing-benefits { font-size: 1.0625rem; }
-
-/* Nudge competitor ROI pill down to align with Oto's ROI position */
-.pricing-subcard.competitor-plan .roi-callout {
-  margin-top: 18px;
-}
-@media (min-width: 860px) {
-  .pricing-subcard.competitor-plan .roi-callout { margin-top: 28px; }
+.pricing-benefits li {
+  position: relative;
+  padding-left: 28px;
+  line-height: 1.55;
 }
 
-/* Remove pill styling for competitor annual cost */
-.pricing-subcard.competitor-plan .roi-callout,
-.pricing-subcard.competitor-plan .roi-callout.roi-red {
-  background: transparent !important;
-  border: 0 !important;
-  padding: 0 !important;
-  display: block;
-}
-
-/* Emphasize competitor value comparison line */
-.pricing-subcard.competitor-plan .value-compare {
-  font-weight: 600;
-  font-size: 1.375rem; /* larger emphasis */
-  line-height: 1.35;
-}
-
-/* Stabilize emphasis even if structure changes */
-.value-compare.competitor-impact {
-  font-weight: 700;
-  font-size: 1.25rem;
-  line-height: 1.35;
-}
-
-/* Style the "One time payment of" label */
-.pricing-subcard.your-plan .price-label {
+.pricing-benefits li::before {
+  content: "\2714";
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  color: #22c55e;
   font-size: 1rem;
-  color: var(--color-text-secondary);
-  margin: 0 0 15px 0;
-  text-align: center;
-  font-weight: 400;
 }
 
-/* Make Oto price ($35) a more modest headline size */
-.pricing-subcard.your-plan .price-display {
-  display:flex;
-  flex-direction:column;
-  gap: 4px;
-  align-items:center;
-  margin: 6px 0 14px;
+@media (max-width: 959px) {
+  .pricing-benefits {
+    justify-items: center;
+    text-align: left;
+  }
 }
-.pricing-subcard.your-plan .price-display .price-original {
-  align-self:flex-start;
-  margin-left: clamp(0.5rem, 2vw, 1rem);
-  font-size: 1.1rem;
-  font-weight:500;
-  text-decoration: line-through;
-  opacity:0.55;
+
+@media (min-width: 960px) {
+  .pricing-benefits--left,
+  .pricing-benefits--right {
+    justify-self: stretch;
+  }
 }
-.pricing-subcard.your-plan .price-display .price-current {
-  font-size: clamp(3.5rem, 7vw, 5rem);
-  font-weight:600;
-  line-height:1;
-  letter-spacing:-0.02em;
+
+.pricing-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 36px;
+  padding: clamp(34px, 6vw, 70px) clamp(28px, 6vw, 74px) clamp(38px, 6vw, 76px);
+  border: 1px solid rgba(236, 214, 198, 0.9);
+  box-shadow: 0 32px 90px rgba(86, 63, 45, 0.22);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pricing-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+}
+
+.pricing-card__badge {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #8caac8;
+  color: #ffffff;
+  padding: 8px 24px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  box-shadow: 0 12px 26px rgba(67, 84, 102, 0.25);
+}
+
+.pricing-card__ribbon {
+  position: absolute;
+  top: clamp(26px, 4vw, 40px);
+  right: clamp(26px, 5vw, 44px);
+  background: linear-gradient(145deg, #f6d5c7 0%, #d9a99e 100%);
+  color: #3d2522;
+  padding: 12px 20px;
+  border-radius: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.65px;
+  box-shadow: 0 18px 38px rgba(202, 139, 121, 0.35);
+}
+
+.pricing-card__ribbon::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  right: 18px;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(145deg, rgba(214, 148, 132, 0.9), rgba(174, 108, 98, 0.85));
+  transform: skewX(-25deg);
+  border-radius: 2px;
+  box-shadow: 0 8px 18px rgba(202, 139, 121, 0.35);
+}
+
+.pricing-card__ribbon-title {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.55px;
+}
+
+.pricing-card__ribbon-subtitle {
+  display: block;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 560px) {
+  .pricing-card__ribbon {
+    top: 24px;
+    right: 22px;
+    padding: 10px 16px;
+  }
+
+  .pricing-card__ribbon-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .pricing-card__ribbon::after {
+    right: 12px;
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.pricing-card__label {
+  margin: clamp(30px, 6vw, 54px) 0 12px;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.pricing-card__price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 2vw, 18px);
+  margin: 0 0 clamp(10px, 2.4vw, 18px);
+}
+
+.pricing-card__price-original {
+  position: relative;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #bf4d4d;
+  letter-spacing: 0.02em;
+  padding: 0 10px;
+}
+
+.pricing-card__price-original::after {
+  content: '';
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  top: 55%;
+  height: 2px;
+  background: #d36c6c;
+  transform: rotate(-12deg);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.pricing-card__price-current {
+  font-size: clamp(3.6rem, 8vw, 5.6rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #1b1b1b;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  font-family: var(--font-system);
+}
+
+.pricing-card__actions {
+  margin: clamp(14px, 3vw, 24px) 0 clamp(12px, 2.5vw, 20px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pricing-card__cta {
+  min-width: min(260px, 92%);
+  border-radius: 999px;
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.18);
+  font-size: 1.18rem;
+  gap: 0.55em;
+}
+
+.pricing-card__cta i {
+  font-size: 1.3em;
+}
+
+.pricing-card__note {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  text-align: center;
+  max-width: 280px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .pricing-box {
+    background: linear-gradient(135deg, rgba(41, 41, 44, 0.94), rgba(58, 49, 55, 0.9));
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 36px 90px rgba(0, 0, 0, 0.55);
+  }
+
+  .pricing-benefits {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .pricing-card {
+    background: rgba(30, 30, 32, 0.92);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 32px 84px rgba(0, 0, 0, 0.6);
+  }
+
+  .pricing-card::after {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .pricing-card__badge {
+    background: rgba(138, 170, 200, 0.65);
+    color: #f6fbff;
+  }
+
+  .pricing-card__ribbon {
+    background: linear-gradient(145deg, rgba(214, 138, 124, 0.92), rgba(194, 116, 102, 0.95));
+    color: #fff3ef;
+  }
+
+  .pricing-card__ribbon::after {
+    background: linear-gradient(145deg, rgba(214, 138, 124, 0.9), rgba(168, 92, 80, 0.9));
+  }
+
+  .pricing-card__price-current {
+    color: #f7f4f3;
+    text-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+  }
+
+  .pricing-card__note {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .savings-card {
+    box-shadow: 0 22px 40px rgba(42, 120, 54, 0.32);
+    background: rgba(36, 58, 36, 0.72);
+  }
+
+  .savings-card-headline,
+  .savings-card-breakdown,
+  .savings-card-highlight {
+    color: #d9ffe1;
+  }
 }
 
 /* Trust & Proof block */
@@ -1637,18 +1561,6 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
   color: var(--color-text-secondary);
   text-align: center;
 }
-/* Keep the ROI pill fully inside the inner card */
-.pricing-subcard.your-plan .roi-callout {
-  display: inline-flex;           /* tighter centering */
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(0.75rem, 2vw, 0.85rem);   /* larger emphasis, responsive */
-  padding: clamp(10px, 1.6vw, 12px) clamp(16px, 3.5vw, 28px);
-  min-width: max-content;        /* never smaller than the text */
-  max-width: 100%;               /* but don’t exceed the inner card */
-  box-sizing: border-box;
-}
-
 .screenshot-card figcaption::before {
   content: '●';
   color: var(--color-accent-blue);
@@ -1690,97 +1602,6 @@ h3 { font-size: var(--font-size-title); font-weight:600; letter-spacing:-0.01em;
 .waveform.dynamic .bar:nth-child(4) { --i: 3; }
 .waveform.dynamic .bar:nth-child(5) { --i: 4; }
 
-  /* Make the single OTO card take middle 1/3 width and compact vertically */
-  @media (min-width: 860px) {
-    .pricing-grid {
-      grid-template-columns: 1fr;      /* single column */
-      justify-content: center;          /* center the card */
-      align-items: start;               /* align to top */
-      justify-items: center;            /* center horizontally */
-      gap: var(--spacing-3xl);
-    }
-    
-    .pricing-subcard.your-plan {
-  width: auto;
-  max-width: 260px; /* shrink by 10px each side (20px total) */
-  margin: 0;
-  transform: none;
-  padding: 42px 40px;               /* more breathing room */
-  min-height: clamp(420px, 52vh, 560px); /* shrink inner card vertically */
-    }
-    
-  /* CTA inherits base size; desktop keeps same values unless edited above */
-  }
-
-/* Add a touch more breathing room around the price block */
-.subcard-header.center-price {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  display: grid;
-  justify-items: center; /* center alignment */
-}
-
-/* Move the entire pricing content block down */
-.pricing-subcard.your-plan .subcard-header.center-price {
-  margin-top: 50px; /* Push the entire block down */
-}
-/* Center the ROI pill within the header */
-.subcard-header.center-price .roi-callout { justify-self: center; }
-
-/* Center align the price section elements under Founder's Pricing pill */
-.pricing-subcard.your-plan .subcard-header.center-price {
-  justify-items: center;
-  text-align: center;
-}
-/* Span the full inner card width and center-align */
-.pricing-subcard.your-plan .center-price {
-  grid-column: 1 / -1;
-  justify-self: center;
-  text-align: center;
-}
-/* Centered one-liner between ROI and CTA */
-.center-note.fully-yours {
-  text-align: center;
-  font-weight: 500;
-  color: #000;
-  /* Position it visually in the open space above the CTA */
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 250px; /* nudged up by 20px */
-  margin: 0;
-  font-size: 1.55rem; /* make the text bigger */
-}
-
-/* Anchor the money-back line to the bottom of the inner card */
-.pricing-subcard.your-plan { position: relative; }
-.pricing-subcard.your-plan .value-compare {
-  margin: 10px 0 0 0;  /* 10px below the button */
-  text-align: center;
-}
-/* Set CTA above the guarantee line inside the card */
-.pricing-subcard.your-plan .subcard-actions {
-  position: relative;
-  margin: 60px 0 0 0 !important;         /* 60px below the price, override default margins */
-  justify-content: center;
-}
-/* Move Founder's badge above and centered on the card */
-.pricing-subcard.your-plan .founders-label {
-  position: absolute;
-  top: 0;                     /* center on the top edge */
-  left: 50%;
-  right: auto;
-  transform: translate(-50%, -45%); /* moved down by ~5% more */
-  z-index: 2;
-  background: #8CAAC8;
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
 .waveform.dynamic .bar:nth-child(6) { --i: 3; }
 .waveform.dynamic .bar:nth-child(7) { --i: 2; }
 .waveform.dynamic .bar:nth-child(8) { --i: 1; }
