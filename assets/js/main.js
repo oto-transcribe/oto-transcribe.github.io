@@ -435,7 +435,53 @@
     sectionEls.forEach(sec => sectionObserver.observe(sec));
   }
 
-  // Section & element reveal animations
+  // ============================================
+  // 🌟 COMBO DELUXE SCROLL ANIMATIONS 🌟
+  // ============================================
+
+  // 1. PARALLAX ON HERO SECTION
+  const hero = document.querySelector('.hero');
+  const heroContent = hero?.querySelector('.hero__content');
+  const heroVisual = hero?.querySelector('.hero__visual');
+  
+  if (hero && heroContent && heroVisual) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const heroRect = hero.getBoundingClientRect();
+      
+      // Only apply parallax when hero is in view
+      if (heroRect.bottom > 0 && heroRect.top < window.innerHeight) {
+        const speed = scrolled * 0.3;
+        const visualSpeed = scrolled * 0.15;
+        
+        heroContent.style.transform = `translateY(${speed}px)`;
+        heroVisual.style.transform = `translateY(${visualSpeed}px)`;
+      }
+    });
+  }
+
+  // 2. SCROLL PROGRESS INDICATOR
+  const scrollProgress = document.createElement('div');
+  scrollProgress.className = 'scroll-progress';
+  scrollProgress.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-blue), var(--color-coral), var(--color-mint));
+    z-index: 100;
+    transition: width 0.1s ease-out;
+  `;
+  document.body.appendChild(scrollProgress);
+
+  window.addEventListener('scroll', () => {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (window.pageYOffset / docHeight) * 100;
+    scrollProgress.style.width = `${scrollPercent}%`;
+  });
+
+  // 3. STAGGERED CARD REVEALS WITH SCALE BOUNCE
   const revealNodes = Array.from(document.querySelectorAll('.reveal'));
   if ('IntersectionObserver' in window && revealNodes.length) {
     const revealObserver = new IntersectionObserver(entries => {
@@ -446,14 +492,91 @@
         }
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
-    // Slight stagger via transition-delay
+    
+    // Enhanced stagger for cards in grids
     revealNodes.forEach((node, i) => {
-      (node).style.transitionDelay = (Math.min(i * 60, 360)) + 'ms';
+      const isCard = node.classList.contains('feature-card') || 
+                     node.classList.contains('value-card') ||
+                     node.classList.contains('screenshot-card');
+      
+      if (isCard) {
+        // Stagger cards more aggressively
+        node.style.transitionDelay = `${Math.min(i * 80, 480)}ms`;
+      } else {
+        // Subtle stagger for other elements
+        node.style.transitionDelay = `${Math.min(i * 60, 360)}ms`;
+      }
       revealObserver.observe(node);
     });
   } else {
     // Fallback: make them visible immediately
     revealNodes.forEach(n => n.classList.add('is-visible'));
+  }
+
+  // 4. SECTION HEADERS WITH SPECIAL TREATMENT
+  const sectionHeaders = document.querySelectorAll('.section__header');
+  if ('IntersectionObserver' in window && sectionHeaders.length) {
+    const headerObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('header-visible');
+          headerObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -15% 0px', threshold: 0.2 });
+    
+    sectionHeaders.forEach(header => {
+      header.classList.add('header-animate');
+      headerObserver.observe(header);
+    });
+  }
+
+  // 5. BUTTONS/CTAS WITH SCALE BOUNCE
+  const ctaButtons = document.querySelectorAll('.warm-button, .app-store-badge-link');
+  if ('IntersectionObserver' in window && ctaButtons.length) {
+    const buttonObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('button-visible');
+          buttonObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.5 });
+    
+    ctaButtons.forEach(button => {
+      button.classList.add('button-animate');
+      buttonObserver.observe(button);
+    });
+  }
+
+  // 6. BACKGROUND COLOR TRANSITIONS BETWEEN SECTIONS
+  const allSections = document.querySelectorAll('.section, .hero');
+  if ('IntersectionObserver' in window && allSections.length) {
+    const bgColors = {
+      'hero': 'var(--color-bg)',
+      'features': 'var(--color-bg)',
+      'why': 'var(--color-surface-alt)',
+      'pricing': 'var(--color-bg)',
+      'guarantee': 'var(--color-surface-alt)',
+      'faq': 'var(--color-bg)',
+      'policy': 'var(--color-surface-alt)'
+    };
+
+    const sectionBgObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+          const sectionId = entry.target.getAttribute('data-section') || 
+                           (entry.target.classList.contains('hero') ? 'hero' : '');
+          
+          if (sectionId && bgColors[sectionId]) {
+            document.body.style.transition = 'background-color 0.6s ease';
+            document.body.style.backgroundColor = bgColors[sectionId];
+          }
+        }
+      });
+    }, { threshold: [0.3, 0.5, 0.7] });
+    
+    allSections.forEach(section => sectionBgObserver.observe(section));
   }
   // Add scroll hint for first-time users
   const scrollHint = document.createElement('div');
