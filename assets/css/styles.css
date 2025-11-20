@@ -1154,7 +1154,7 @@ video.demo-video::-webkit-media-controls-panel {
   background: var(--color-surface);
   border: var(--border-coral);
   border-radius: var(--radius-2xl);
-  padding: var(--space-10) var(--space-6) var(--space-8);
+  padding: clamp(34px, 6vw, 70px) clamp(28px, 6vw, 74px) clamp(38px, 6vw, 76px);
   text-align: center;
   box-shadow: var(--shadow-coral);
   display: flex;
@@ -1167,7 +1167,7 @@ video.demo-video::-webkit-media-controls-panel {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -55%);
   background: var(--color-peach);
   color: var(--color-text-primary);
   padding: var(--space-2) var(--space-4);
@@ -1182,10 +1182,10 @@ video.demo-video::-webkit-media-controls-panel {
   white-space: nowrap;
 }
 
-/* Soft ribbon - positioned below the top badge */
+/* Soft ribbon - positioned centered below badge */
 .pricing-card__ribbon {
   position: absolute;
-  top: var(--space-6);
+  top: clamp(38px, 5vw, 52px);
   left: 50%;
   transform: translateX(-50%);
   background: var(--color-lavender);
@@ -1212,7 +1212,7 @@ video.demo-video::-webkit-media-controls-panel {
 }
 
 .pricing-card__label {
-  margin: var(--space-6) 0 var(--space-2);
+  margin: clamp(30px, 6vw, 54px) 0 12px;
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -1229,7 +1229,7 @@ video.demo-video::-webkit-media-controls-panel {
 }
 
 .pricing-card__price-original {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 600;
   color: var(--color-text-secondary);
   text-decoration: line-through;
@@ -1238,7 +1238,7 @@ video.demo-video::-webkit-media-controls-panel {
 }
 
 .pricing-card__price-current {
-  font-size: clamp(3rem, 8vw, 5rem);
+  font-size: clamp(3.8rem, 9vw, 5.8rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.015em;
