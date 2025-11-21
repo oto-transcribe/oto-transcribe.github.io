@@ -1168,17 +1168,16 @@ video.demo-video::-webkit-media-controls-panel {
   top: 0;
   left: 50%;
   transform: translate(-50%, -55%);
-  background: var(--color-peach);
-  color: var(--color-text-primary);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-lg);
-  font-size: 0.875rem;
+  background: #8caac8;
+  color: #ffffff;
+  padding: 8px 24px;
+  border-radius: 999px;
+  font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0.48px;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  border: 2px solid var(--color-text-primary);
-  box-shadow: 0 4px 0 0 rgba(42,42,42,0.15);
-  z-index: 10;
+  box-shadow: 0 12px 26px rgba(67, 84, 102, 0.25);
+  z-index: 5;
   white-space: nowrap;
 }
 
@@ -1188,34 +1187,46 @@ video.demo-video::-webkit-media-controls-panel {
   top: clamp(38px, 5vw, 52px);
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-lavender);
-  color: white;
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-md);
-  border: 2px solid rgba(184,168,200,0.5);
-  box-shadow: 0 3px 0 0 rgba(184,168,200,0.3);
+  background: linear-gradient(145deg, #f6d5c7 0%, #d9a99e 100%);
+  color: #3d2522;
+  padding: 12px 20px;
+  border-radius: 16px;
   text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  font-size: 0.75rem;
-  width: max-content;
+  letter-spacing: 0.65px;
+  box-shadow: 0 18px 38px rgba(202, 139, 121, 0.35);
+}
+
+.pricing-card__ribbon::after {
+  content: none;
 }
 
 .pricing-card__ribbon-title {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.55px;
 }
 
 .pricing-card__ribbon-subtitle {
   display: block;
-  font-size: 1rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 560px) {
+  .pricing-card__ribbon {
+    top: 32px;
+    padding: 10px 16px;
+  }
+
+  .pricing-card__ribbon-subtitle {
+    font-size: 0.85rem;
+  }
 }
 
 .pricing-card__label {
   margin: clamp(30px, 6vw, 54px) 0 12px;
   font-size: 0.875rem;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 0.02em;
   color: var(--color-text-secondary);
 }
@@ -1983,7 +1994,6 @@ body {
 /* Add shimmer effect to badges */
 .pricing-card__badge,
 .pricing-card__ribbon {
-  position: relative;
   overflow: hidden;
 }
 
