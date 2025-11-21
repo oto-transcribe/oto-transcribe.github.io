@@ -1168,17 +1168,25 @@ video.demo-video::-webkit-media-controls-panel {
   top: 0;
   left: 50%;
   transform: translate(-50%, -55%);
-  background: #8caac8;
+  background: var(--color-blue); /* #8CAAC8 soft blue matches app */
   color: #ffffff;
   padding: 8px 24px;
+  border: 2px solid var(--color-blue);
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.48px;
   text-transform: uppercase;
-  box-shadow: 0 12px 26px rgba(67, 84, 102, 0.25);
+  box-shadow: 0 4px 0 0 rgba(140,170,200,0.3); /* Soft colored offset shadow */
   z-index: 5;
   white-space: nowrap;
+  transition: transform var(--duration-medium) var(--ease-smooth),
+              box-shadow var(--duration-medium) var(--ease-smooth);
+}
+
+.pricing-card__badge:hover {
+  transform: translate(-50%, calc(-55% - 2px)); /* Gentle lift */
+  box-shadow: 0 6px 0 0 rgba(140,170,200,0.35); /* Deeper shadow on hover */
 }
 
 /* Soft ribbon - positioned centered below badge */
@@ -1187,14 +1195,21 @@ video.demo-video::-webkit-media-controls-panel {
   top: clamp(38px, 5vw, 52px);
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(145deg, #f6d5c7 0%, #d9a99e 100%);
-  color: #3d2522;
+  background: linear-gradient(145deg, #f6d5c7 0%, #d9a99e 100%); /* Peach/coral gradient */
+  color: #3d2522; /* Warm dark for contrast */
   padding: 12px 20px;
-  border-radius: 16px;
+  border-radius: 16px; /* Soft rounded corners */
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.65px;
-  box-shadow: 0 18px 38px rgba(202, 139, 121, 0.35);
+  box-shadow: 0 4px 0 0 rgba(202, 139, 121, 0.35); /* Soft colored offset shadow */
+  transition: transform var(--duration-medium) var(--ease-smooth),
+              box-shadow var(--duration-medium) var(--ease-smooth);
+}
+
+.pricing-card__ribbon:hover {
+  transform: translateX(-50%) translateY(-2px); /* Gentle lift */
+  box-shadow: 0 6px 0 0 rgba(202, 139, 121, 0.4); /* Deeper shadow on hover */
 }
 
 .pricing-card__ribbon::after {
@@ -1991,10 +2006,10 @@ body {
   }
 }
 
-/* Add shimmer effect to badges */
+/* Add shimmer effect to badges - only overflow needed */
 .pricing-card__badge,
 .pricing-card__ribbon {
-  overflow: hidden;
+  overflow: hidden; /* For shimmer effect, no position: relative needed */
 }
 
 .pricing-card__badge::before,
