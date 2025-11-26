@@ -1,0 +1,84 @@
+{
+  "modules": [
+    {
+      "name": "header",
+      "path": "modules/header.html",
+      "target": "#module-header",
+      "priority": "critical",
+      "order": 1,
+      "description": "Site header and navigation"
+    },
+    {
+      "name": "hero",
+      "path": "modules/hero.html",
+      "target": "#module-hero",
+      "priority": "critical",
+      "order": 2,
+      "description": "Hero section with main CTA"
+    },
+    {
+      "name": "demo",
+      "path": "modules/demo.html",
+      "target": "#module-demo",
+      "priority": "critical",
+      "order": 3,
+      "description": "Demo video/slideshow section"
+    },
+    {
+      "name": "features",
+      "path": "modules/features.html",
+      "target": "#module-features",
+      "priority": "lazy",
+      "order": 4,
+      "description": "Features grid section"
+    },
+    {
+      "name": "pricing",
+      "path": "modules/pricing.html",
+      "target": "#module-pricing",
+      "priority": "critical",
+      "order": 5,
+      "description": "Pricing section"
+    },
+    {
+      "name": "why",
+      "path": "modules/why.html",
+      "target": "#module-why",
+      "priority": "lazy",
+      "order": 6,
+      "description": "Why OTO section"
+    },
+    {
+      "name": "roadmap",
+      "path": "modules/roadmap.html",
+      "target": "#module-roadmap",
+      "priority": "lazy",
+      "order": 7,
+      "description": "Product roadmap section"
+    },
+    {
+      "name": "faq",
+      "path": "modules/faq.html",
+      "target": "#module-faq",
+      "priority": "lazy",
+      "order": 8,
+      "description": "FAQ section"
+    },
+    {
+      "name": "privacy",
+      "path": "modules/privacy.html",
+      "target": "#module-privacy",
+      "priority": "lazy",
+      "order": 9,
+      "description": "Privacy policy section"
+    },
+    {
+      "name": "footer",
+      "path": "modules/footer.html",
+      "target": "#module-footer",
+      "priority": "lazy",
+      "order": 10,
+      "description": "Site footer"
+    }
+  ]
+}
