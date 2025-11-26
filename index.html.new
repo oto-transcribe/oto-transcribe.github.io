@@ -155,6 +155,7 @@
 <section class="hero centered" aria-labelledby="heroTitle" data-section="hero">
   <div class="hero__content reveal">
     <h1 id="heroTitle" class="hero__title"><span class="hero-line">Stop typing what you can say in seconds.</span></h1>
+    <p class="hero__subtitle micro" style="font-size: 1.125rem; margin-top: 0.5rem; opacity: 0.85;">Professional voice-to-text transcription for Mac</p>
     <p class="hero__lead">Your emails, recaps, and brainstorms should be written before your fingers reach the keyboard. oto writes alongside you in real time through meetings, interviews, and bursts of ideas—delivering polished text entirely on your Mac with Neural Engine accuracy and zero cloud uploads.</p>
     <p class="hero__transformation">Turn a day of typing into ten minutes of speaking.</p>
     <div class="hero__actions">
@@ -230,7 +231,7 @@
 </section>
 <section id="features" class="section section--alt" aria-labelledby="featuresTitle" data-section="features">
   <div class="section__header reveal">
-    <h2 id="featuresTitle">Simply powerful.</h2>
+    <h2 id="featuresTitle">Mac Transcription Features - Simply Powerful</h2>
     <p class="section__lead">Optimized for Apple silicon. Built for macOS.</p>
   </div>
   <div class="features-grid" role="list">

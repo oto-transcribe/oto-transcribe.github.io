@@ -1,0 +1,19 @@
+# robots.txt for OTO Transcribe
+# https://oto-transcribe.github.io/
+
+# Allow all user agents to crawl
+User-agent: *
+Allow: /
+
+# Block resource-wasting bot crawlers
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://oto-transcribe.github.io/sitemap.xml
