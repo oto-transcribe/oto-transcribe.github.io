@@ -29,8 +29,12 @@ app/
 │   ├── js/
 │   │   ├── module-loader.js  # Dynamic module loading system
 │   │   └── app.js           # Main application logic
-│   └── config/
-│       └── modules.json      # Module configuration
+│   ├── config/
+│   │   └── modules.json      # Module configuration
+│   └── old-website/         # Archived pre-redesign website
+│       ├── index.html       # Pre-modular monolithic version
+│       └── css/
+│           └── styles.css   # Original styles for archived site
 └── server/              # Reserved for future server-side needs
     └── .gitkeep
 
@@ -201,6 +205,19 @@ The `ModuleLoader` class (`app/client/js/module-loader.js`) handles:
 - Mounting modules to specified DOM targets
 - Error handling for missing modules
 - Event dispatching for initialization hooks
+
+## Archived Website
+
+The previous version of the website (before the modular redesign) is preserved in `app/client/old-website/` for historical reference and design evolution tracking.
+
+**Location:** `app/client/old-website/index.html`
+
+**Contents:**
+- Pre-modular monolithic HTML from commit 4b83dc9
+- Original stylesheet (`css/styles.css`) that matches the archived design
+- All asset paths relative to the archive location
+
+The archived site includes a banner noting it's a historical snapshot and provides a link to the current version.
 
 ## Troubleshooting
 
