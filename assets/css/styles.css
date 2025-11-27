@@ -199,7 +199,8 @@ h3 {
   font-weight: 400;
   line-height: 1.5;
   max-width: 600px;
-  margin: 0 0 var(--space-6);
+  margin: 0 auto var(--space-6);
+  text-align: center;
   color: var(--color-text-secondary);
 }
 
@@ -267,8 +268,12 @@ h3 {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: var(--space-3);
   padding: var(--space-3) var(--space-6);
+}
+
+.nav__brand {
+  margin-right: auto;
 }
 
 .nav__brand .logo-text {
@@ -308,6 +313,24 @@ h3 {
   color: var(--color-blue);
 }
 
+.nav__cta {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  color: #000;
+  border: 1px solid var(--color-text);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.nav__cta:hover {
+  background: var(--color-blue);
+  color: #fff;
+  border-color: var(--color-blue);
+  transform: translateY(-1px);
+}
+
 .nav__toggle {
   display: none;
   background: none;
@@ -344,6 +367,12 @@ h3 {
     transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .nav__cta {
+    font-size: 0.875rem;
+    padding: var(--space-1) var(--space-2);
+    margin-right: var(--space-2);
   }
 }
 
