@@ -1344,7 +1344,7 @@ video.demo-video::-webkit-media-controls-panel {
 }
 
 .savings-card-headline {
-  font-size: 1rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--color-blue);
   margin-bottom: var(--space-2);
@@ -2724,6 +2724,107 @@ body {
   line-height: 1.5;
 }
 
+/* About Section (Why, Support, Privacy combined) */
+.about-subsection {
+  margin-bottom: var(--space-12);
+  scroll-margin-top: calc(var(--site-header-height) + var(--space-4));
+}
+
+.about-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.about-subsection__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+  color: var(--color-text-primary);
+}
+
+.about-subsection__lead {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+/* Compact support grid for about section */
+.support-grid--compact {
+  gap: var(--space-4);
+  max-width: 60rem;
+}
+
+.support-grid--compact .support-card {
+  padding: var(--space-4);
+  gap: var(--space-2);
+}
+
+.support-grid--compact .support-card h4 {
+  font-size: 1.125rem;
+  margin: 0 0 var(--space-1);
+}
+
+.support-grid--compact .support-card ul {
+  font-size: 0.9375rem;
+}
+
+/* Privacy highlights for about section */
+.privacy-highlights {
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+
+.privacy-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  border: var(--border-neutral);
+}
+
+.privacy-highlight i {
+  font-size: 1.5rem;
+  color: var(--color-blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.privacy-highlight div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.privacy-highlight strong {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.privacy-highlight span {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 640px) {
+  .privacy-highlights {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .privacy-highlight {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .privacy-highlight div {
+    align-items: center;
+  }
+}
+
 /* Why body */
 .why-body {
   padding: var(--space-6);
@@ -2733,6 +2834,103 @@ body {
 
 .why-body strong {
   font-weight: 650;
+}
+
+/* About page - Values grid */
+.values-grid {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.value-card {
+  padding: var(--space-5);
+  text-align: center;
+}
+
+.value-icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+}
+
+.value-icon i {
+  font-size: 1.5rem;
+  color: var(--color-blue);
+}
+
+.value-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-2);
+}
+
+.value-card p {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* About page - Links grid */
+.links-grid {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .links-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.link-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--duration-medium) var(--ease-smooth),
+              box-shadow var(--duration-medium) var(--ease-smooth);
+}
+
+.link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-blue-hover);
+}
+
+.link-card i {
+  font-size: 1.5rem;
+  color: var(--color-blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.link-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.link-card p {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin: 0;
 }
 
 .why-body .frustrations {
@@ -2815,6 +3013,7 @@ body {
   border-bottom: none;
 }
 
+.policy-item h2,
 .policy-item h3 {
   margin: 0;
 }

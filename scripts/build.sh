@@ -51,8 +51,7 @@ cat "$SOURCE_DIR/modules/features.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
 echo "  🔗 Assembling pricing..."
 cat "$SOURCE_DIR/modules/pricing.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
 
-echo "  🔗 Assembling why..."
-cat "$SOURCE_DIR/modules/why.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
+# About section moved to standalone about.html page
 
 # TODO: Re-enable when we have actual users
 # echo "  🔗 Assembling use-cases..."
@@ -67,9 +66,6 @@ cat "$SOURCE_DIR/modules/roadmap.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
 
 echo "  🔗 Assembling FAQ..."
 cat "$SOURCE_DIR/modules/faq.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
-
-echo "  🔗 Assembling privacy..."
-cat "$SOURCE_DIR/modules/privacy.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
 
 echo "  </main>" >> "$OUTPUT_DIR/$OUTPUT_FILE"
 

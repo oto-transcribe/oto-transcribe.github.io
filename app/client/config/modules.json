@@ -41,14 +41,6 @@
       "description": "Pricing section"
     },
     {
-      "name": "why",
-      "path": "modules/why.html",
-      "target": "#module-why",
-      "priority": "lazy",
-      "order": 6,
-      "description": "Why OTO section"
-    },
-    {
       "name": "roadmap",
       "path": "modules/roadmap.html",
       "target": "#module-roadmap",
@@ -63,14 +55,6 @@
       "priority": "lazy",
       "order": 10,
       "description": "FAQ section"
-    },
-    {
-      "name": "privacy",
-      "path": "modules/privacy.html",
-      "target": "#module-privacy",
-      "priority": "lazy",
-      "order": 11,
-      "description": "Privacy policy section"
     },
     {
       "name": "footer",
