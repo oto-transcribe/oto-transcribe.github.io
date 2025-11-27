@@ -53,15 +53,15 @@
       "path": "modules/roadmap.html",
       "target": "#module-roadmap",
       "priority": "lazy",
-      "order": 7,
-      "description": "Product roadmap section"
+      "order": 9,
+      "description": "TODO: Currently hidden with display:none - Product roadmap section (re-enable when features ready to announce)"
     },
     {
       "name": "faq",
       "path": "modules/faq.html",
       "target": "#module-faq",
       "priority": "lazy",
-      "order": 8,
+      "order": 10,
       "description": "FAQ section"
     },
     {
@@ -69,7 +69,7 @@
       "path": "modules/privacy.html",
       "target": "#module-privacy",
       "priority": "lazy",
-      "order": 9,
+      "order": 11,
       "description": "Privacy policy section"
     },
     {
@@ -77,7 +77,7 @@
       "path": "modules/footer.html",
       "target": "#module-footer",
       "priority": "lazy",
-      "order": 10,
+      "order": 12,
       "description": "Site footer"
     }
   ]

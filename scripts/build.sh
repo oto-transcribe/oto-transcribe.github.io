@@ -54,6 +54,14 @@ cat "$SOURCE_DIR/modules/pricing.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
 echo "  🔗 Assembling why..."
 cat "$SOURCE_DIR/modules/why.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
 
+# TODO: Re-enable when we have actual users
+# echo "  🔗 Assembling use-cases..."
+# cat "$SOURCE_DIR/modules/use-cases.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
+
+# TODO: Re-enable if we want competitor comparison on the site
+# echo "  🔗 Assembling comparison..."
+# cat "$SOURCE_DIR/modules/comparison.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
+
 echo "  🔗 Assembling roadmap..."
 cat "$SOURCE_DIR/modules/roadmap.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
 

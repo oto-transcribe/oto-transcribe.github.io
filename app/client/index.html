@@ -40,6 +40,7 @@
     "name": "oto",
     "operatingSystem": "macOS",
     "applicationCategory": "UtilitiesApplication",
+    "applicationSubCategory": "Voice-to-Text Transcription",
     "description": "Professional voice-to-text transcription for macOS using WhisperKit and Neural Engine acceleration. Complete on-device processing with Apple Silicon optimization.",
     "softwareVersion": "1.0",
     "downloadUrl": "https://apps.apple.com/us/app/oto-transcribe/id6749171372?mt=12",
@@ -50,7 +51,20 @@
       "priceCurrency": "USD"
     },
     "featureList": ["WhisperKit transcription","Neural Engine acceleration","Apple Silicon optimized","One-time purchase","100 languages","On-device processing","Metal Performance Shaders"],
-    "privacyPolicy": "https://oto-transcribe.github.io/#privacy"
+    "privacyPolicy": "https://oto-transcribe.github.io/#privacy",
+    "softwareRequirements": {
+      "@type": "SoftwareRequirement",
+      "name": "macOS 13.0 or later"
+    },
+    "keywords": "offline transcription, privacy-first, on-device AI, Neural Engine, WhisperKit, Apple Silicon, Mac transcription",
+    "isBasedOn": {
+      "@type": "SoftwareApplication",
+      "name": "WhisperKit",
+      "url": "https://github.com/argmaxinc/WhisperKit",
+      "description": "On-device speech recognition powered by OpenAI Whisper models"
+    },
+    "processorRequirements": "Apple Silicon (M1, M2, M3, M4) recommended; Intel Macs supported",
+    "memoryRequirements": "4GB RAM minimum, 8GB+ recommended for optimal performance"
   }</script>
   <script type="application/ld+json">{
     "@context": "https://schema.org",
@@ -61,7 +75,7 @@
         "name": "How is this different from cloud transcription?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "oto uses AI models that run entirely on your Mac's Neural Engine or GPU. Complete on-device processing with no network dependencies. Your conversations remain private on your Mac forever."
+          "text": "oto transcribes 100% offline on your Mac - cloud services send your voice to remote servers. All AI processing happens locally on your Mac's Neural Engine or GPU with no internet required. Your conversations remain private on your device forever, unlike cloud transcription which uploads your voice data to third-party servers."
         }
       },
       {
@@ -69,7 +83,7 @@
         "name": "Why own instead of rent?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Your professional tools should be yours forever. One purchase includes future app updates with performance improvements and bug fixes. No subscriptions. No recurring fees. Ever."
+          "text": "You pay $30 once and own oto forever - no monthly subscriptions or recurring fees. One purchase includes all future updates, performance improvements, and bug fixes with no features locked behind tiers. Typical transcription subscriptions cost $8-25/month ($96-300/year), so oto pays for itself in 2-4 months while remaining yours permanently."
         }
       },
       {
@@ -77,7 +91,7 @@
         "name": "How private is on-device processing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ultimate privacy through local-only processing. AI models run entirely on your Mac with no network requests. No telemetry. No cloud services. Your voice data never leaves your device."
+          "text": "Completely private - your voice never leaves your Mac. oto runs AI models entirely on your device with zero telemetry, zero cloud services, and zero network requests. No data is collected, stored remotely, or shared with third parties, giving you complete data sovereignty."
         }
       },
       {
@@ -86,6 +100,22 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Support for 100 languages through AI models. Voice Activity Detection works across all languages. Automatic language detection with confidence scoring available."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does oto work without internet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, oto works 100% offline after initial download - no internet connection required. All AI models and processing run entirely on your Mac's Neural Engine or GPU. You can transcribe on airplanes, in remote locations, or anywhere without WiFi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is oto best for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "oto is the best transcription app for privacy-conscious professionals (lawyers, doctors, therapists, journalists), writers and content creators, ESL professionals, remote workers, budget-conscious users tired of subscriptions, Mac power users who want Apple Silicon optimization, and offline workers who travel frequently."
         }
       }
     ]
@@ -131,6 +161,87 @@
       }
     ]
   }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Transcribe Voice to Text on Mac with oto",
+    "description": "Step-by-step guide to transcribing voice to text offline on macOS using oto's privacy-first transcription app",
+    "totalTime": "PT2M",
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "oto for macOS"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "Mac with microphone (any Mac, Apple Silicon optimized)"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Download and Install oto",
+        "text": "Download oto from the Mac App Store. No account or internet connection required after installation.",
+        "url": "https://oto-transcribe.github.io/#pricing"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Set Your Global Hotkey",
+        "text": "Configure a custom hotkey in oto preferences to start recording from anywhere on your Mac.",
+        "url": "https://oto-transcribe.github.io/#features"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Press Hotkey and Speak",
+        "text": "Press your configured hotkey, speak clearly, and oto transcribes in real-time using on-device AI models with 97% accuracy.",
+        "image": "https://oto-transcribe.github.io/assets/img/og-cover.png"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Review and Paste Transcript",
+        "text": "Review the transcribed text and paste it into any Mac application. All processing happens offline on your Mac's Neural Engine.",
+        "url": "https://oto-transcribe.github.io/#features"
+      }
+    ]
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "How oto Transcription Works - Real-time Voice to Text Demo",
+    "description": "Watch how oto transcribes voice to text in real-time on Mac: press hotkey, record audio, get instant transcript with 97% accuracy. All processing happens offline on your Mac's Neural Engine.",
+    "thumbnailUrl": "https://oto-transcribe.github.io/assets/img/og-cover.png",
+    "uploadDate": "2025-01-15",
+    "duration": "PT30S",
+    "contentUrl": "https://oto-transcribe.github.io/#hero",
+    "embedUrl": "https://oto-transcribe.github.io/#hero",
+    "keywords": "voice to text, mac transcription, offline AI, real-time transcription demo"
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why I Built oto: A Transcription App You Can Actually Own",
+    "alternativeHeadline": "Origin of oto - Privacy-First Mac Transcription Without Subscriptions",
+    "description": "The founder's story behind building oto as an alternative to subscription-based transcription services",
+    "author": {
+      "@type": "Person",
+      "name": "oto Founder",
+      "jobTitle": "Independent macOS Developer"
+    },
+    "datePublished": "2025-01-15",
+    "dateModified": "2025-11-26",
+    "publisher": {
+      "@type": "Organization",
+      "name": "oto",
+      "url": "https://oto-transcribe.github.io/"
+    },
+    "articleSection": "Product Philosophy",
+    "articleBody": "Every transcription app I tried had the same problems: bloated features I didn't need, 'free' tiers designed to frustrate me, and expensive monthly subscriptions — all for something that ran on my own hardware using open-source models. I wanted to keep full control of my words, my work, and my tools. Something minimal. Hidden when I didn't need it. There when I did.",
+    "keywords": ["transcription software ownership", "privacy-first software", "subscription fatigue", "Mac software philosophy"]
+  }</script>
 </head>
 <body>
   <!-- Module mounting points -->
@@ -142,6 +253,8 @@
     <div id="module-features"></div>
     <div id="module-pricing"></div>
     <div id="module-why"></div>
+    <div id="module-use-cases"></div>
+    <div id="module-comparison"></div>
     <div id="module-roadmap"></div>
     <div id="module-faq"></div>
     <div id="module-privacy"></div>
