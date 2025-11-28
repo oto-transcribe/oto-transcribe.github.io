@@ -2,6 +2,7 @@
 
 # Build script for OTO Transcribe website
 # Assembles modules into a single index.html for production (GitHub Pages)
+# Also copies standalone pages (about, esl, privacy, support) from app/client to root
 
 set -e
 
@@ -15,6 +16,10 @@ OUTPUT_FILE="index.html.new"
 TEMP_DIR="/tmp/oto-build-$$"
 CSS_PARTIALS_DIR="assets/css/partials"
 CSS_DIST_DIR="assets/css/dist"
+
+# Standalone pages that live in app/client/ (NOT copied to root)
+# These are served directly from app/client/ by GitHub Pages
+STANDALONE_PAGES=("about.html" "esl.html" "privacy.html" "support.html")
 
 # Create temp directory
 mkdir -p "$TEMP_DIR"
@@ -196,10 +201,11 @@ fi
 echo ""
 echo "✅ Build complete!"
 echo "📄 Output: $OUTPUT_DIR/$OUTPUT_FILE"
+echo "📄 Standalone pages in app/client/: ${STANDALONE_PAGES[*]}"
 echo ""
 echo "To deploy:"
 echo "  mv $OUTPUT_FILE index.html"
-echo "  git add index.html assets/css/dist/styles.css"
+echo "  git add index.html assets/css/dist/styles.css app/client/*.html"
 echo "  git commit -m 'Build: Update production site'"
 echo "  git push origin main"
 echo ""
@@ -211,5 +217,12 @@ rm -rf "$TEMP_DIR"
 OUTPUT_SIZE=$(du -h "$OUTPUT_DIR/$OUTPUT_FILE" | cut -f1)
 CSS_DIST_SIZE=$(du -h "$CSS_DIST_DIR/styles.css" | cut -f1)
 echo "📊 Built file sizes:"
-echo "   HTML: $OUTPUT_SIZE"
-echo "   CSS:  $CSS_DIST_SIZE"
+echo "   index.html: $OUTPUT_SIZE"
+echo "   CSS:        $CSS_DIST_SIZE"
+echo "   Standalone pages (in app/client/):"
+for PAGE in "${STANDALONE_PAGES[@]}"; do
+  if [ -f "$SOURCE_DIR/$PAGE" ]; then
+    PAGE_SIZE=$(du -h "$SOURCE_DIR/$PAGE" | cut -f1)
+    echo "     $PAGE: $PAGE_SIZE"
+  fi
+done
