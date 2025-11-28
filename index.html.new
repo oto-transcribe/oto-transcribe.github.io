@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voice to Text for Mac - Private Offline Transcription | oto</title>
+  <meta name="description" content="Professional voice-to-text for Mac with 100+ languages. Complete privacy—all processing on-device. One-time $30 purchase, no subscriptions. Download now." />
+  <link rel="canonical" href="https://oto-transcribe.github.io/" />
+  <meta name="keywords" content="voice to text, offline transcription, macOS, whisper, speech recognition, privacy" />
+  <meta name="robots" content="index, follow" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fefcf9" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#272726" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="oto" />
+  <meta property="og:title" content="Voice to Text for Mac - Private Offline Transcription | oto" />
+  <meta property="og:description" content="Professional transcription powered by Apple's Neural Engine. 100 languages processed entirely on-device with WhisperKit technology. Zero cloud dependencies." />
+  <meta property="og:url" content="https://oto-transcribe.github.io/" />
+  <meta property="og:image" content="https://oto-transcribe.github.io/assets/img/og-cover.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Voice to Text for Mac - Private Offline Transcription | oto" />
+  <meta name="twitter:description" content="Apple Silicon-optimized transcription. WhisperKit technology with Neural Engine acceleration. Complete privacy through on-device processing." />
+  <meta name="twitter:image" content="https://oto-transcribe.github.io/assets/img/og-cover.png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <!-- System font stack primarily; fallback to SF Pro if available -->
+  <link rel="preload" href="assets/css/dist/styles.css" as="style" />
+  <link rel="stylesheet" href="assets/css/dist/styles.css" />
+  <!-- Phosphor Icons (local) -->
+  <link rel="stylesheet" href="assets/vendor/phosphor/regular/style.css" />
+  <link rel="dns-prefetch" href="//apps.apple.com" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "oto",
+    "operatingSystem": "macOS",
+    "applicationCategory": "UtilitiesApplication",
+    "applicationSubCategory": "Voice-to-Text Transcription",
+    "description": "Professional voice-to-text transcription for macOS using WhisperKit and Neural Engine acceleration. Complete on-device processing with Apple Silicon optimization.",
+    "softwareVersion": "1.0",
+    "downloadUrl": "https://apps.apple.com/us/app/oto-transcribe/id6749171372?mt=12",
+    "license": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+    "offers": {
+      "@type": "Offer",
+      "price": "30",
+      "priceCurrency": "USD"
+    },
+    "featureList": ["WhisperKit transcription","Neural Engine acceleration","Apple Silicon optimized","One-time purchase","100 languages","On-device processing","Metal Performance Shaders"],
+    "privacyPolicy": "https://oto-transcribe.github.io/privacy.html",
+    "softwareRequirements": {
+      "@type": "SoftwareRequirement",
+      "name": "macOS 13.0 or later"
+    },
+    "keywords": "offline transcription, privacy-first, on-device AI, Neural Engine, WhisperKit, Apple Silicon, Mac transcription",
+    "isBasedOn": {
+      "@type": "SoftwareApplication",
+      "name": "WhisperKit",
+      "url": "https://github.com/argmaxinc/WhisperKit",
+      "description": "On-device speech recognition powered by OpenAI Whisper models"
+    },
+    "processorRequirements": "Apple Silicon (M1, M2, M3, M4) recommended; Intel Macs supported",
+    "memoryRequirements": "4GB RAM minimum, 8GB+ recommended for optimal performance"
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is this different from cloud transcription?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "oto transcribes 100% offline on your Mac - cloud services send your voice to remote servers. All AI processing happens locally on your Mac's Neural Engine or GPU with no internet required. Your conversations remain private on your device forever, unlike cloud transcription which uploads your voice data to third-party servers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why own instead of rent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You pay $30 once and own oto forever - no monthly subscriptions or recurring fees. One purchase includes all future updates, performance improvements, and bug fixes with no features locked behind tiers. Typical transcription subscriptions cost $8-25/month ($96-300/year), so oto pays for itself in 2-4 months while remaining yours permanently."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How private is on-device processing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Completely private - your voice never leaves your Mac. oto runs AI models entirely on your device with zero telemetry, zero cloud services, and zero network requests. No data is collected, stored remotely, or shared with third parties, giving you complete data sovereignty."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which languages are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Support for 100 languages through AI models. Voice Activity Detection works across all languages. Automatic language detection with confidence scoring available."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does oto work without internet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, oto works 100% offline after initial download - no internet connection required. All AI models and processing run entirely on your Mac's Neural Engine or GPU. You can transcribe on airplanes, in remote locations, or anywhere without WiFi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is oto best for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "oto is the best transcription app for privacy-conscious professionals (lawyers, doctors, therapists, journalists), writers and content creators, ESL professionals, remote workers, budget-conscious users tired of subscriptions, Mac power users who want Apple Silicon optimization, and offline workers who travel frequently."
+        }
+      }
+    ]
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "oto",
+    "url": "https://oto-transcribe.github.io/",
+    "logo": "https://oto-transcribe.github.io/assets/img/apple-touch-icon.png",
+    "description": "Privacy-first voice transcription software for macOS",
+    "sameAs": [
+      "https://apps.apple.com/us/app/oto-transcribe/id6749171372?mt=12"
+    ]
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://oto-transcribe.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Features",
+        "item": "https://oto-transcribe.github.io/#features"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Pricing",
+        "item": "https://oto-transcribe.github.io/#pricing"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "FAQ",
+        "item": "https://oto-transcribe.github.io/#faq"
+      }
+    ]
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Transcribe Voice to Text on Mac with oto",
+    "description": "Step-by-step guide to transcribing voice to text offline on macOS using oto's privacy-first transcription app",
+    "totalTime": "PT2M",
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "oto for macOS"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "Mac with microphone (any Mac, Apple Silicon optimized)"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Download and Install oto",
+        "text": "Download oto from the Mac App Store. No account or internet connection required after installation.",
+        "url": "https://oto-transcribe.github.io/#pricing"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Set Your Global Hotkey",
+        "text": "Configure a custom hotkey in oto preferences to start recording from anywhere on your Mac.",
+        "url": "https://oto-transcribe.github.io/#features"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Press Hotkey and Speak",
+        "text": "Press your configured hotkey, speak clearly, and oto transcribes in real-time using on-device AI models with 97% accuracy.",
+        "image": "https://oto-transcribe.github.io/assets/img/og-cover.png"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Review and Paste Transcript",
+        "text": "Review the transcribed text and paste it into any Mac application. All processing happens offline on your Mac's Neural Engine.",
+        "url": "https://oto-transcribe.github.io/#features"
+      }
+    ]
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "How oto Transcription Works - Real-time Voice to Text Demo",
+    "description": "Watch how oto transcribes voice to text in real-time on Mac: press hotkey, record audio, get instant transcript with 97% accuracy. All processing happens offline on your Mac's Neural Engine.",
+    "thumbnailUrl": "https://oto-transcribe.github.io/assets/img/og-cover.png",
+    "uploadDate": "2025-01-15",
+    "duration": "PT30S",
+    "contentUrl": "https://oto-transcribe.github.io/#hero",
+    "embedUrl": "https://oto-transcribe.github.io/#hero",
+    "keywords": "voice to text, mac transcription, offline AI, real-time transcription demo"
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why I Built oto: A Transcription App You Can Actually Own",
+    "alternativeHeadline": "Origin of oto - Privacy-First Mac Transcription Without Subscriptions",
+    "description": "The founder's story behind building oto as an alternative to subscription-based transcription services",
+    "author": {
+      "@type": "Person",
+      "name": "oto Founder",
+      "jobTitle": "Independent macOS Developer"
+    },
+    "datePublished": "2025-01-15",
+    "dateModified": "2025-11-26",
+    "publisher": {
+      "@type": "Organization",
+      "name": "oto",
+      "url": "https://oto-transcribe.github.io/"
+    },
+    "articleSection": "Product Philosophy",
+    "articleBody": "Every transcription app I tried had the same problems: bloated features I didn't need, 'free' tiers designed to frustrate me, and expensive monthly subscriptions — all for something that ran on my own hardware using open-source models. I wanted to keep full control of my words, my work, and my tools. Something minimal. Hidden when I didn't need it. There when I did.",
+    "keywords": ["transcription software ownership", "privacy-first software", "subscription fatigue", "Mac software philosophy"]
+  }</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" role="banner">
+  <nav class="nav" aria-label="Primary">
+    <div class="nav__brand">
+      <a href="/" class="logo-text">oto</a>
+    </div>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+    <ul id="navMenu" class="nav__list">
+      <li><a href="about.html">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#pricing" class="nav__cta">Download oto</a>
+  </nav>
+</header>
+  <main id="main" tabindex="-1">
+<section class="hero centered" aria-labelledby="heroTitle" data-section="hero">
+  <div class="hero__content reveal">
+    <h1 id="heroTitle" class="hero__title"><span class="hero-line">Stop typing what you can say in seconds.</span></h1>
+    <p class="hero__subtitle micro" style="font-size: 1.125rem; margin-top: 0.5rem; opacity: 0.85;">Professional voice-to-text transcription for Mac</p>
+    <p class="hero__lead">Your emails, recaps, and brainstorms should be written before your fingers reach the keyboard. oto writes alongside you in real time through meetings, interviews, and bursts of ideas—delivering polished text entirely on your Mac with Neural Engine accuracy and zero cloud uploads.</p>
+    <p class="hero__transformation">Turn a day of typing into ten minutes of speaking.</p>
+    <div class="hero__actions">
+        <a id="downloadBtnTop" class="app-store-badge-link" href="https://apps.apple.com/us/app/oto-transcribe/id6749171372?mt=12" target="_blank" rel="noopener" aria-label="Download on the Mac App Store">
+          <picture class="app-store-badge">
+            <source media="(prefers-color-scheme: dark)" type="image/svg+xml" srcset="assets/img/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_wht_092917.svg" />
+            <source media="(prefers-color-scheme: light)" type="image/svg+xml" srcset="assets/img/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" />
+            <img src="assets/img/mac-app-store-badge.svg" alt="Download on the Mac App Store" width="180" height="54" />
+          </picture>
+        </a>
+    </div>
+    <p class="micro muted trust-line">
+      Apple Silicon &amp; Intel • Private by design • Built for deadlines
+    </p>
+  </div>
+  <div class="hero__visual" aria-hidden="true">
+    <figure class="demo-video-card">
+      <div class="video-wrapper" role="group" aria-labelledby="heroVideoCaption">
+        <!-- Tutorial slideshow (primary demo) -->
+        <div id="otoDemoSlideshow" class="demo-slideshow" role="img" aria-label="oto onboarding tutorial slideshow"></div>
+        <button id="slidePrev" class="slideshow-control prev" aria-label="Previous slide" title="Previous">
+          &#10094;
+        </button>
+        <button id="slideNext" class="slideshow-control next" aria-label="Next slide" title="Next">
+          &#10095;
+        </button>
+      </div>
+      <figcaption id="heroVideoCaption" class="micro muted">Onboarding tutorial: Hotkey → Record → Transcribe → Paste.</figcaption>
+    </figure>
+  </div>
+</section>
+<section id="made-for-mac" class="section section--alt" aria-labelledby="painTitle" data-section="made-for-mac">
+  <div class="section__header reveal">
+    <h2 id="painTitle">Manual typing is the bottleneck.</h2>
+    <p class="section__lead">Projects stall, inboxes pile up, and ideas slip away when every word depends on a keyboard.</p>
+  </div>
+  <div class="bottleneck-grid" role="list">
+    <article class="feature-card feature-card--lg organic-card reveal" role="listitem">
+      <header class="feature-card__header">
+        <span class="feature-card__icon" aria-hidden="true">
+          <i class="ph ph-hourglass-high"></i>
+        </span>
+        <h3>When you type everything yourself</h3>
+      </header>
+      <p class="feature-card__desc">Hours disappear replaying audio, crafting recap emails, and rewriting the same message for every channel.</p>
+      <ul>
+        <li>Follow-up tasks slip because notes take all evening.</li>
+        <li>Inbox triage turns into late-night typing sessions.</li>
+        <li>Sensitive conversations end up on third-party servers.</li>
+      </ul>
+    </article>
+
+    <article class="feature-card feature-card--lg organic-card reveal" role="listitem">
+      <header class="feature-card__header">
+        <span class="feature-card__icon" aria-hidden="true">
+          <i class="ph ph-lightning"></i>
+        </span>
+        <h3>With oto</h3>
+      </header>
+      <p class="feature-card__desc">Speak once and send polished notes, emails, and docs minutes later—no uploads, no waiting.</p>
+      <ul>
+        <li>Launch from a global hotkey and capture ideas at full speed.</li>
+        <li>Deliver recap emails and follow-ups while the discussion is still fresh.</li>
+        <li>Keep every word on your Mac for maximum control.</li>
+      </ul>
+    </article>
+
+  </div>
+  <div class="statement-card statement-card--bottleneck reveal">
+    <p class="statement">People talk faster than they type.</p>
+    <p class="micro muted">oto turns that speed into written words you can send, publish, or file instantly—without ever touching the cloud.</p>
+  </div>
+</section>
+<section id="features" class="section section--alt" aria-labelledby="featuresTitle" data-section="features">
+  <div class="section__header reveal">
+    <h2 id="featuresTitle">Mac Transcription Features - Simply Powerful</h2>
+    <p class="section__lead">Optimized for Apple silicon. Built for macOS.</p>
+  </div>
+  <div class="features-grid" role="list">
+    <!-- Large: Accurate Transcription -->
+    <article class="feature-card feature-card--lg organic-card tint-accuracy reveal" role="listitem">
+      <header class="feature-card__header">
+        <span class="feature-card__icon" aria-hidden="true">
+          <i class="ph ph-microphone"></i>
+        </span>
+        <h3>97% Accurate Transcription</h3>
+      </header>
+      <p class="feature-card__desc">Transcribe clean speech with near‑perfect accuracy. Instant and offline.</p>
+    </article>
+
+    <!-- Large: Privacy First -->
+    <article class="feature-card feature-card--lg organic-card tint-privacy reveal" role="listitem">
+      <header class="feature-card__header">
+        <span class="feature-card__icon" aria-hidden="true">
+          <i class="ph ph-lock"></i>
+        </span>
+        <h3>Private by default</h3>
+      </header>
+      <p class="feature-card__desc">Your voice never leaves your Mac. No cloud. No tracking.<br/>Just yours. Forever.</p>
+    </article>
+
+    <!-- Medium: NE Performance -->
+    <article class="feature-card feature-card--md organic-card tint-speed reveal" role="listitem">
+      <header class="feature-card__header">
+        <span class="feature-card__icon" aria-hidden="true">
+          <i class="ph ph-lightning"></i>
+        </span>
+        <h3>Lightning Fast</h3>
+        <span class="badge-stack">
+          <span class="neural-engine-badge" aria-hidden="true">Neural Engine</span>
+          <span class="metal-badge" aria-hidden="true">Metal</span>
+        </span>
+      </header>
+      <p class="feature-card__desc">Powered by the Neural Engine with Metal GPU acceleration for up to 10x faster transcription.</p>
+    </article>
+
+    <!-- Medium: Languages -->
+    <article class="feature-card feature-card--md organic-card tint-languages reveal" role="listitem">
+      <header class="feature-card__header">
+        <span class="feature-card__icon" aria-hidden="true">
+          <i class="ph ph-globe"></i>
+        </span>
+        <h3>100 Languages</h3>
+      </header>
+      <p class="feature-card__desc">Auto‑detect languages or choose one for best results.</p>
+      <a href="#faq" class="language-feature-link" data-expand-language="true">View all languages →</a>
+    </article>
+
+    <!-- Medium: History -->
+    <article class="feature-card feature-card--md organic-card tint-dictionary reveal" role="listitem">
+      <header class="feature-card__header">
+        <span class="feature-card__icon" aria-hidden="true">
+          <i class="ph ph-clock-counter-clockwise"></i>
+        </span>
+        <h3>Transcription History</h3>
+      </header>
+      <p class="feature-card__desc">
+        Replay audio, view transcripts, copy text, delete entries, or jump to the original file.
+      </p>
+    </article>
+
+    <!-- Smallers -->
+    <article class="feature-card feature-card--sm organic-card tint-hotkeys reveal" role="listitem">
+      <header class="feature-card__header">
+        <span class="feature-card__icon" aria-hidden="true">
+          <i class="ph ph-keyboard"></i>
+        </span>
+        <h3>Custom Hotkeys</h3>
+      </header>
+      <p class="feature-card__desc">Start and stop from anywhere with customizable shortcuts.</p>
+    </article>
+
+    <article class="feature-card feature-card--sm organic-card tint-replacements reveal" role="listitem">
+      <header class="feature-card__header">
+        <span class="feature-card__icon" aria-hidden="true">
+          <i class="ph ph-book"></i>
+        </span>
+        <h3>Smart Vocab</h3>
+      </header>
+      <p class="feature-card__desc">Teach oto names and phrases for a perfect match to your voice.</p>
+    </article>
+
+    <article class="feature-card feature-card--sm organic-card tint-files reveal" role="listitem">
+      <header class="feature-card__header">
+        <span class="feature-card__icon" aria-hidden="true">
+          <i class="ph ph-file-audio"></i>
+        </span>
+        <h3>Transcribe Files</h3>
+      </header>
+      <p class="feature-card__desc">Drop in recordings for instant, clean transcripts.</p>
+    </article>
+
+    <article class="feature-card feature-card--sm organic-card tint-compat reveal" role="listitem">
+      <header class="feature-card__header">
+        <span class="feature-card__icon" aria-hidden="true">
+          <i class="ph ph-squares-four"></i>
+        </span>
+        <h3>Use Anywhere</h3>
+      </header>
+      <p class="feature-card__desc">Paste into any app. No switching required.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ESL Section -->
+<section id="esl" class="section" aria-labelledby="eslTitle" data-section="esl">
+  <div class="section__header reveal">
+    <h2 id="eslTitle">Built for global professionals</h2>
+    <p class="section__lead">Express yourself with the fluency you have, write with the precision you need.</p>
+  </div>
+
+  <div class="organic-card esl-content reveal">
+    <p>oto understands heavy accents, dialects, and foreign languages. Express complex ideas in your native tongue, get professional English text instantly. Perfect for emails, documents, and academic writing.</p>
+
+    <!-- Feature Cards -->
+    <div class="esl-features">
+      <article class="feature-card feature-card--sm organic-card tint-accuracy">
+        <header class="feature-card__header">
+          <span class="feature-card__icon" aria-hidden="true">
+            <i class="ph ph-ear"></i>
+          </span>
+          <h3>Heavy Accents Welcome</h3>
+        </header>
+        <p class="feature-card__desc">
+          Trained on diverse speech patterns. Whether it's Indian English, Chinese English, or Spanish-accented English, oto understands you.
+        </p>
+      </article>
+
+      <article class="feature-card feature-card--sm organic-card tint-languages">
+        <header class="feature-card__header">
+          <span class="feature-card__icon" aria-hidden="true">
+            <i class="ph ph-brain"></i>
+          </span>
+          <h3>No Mental Translation</h3>
+        </header>
+        <p class="feature-card__desc">
+          Stop the exhausting process of translating thoughts before speaking. Think and speak naturally, let oto handle the English.
+        </p>
+      </article>
+    </div>
+
+    <!-- Language Examples -->
+    <div class="language-examples">
+      <h3>Real examples</h3>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="example-header">
+            <span class="language-badge">🇪🇸 Spanish</span>
+          </div>
+          <div class="example-content">
+            <div class="spoken-text">
+              <p class="micro muted">You speak:</p>
+              <p>"Necesitamos reorganizar la estrategia de marketing para el próximo trimestre."</p>
+            </div>
+            <div class="arrow-down">↓</div>
+            <div class="english-text">
+              <p class="micro muted">You get:</p>
+              <p>"We need to reorganize the marketing strategy for next quarter."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="language-badge">🇯🇵 Japanese</span>
+          </div>
+          <div class="example-content">
+            <div class="spoken-text">
+              <p class="micro muted">You speak:</p>
+              <p>"このプロジェクトにはもっと時間が必要だと思います。"</p>
+            </div>
+            <div class="arrow-down">↓</div>
+            <div class="english-text">
+              <p class="micro muted">You get:</p>
+              <p>"I think this project needs more time."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="pricing" class="section section--alt" aria-labelledby="pricingTitle" data-section="pricing">
+  <div class="section__header reveal">
+    <h2 id="pricingTitle">Own fast, private transcription.</h2>
+    <p class="section__lead">Your voice, your hardware, your rules.</p>
+  </div>
+
+  <div class="pricing-box organic-card reveal">
+    <ul class="pricing-benefits pricing-benefits--left" role="list">
+      <li>Own it forever</li>
+      <li>Full control</li>
+      <li>No subscription</li>
+      <li>Works with any app</li>
+      <li>100 Languages</li>
+      <li>Multiple AI models</li>
+    </ul>
+
+    <article class="pricing-card reveal">
+      <span class="pricing-card__badge">Founder's Pricing</span>
+      <div class="pricing-card__ribbon">
+        <span class="pricing-card__ribbon-title">Holiday Special</span>
+        <span class="pricing-card__ribbon-subtitle">100% off</span>
+      </div>
+      <p class="pricing-card__label">One-time payment</p>
+      <div class="pricing-card__price" aria-label="Holiday special: free">
+        <span class="pricing-card__price-original">$30</span>
+        <span class="pricing-card__price-current">$0</span>
+      </div>
+      <div class="pricing-card__actions">
+        <a id="downloadBtnBottom" class="pricing-card__cta warm-button primary large cta-hero" href="https://apps.apple.com/us/app/oto-transcribe/id6749171372?mt=12" target="_blank" rel="noopener" aria-label="Get oto on the Mac App Store free">
+          <i class="ph ph-app-store-logo" aria-hidden="true"></i>
+          Get oto
+        </a>
+      </div>
+      <p class="pricing-card__note">30-day money-back guarantee. No questions asked.</p>
+    </article>
+
+    <ul class="pricing-benefits pricing-benefits--right" role="list">
+      <li>Lifetime updates</li>
+      <li>Transcribe offline</li>
+      <li>No device limits</li>
+      <li>Private by design</li>
+      <li>Global hotkey trigger</li>
+      <li>Lightning fast</li>
+    </ul>
+  </div>
+
+  <div class="savings-card">
+    <div class="savings-card-content">
+      <div class="savings-card-headline">Save $80+ in your first year</div>
+      <div class="savings-card-breakdown">Typical competitor subscription: <span class="savings-card-highlight">$8/month × 12 = $96</span></div>
+    </div>
+  </div>
+</section>
+<!-- TODO: Re-enable when roadmap features are ready to announce - Apple Intelligence that evolves with you section -->
+<section id="roadmap" class="section section--alt" aria-labelledby="roadmapTitle" data-section="roadmap" style="display:none;">
+  <div class="section__header reveal">
+    <h2 id="roadmapTitle">Apple Intelligence that evolves with you</h2>
+    <p class="section__lead">Every advancement in Neural Engine performance. Every new WhisperKit optimization. All automatically yours with Apple Silicon.</p>
+  </div>
+  <div class="roadmap-grid" role="list">
+    <article class="roadmap-item organic-card reveal" role="listitem"><h3>📁 Universal File Support <span class="tag upcoming">Coming Soon</span></h3><p>MP3, WAV, M4A, MP4, FLAC. All AVFoundation formats. All processed locally.</p></article>
+    <article class="roadmap-item organic-card reveal" role="listitem"><h3>🤖 On-Device Intelligence <span class="tag building">In Development</span></h3><p>Summaries, formatting, transformations. Advanced AI without the cloud.</p></article>
+    <article class="roadmap-item organic-card reveal" role="listitem"><h3>🔄 Apple Silicon Evolution <span class="tag ongoing">Ongoing</span></h3><p>Neural Engine improvements, Metal Performance Shader optimizations, and Core ML advancements automatically benefit oto.</p></article>
+  </div>
+  <p class="micro muted roadmap-bottom reveal">Every advancement in Apple Silicon intelligence, automatically included with your purchase.</p>
+</section>
+    <section id="faq" class="section section--alt" aria-labelledby="faqTitle" data-section="faq">
+      <div class="section__header reveal">
+        <h2 id="faqTitle">Frequently Asked Questions</h2>
+        <p class="section__lead">Straight answers about privacy, pricing, and performance.</p>
+      </div>
+      <div class="faq" role="list">
+          <div class="faq-item reveal" role="listitem">
+            <h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq1" id="faqBtn1">How is this different from cloud transcription?</button></h3>
+            <div id="faq1" class="faq-panel" role="region" aria-labelledby="faqBtn1" hidden>
+              <p>oto transcribes 100% offline on your Mac - cloud services send your voice to remote servers. All AI processing happens locally on your Mac's Neural Engine or GPU with no internet required. Your conversations remain private on your device forever, unlike cloud transcription which uploads your voice data to third-party servers.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" role="listitem">
+            <h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq2" id="faqBtn2">Why own instead of rent?</button></h3>
+            <div id="faq2" class="faq-panel" role="region" aria-labelledby="faqBtn2" hidden>
+              <p>You pay $30 once and own oto forever - no monthly subscriptions or recurring fees. One purchase includes all future updates, performance improvements, and bug fixes with no features locked behind tiers. Typical transcription subscriptions cost $8-25/month ($96-300/year), so oto pays for itself in 2-4 months while remaining yours permanently.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" role="listitem">
+            <h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq3" id="faqBtn3">How private is on-device processing?</button></h3>
+            <div id="faq3" class="faq-panel" role="region" aria-labelledby="faqBtn3" hidden>
+              <p>Completely private - your voice never leaves your Mac. oto runs AI models entirely on your device with zero telemetry, zero cloud services, and zero network requests. No data is collected, stored remotely, or shared with third parties, giving you complete data sovereignty.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" role="listitem">
+            <h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq4" id="faqBtn4">Which languages are supported?</button></h3>
+            <div id="faq4" class="faq-panel" role="region" aria-labelledby="faqBtn4" hidden>
+              <p>Support for 100 languages through AI models. Voice Activity Detection works across all languages. Automatic language detection with confidence scoring available.</p>
+              <button class="language-list-toggle" aria-expanded="false" aria-controls="languageList">
+                <span class="toggle-text">📋 View complete list of 100 languages</span>
+              </button>
+              <div id="languageList" class="language-list-container" hidden>
+                <div class="language-search">
+                  <input type="text" class="language-search-input" placeholder="Search languages..." aria-label="Search languages">
+                </div>
+                <div class="language-grid">
+                  <div class="language-item" data-lang="Afrikaans">🇿🇦 Afrikaans</div>
+                  <div class="language-item" data-lang="Albanian">🇦🇱 Albanian</div>
+                  <div class="language-item" data-lang="Amharic">🇪🇹 Amharic</div>
+                  <div class="language-item" data-lang="Arabic">🇸🇦 Arabic</div>
+                  <div class="language-item" data-lang="Armenian">🇦🇲 Armenian</div>
+                  <div class="language-item" data-lang="Assamese">🇮🇳 Assamese</div>
+                  <div class="language-item" data-lang="Azerbaijani">🇦🇿 Azerbaijani</div>
+                  <div class="language-item" data-lang="Bashkir">🇷🇺 Bashkir</div>
+                  <div class="language-item" data-lang="Basque">🇪🇸 Basque</div>
+                  <div class="language-item" data-lang="Belarusian">🇧🇾 Belarusian</div>
+                  <div class="language-item" data-lang="Bengali">🇧🇩 Bengali</div>
+                  <div class="language-item" data-lang="Bosnian">🇧🇦 Bosnian</div>
+                  <div class="language-item" data-lang="Breton">🇫🇷 Breton</div>
+                  <div class="language-item" data-lang="Bulgarian">🇧🇬 Bulgarian</div>
+                  <div class="language-item" data-lang="Cantonese">🇭🇰 Cantonese</div>
+                  <div class="language-item" data-lang="Catalan">🇪🇸 Catalan</div>
+                  <div class="language-item" data-lang="Chinese">🇨🇳 Chinese</div>
+                  <div class="language-item" data-lang="Croatian">🇭🇷 Croatian</div>
+                  <div class="language-item" data-lang="Czech">🇨🇿 Czech</div>
+                  <div class="language-item" data-lang="Danish">🇩🇰 Danish</div>
+                  <div class="language-item" data-lang="Dutch">🇳🇱 Dutch</div>
+                  <div class="language-item" data-lang="English">🇬🇧 English</div>
+                  <div class="language-item" data-lang="Estonian">🇪🇪 Estonian</div>
+                  <div class="language-item" data-lang="Faroese">🇫🇴 Faroese</div>
+                  <div class="language-item" data-lang="Finnish">🇫🇮 Finnish</div>
+                  <div class="language-item" data-lang="French">🇫🇷 French</div>
+                  <div class="language-item" data-lang="Galician">🇪🇸 Galician</div>
+                  <div class="language-item" data-lang="Georgian">🇬🇪 Georgian</div>
+                  <div class="language-item" data-lang="German">🇩🇪 German</div>
+                  <div class="language-item" data-lang="Greek">🇬🇷 Greek</div>
+                  <div class="language-item" data-lang="Gujarati">🇮🇳 Gujarati</div>
+                  <div class="language-item" data-lang="Haitian Creole">🇭🇹 Haitian Creole</div>
+                  <div class="language-item" data-lang="Hausa">🇳🇬 Hausa</div>
+                  <div class="language-item" data-lang="Hawaiian">🇺🇸 Hawaiian</div>
+                  <div class="language-item" data-lang="Hebrew">🇮🇱 Hebrew</div>
+                  <div class="language-item" data-lang="Hindi">🇮🇳 Hindi</div>
+                  <div class="language-item" data-lang="Hungarian">🇭🇺 Hungarian</div>
+                  <div class="language-item" data-lang="Icelandic">🇮🇸 Icelandic</div>
+                  <div class="language-item" data-lang="Indonesian">🇮🇩 Indonesian</div>
+                  <div class="language-item" data-lang="Italian">🇮🇹 Italian</div>
+                  <div class="language-item" data-lang="Japanese">🇯🇵 Japanese</div>
+                  <div class="language-item" data-lang="Javanese">🇮🇩 Javanese</div>
+                  <div class="language-item" data-lang="Kannada">🇮🇳 Kannada</div>
+                  <div class="language-item" data-lang="Kazakh">🇰🇿 Kazakh</div>
+                  <div class="language-item" data-lang="Khmer">🇰🇭 Khmer</div>
+                  <div class="language-item" data-lang="Korean">🇰🇷 Korean</div>
+                  <div class="language-item" data-lang="Lao">🇱🇦 Lao</div>
+                  <div class="language-item" data-lang="Latin">🇻🇦 Latin</div>
+                  <div class="language-item" data-lang="Latvian">🇱🇻 Latvian</div>
+                  <div class="language-item" data-lang="Lingala">🇨🇩 Lingala</div>
+                  <div class="language-item" data-lang="Lithuanian">🇱🇹 Lithuanian</div>
+                  <div class="language-item" data-lang="Luxembourgish">🇱🇺 Luxembourgish</div>
+                  <div class="language-item" data-lang="Macedonian">🇲🇰 Macedonian</div>
+                  <div class="language-item" data-lang="Malagasy">🇲🇬 Malagasy</div>
+                  <div class="language-item" data-lang="Malay">🇲🇾 Malay</div>
+                  <div class="language-item" data-lang="Malayalam">🇮🇳 Malayalam</div>
+                  <div class="language-item" data-lang="Maltese">🇲🇹 Maltese</div>
+                  <div class="language-item" data-lang="Maori">🇳🇿 Māori</div>
+                  <div class="language-item" data-lang="Marathi">🇮🇳 Marathi</div>
+                  <div class="language-item" data-lang="Mongolian">🇲🇳 Mongolian</div>
+                  <div class="language-item" data-lang="Myanmar">🇲🇲 Myanmar</div>
+                  <div class="language-item" data-lang="Nepali">🇳🇵 Nepali</div>
+                  <div class="language-item" data-lang="Norwegian">🇳🇴 Norwegian</div>
+                  <div class="language-item" data-lang="Nynorsk">🇳🇴 Nynorsk</div>
+                  <div class="language-item" data-lang="Occitan">🇫🇷 Occitan</div>
+                  <div class="language-item" data-lang="Pashto">🇦🇫 Pashto</div>
+                  <div class="language-item" data-lang="Persian">🇮🇷 Persian</div>
+                  <div class="language-item" data-lang="Polish">🇵🇱 Polish</div>
+                  <div class="language-item" data-lang="Portuguese">🇵🇹 Portuguese</div>
+                  <div class="language-item" data-lang="Punjabi">🇮🇳 Punjabi</div>
+                  <div class="language-item" data-lang="Romanian">🇷🇴 Romanian</div>
+                  <div class="language-item" data-lang="Russian">🇷🇺 Russian</div>
+                  <div class="language-item" data-lang="Sanskrit">🇮🇳 Sanskrit</div>
+                  <div class="language-item" data-lang="Serbian">🇷🇸 Serbian</div>
+                  <div class="language-item" data-lang="Shona">🇿🇼 Shona</div>
+                  <div class="language-item" data-lang="Sindhi">🇵🇰 Sindhi</div>
+                  <div class="language-item" data-lang="Sinhala">🇱🇰 Sinhala</div>
+                  <div class="language-item" data-lang="Slovak">🇸🇰 Slovak</div>
+                  <div class="language-item" data-lang="Slovenian">🇸🇮 Slovenian</div>
+                  <div class="language-item" data-lang="Somali">🇸🇴 Somali</div>
+                  <div class="language-item" data-lang="Spanish">🇪🇸 Spanish</div>
+                  <div class="language-item" data-lang="Sundanese">🇮🇩 Sundanese</div>
+                  <div class="language-item" data-lang="Swahili">🇰🇪 Swahili</div>
+                  <div class="language-item" data-lang="Swedish">🇸🇪 Swedish</div>
+                  <div class="language-item" data-lang="Tagalog">🇵🇭 Tagalog</div>
+                  <div class="language-item" data-lang="Tajik">🇹🇯 Tajik</div>
+                  <div class="language-item" data-lang="Tamil">🇱🇰 Tamil</div>
+                  <div class="language-item" data-lang="Tatar">🇷🇺 Tatar</div>
+                  <div class="language-item" data-lang="Telugu">🇮🇳 Telugu</div>
+                  <div class="language-item" data-lang="Thai">🇹🇭 Thai</div>
+                  <div class="language-item" data-lang="Tibetan">🇨🇳 Tibetan</div>
+                  <div class="language-item" data-lang="Turkish">🇹🇷 Turkish</div>
+                  <div class="language-item" data-lang="Turkmen">🇹🇲 Turkmen</div>
+                  <div class="language-item" data-lang="Ukrainian">🇺🇦 Ukrainian</div>
+                  <div class="language-item" data-lang="Urdu">🇵🇰 Urdu</div>
+                  <div class="language-item" data-lang="Uzbek">🇺🇿 Uzbek</div>
+                  <div class="language-item" data-lang="Vietnamese">🇻🇳 Vietnamese</div>
+                  <div class="language-item" data-lang="Welsh">🏴 Welsh</div>
+                  <div class="language-item" data-lang="Yiddish">🇮🇱 Yiddish</div>
+                  <div class="language-item" data-lang="Yoruba">🇳🇬 Yoruba</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item reveal" role="listitem">
+            <h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq5" id="faqBtn5">What makes oto's transcription accurate?</button></h3>
+            <div id="faq5" class="faq-panel" role="region" aria-labelledby="faqBtn5" hidden>
+              <p>oto  uses OpenAI's Whisper models and learns your vocabulary. Add your name, company terms, or specialized phrases so they're always spelled correctly. With clean audio, you'll get 97% accuracy. Speak clearly in a quiet environment for best results.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" role="listitem">
+            <h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq6" id="faqBtn6">What audio formats do you support?</button></h3>
+            <div id="faq6" class="faq-panel" role="region" aria-labelledby="faqBtn6" hidden>
+              <p>WAV, MP3, M4A, AIFF, AAC, FLAC, and CAF formats supported now. Drag & drop any audio file for transcription—still completely private & offline.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" role="listitem">
+            <h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq7" id="faqBtn7">What hardware delivers the best experience?</button></h3>
+            <div id="faq7" class="faq-panel" role="region" aria-labelledby="faqBtn7" hidden>
+              <p>macOS 13.0+ with any Mac delivers great performance. Apple Silicon (M1/M2/M3) provides optimal Neural Engine acceleration. Intel Macs supported with GPU acceleration. 4GB RAM minimum, more recommended for larger models.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" role="listitem">
+            <h3><button class="faq-toggle" aria-expanded="false" aria-controls="faq8" id="faqBtn8">Does it actually translate or just transcribe?</button></h3>
+            <div id="faq8" class="faq-panel" role="region" aria-labelledby="faqBtn8" hidden>
+              <p>oto can do both! It transcribes English with heavy accents perfectly, and can also translate from 100 languages directly into English text. Speak in Spanish, get English. Speak English with an accent, get clean English text.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" role="listitem">
+            <h3><button class="faq-toggle" aria-expanded="false" aria-controls="faqOffline" id="faqBtnOffline">Does oto work without internet?</button></h3>
+            <div id="faqOffline" class="faq-panel" role="region" aria-labelledby="faqBtnOffline" hidden>
+              <p>Yes, oto works 100% offline after initial download - no internet connection required. All AI models and processing run entirely on your Mac's Neural Engine or GPU. You can transcribe on airplanes, in remote locations, or anywhere without WiFi. The only time oto needs internet is for the initial App Store download and optional model updates.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" role="listitem">
+            <h3><button class="faq-toggle" aria-expanded="false" aria-controls="faqBestFor" id="faqBtnBestFor">Who is oto best for?</button></h3>
+            <div id="faqBestFor" class="faq-panel" role="region" aria-labelledby="faqBtnBestFor" hidden>
+              <p><strong>oto is the best transcription app for:</strong></p>
+              <ul>
+                <li><strong>Privacy-conscious professionals</strong> who need to transcribe sensitive conversations (lawyers, doctors, therapists, journalists) without cloud uploads</li>
+                <li><strong>Writers and content creators</strong> who want to capture ideas faster than typing (bloggers, authors, researchers)</li>
+                <li><strong>ESL professionals</strong> who speak English as a second language and need accurate transcription with heavy accent support</li>
+                <li><strong>Remote workers</strong> who transcribe meeting notes, emails, and documentation daily</li>
+                <li><strong>Budget-conscious users</strong> tired of subscription fatigue who prefer one-time purchases over monthly fees</li>
+                <li><strong>Mac power users</strong> who want Apple Silicon optimization and native macOS integration</li>
+                <li><strong>Offline workers</strong> who travel frequently or work in areas with unreliable internet</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
+<footer class="site-footer" role="contentinfo">
+  <p class="micro muted">©<span id="year"></span> oto. Talk-to-Text. Completely yours.</p>
+</footer>
+
+<!-- Sticky mobile buy bar -->
+<div id="stickyBuy" class="sticky-buy" role="region" aria-label="Quick purchase">
+  <div class="sticky-buy__price" aria-hidden="true">$30 • One-time</div>
+  <a id="downloadBtnSticky" class="sticky-buy__cta" href="https://apps.apple.com/us/app/oto-transcribe/id6749171372?mt=12" target="_blank" rel="noopener" aria-label="Get oto on the Mac App Store for $30">
+    Get oto — $30
+  </a>
+</div>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

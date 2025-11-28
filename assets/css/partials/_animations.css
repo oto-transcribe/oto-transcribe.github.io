@@ -1,0 +1,295 @@
+/* ========================================
+   ANIMATION SYSTEM
+   ======================================== */
+
+/* Apply smooth transitions globally */
+* {
+  transition-timing-function: var(--ease-smooth);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  :root {
+    --ease-smooth: ease;
+    --ease-bounce: ease;
+  }
+}
+
+/* ========================================
+   🌟 COMBO DELUXE ANIMATIONS 🌟
+   ======================================== */
+
+/* Reveal animations (soft fade up with scale) */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px) scale(0.96);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity var(--duration-slow) var(--ease-smooth),
+              transform var(--duration-slow) var(--ease-bounce);
+}
+
+/* Enhanced card reveals */
+.feature-card.reveal,
+.value-card.reveal,
+.screenshot-card.reveal,
+.guarantee-card.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.94);
+}
+
+.feature-card.reveal.is-visible,
+.value-card.reveal.is-visible,
+.screenshot-card.reveal.is-visible,
+.guarantee-card.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 600ms var(--ease-smooth),
+              transform 600ms var(--ease-bounce);
+}
+
+/* Section headers special animation */
+.section__header.header-animate {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.section__header.header-visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: headerSlideIn 0.8s var(--ease-bounce) forwards;
+}
+
+@keyframes headerSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section header underline animation */
+.section__header.header-visible h2::after {
+  animation: underlineGrow 0.6s ease-out 0.3s forwards;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+@keyframes underlineGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Button/CTA scale bounce animation */
+.warm-button.button-animate,
+.app-store-badge-link.button-animate {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.warm-button.button-visible,
+.app-store-badge-link.button-visible {
+  opacity: 1;
+  transform: scale(1);
+  animation: buttonBounceIn 0.5s var(--ease-bounce) forwards;
+}
+
+@keyframes buttonBounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Parallax smooth transitions */
+.hero__content,
+.hero__visual {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Scroll progress bar pulse */
+.scroll-progress {
+  box-shadow: 0 0 12px rgba(140,170,200,0.4);
+}
+
+/* Smooth body background transitions */
+body {
+  transition: background-color 0.6s var(--ease-smooth);
+}
+
+/* Add floating animation to hero elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hero__visual:hover {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Add subtle pulse to trust line checkmark */
+.trust-line::before {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(155,196,181,0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 4px rgba(155,196,181,0);
+  }
+}
+
+/* Enhanced pricing card entrance */
+.pricing-card {
+  animation: priceCardFloat 0.8s ease-out;
+}
+
+@keyframes priceCardFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  60% {
+    transform: translateY(-8px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* FAQ item hover with lift */
+.faq-item {
+  will-change: transform, box-shadow;
+}
+
+/* Screenshot cards get extra spring */
+.screenshot-card {
+  will-change: transform;
+  transition: transform 400ms var(--ease-bounce),
+              box-shadow 400ms var(--ease-smooth),
+              border-color 400ms ease;
+}
+
+/* Feature card icons get micro-interactions */
+.feature-card__icon {
+  will-change: transform;
+  transition: transform 300ms var(--ease-bounce);
+}
+
+.feature-card:hover .feature-card__icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Video wrapper gets enhanced hover */
+.video-wrapper {
+  will-change: transform, box-shadow;
+}
+
+/* Add entrance animation for pricing benefits */
+.pricing-benefits li {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideInFromLeft 0.4s ease-out forwards;
+}
+
+.pricing-benefits li:nth-child(1) { animation-delay: 0.1s; }
+.pricing-benefits li:nth-child(2) { animation-delay: 0.2s; }
+.pricing-benefits li:nth-child(3) { animation-delay: 0.3s; }
+.pricing-benefits li:nth-child(4) { animation-delay: 0.4s; }
+.pricing-benefits li:nth-child(5) { animation-delay: 0.5s; }
+.pricing-benefits li:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInFromLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Add shimmer effect to badges - only overflow needed */
+.pricing-card__badge,
+.pricing-card__ribbon {
+  overflow: hidden; /* For shimmer effect, no position: relative needed */
+}
+
+.pricing-card__badge::before,
+.pricing-card__ribbon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255,255,255,0.3), 
+    transparent
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+/* Guarantee cards get staggered entrance */
+.guarantee-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.guarantee-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+/* Add glow effect on hover for CTAs */
+.warm-button.primary:hover {
+  box-shadow: 0 6px 0 0 rgba(140,170,200,0.35),
+              0 0 20px rgba(140,170,200,0.3);
+}
+
+.warm-button.secondary:hover {
+  box-shadow: 0 6px 0 0 rgba(210,140,130,0.35),
+              0 0 20px rgba(210,140,130,0.3);
+}
+

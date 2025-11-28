@@ -13,10 +13,48 @@ SOURCE_DIR="app/client"
 OUTPUT_DIR="."
 OUTPUT_FILE="index.html.new"
 TEMP_DIR="/tmp/oto-build-$$"
+CSS_PARTIALS_DIR="assets/css/partials"
+CSS_DIST_DIR="assets/css/dist"
 
 # Create temp directory
 mkdir -p "$TEMP_DIR"
 
+# ========================================
+# CSS BUILD STEP
+# ========================================
+echo "🎨 Building CSS..."
+
+# Create dist directory if it doesn't exist
+mkdir -p "$CSS_DIST_DIR"
+
+# Concatenate all CSS partials in order
+cat "$CSS_PARTIALS_DIR/_variables.css" \
+    "$CSS_PARTIALS_DIR/_reset.css" \
+    "$CSS_PARTIALS_DIR/_typography.css" \
+    "$CSS_PARTIALS_DIR/_navigation.css" \
+    "$CSS_PARTIALS_DIR/_layout.css" \
+    "$CSS_PARTIALS_DIR/_hero.css" \
+    "$CSS_PARTIALS_DIR/_buttons.css" \
+    "$CSS_PARTIALS_DIR/_cards.css" \
+    "$CSS_PARTIALS_DIR/_video.css" \
+    "$CSS_PARTIALS_DIR/_screenshots.css" \
+    "$CSS_PARTIALS_DIR/_pricing.css" \
+    "$CSS_PARTIALS_DIR/_faq.css" \
+    "$CSS_PARTIALS_DIR/_forms.css" \
+    "$CSS_PARTIALS_DIR/_footer.css" \
+    "$CSS_PARTIALS_DIR/_animations.css" \
+    "$CSS_PARTIALS_DIR/_utilities.css" \
+    "$CSS_PARTIALS_DIR/_components.css" \
+    "$CSS_PARTIALS_DIR/_responsive.css" \
+    > "$CSS_DIST_DIR/styles.css"
+
+CSS_SIZE=$(wc -l < "$CSS_DIST_DIR/styles.css" | tr -d ' ')
+echo "✅ CSS built: $CSS_SIZE lines -> $CSS_DIST_DIR/styles.css"
+echo ""
+
+# ========================================
+# HTML BUILD STEP
+# ========================================
 echo "📦 Reading modules..."
 
 # Read the shell index.html
@@ -83,6 +121,11 @@ echo "🔧 Fixing asset paths..."
 sed -i.bak 's|../../assets/|assets/|g' "$OUTPUT_DIR/$OUTPUT_FILE"
 rm "$OUTPUT_DIR/$OUTPUT_FILE.bak"
 
+# Update CSS path to use dist version for production
+# The dev version uses @import, production uses concatenated file
+sed -i.bak 's|assets/css/styles.css|assets/css/dist/styles.css|g' "$OUTPUT_DIR/$OUTPUT_FILE"
+rm "$OUTPUT_DIR/$OUTPUT_FILE.bak"
+
 echo ""
 echo "🔍 Running SEO validation checks..."
 
@@ -142,13 +185,21 @@ else
   echo "✅ favicon.png exists"
 fi
 
+# Check CSS dist file exists
+if [ ! -f "$CSS_DIST_DIR/styles.css" ]; then
+  echo "❌ ERROR: CSS dist file not found at $CSS_DIST_DIR/styles.css"
+  exit 1
+else
+  echo "✅ CSS dist file exists"
+fi
+
 echo ""
 echo "✅ Build complete!"
 echo "📄 Output: $OUTPUT_DIR/$OUTPUT_FILE"
 echo ""
 echo "To deploy:"
 echo "  mv $OUTPUT_FILE index.html"
-echo "  git add index.html"
+echo "  git add index.html assets/css/dist/styles.css"
 echo "  git commit -m 'Build: Update production site'"
 echo "  git push origin main"
 echo ""
@@ -156,6 +207,9 @@ echo ""
 # Cleanup
 rm -rf "$TEMP_DIR"
 
-# Show file size
+# Show file sizes
 OUTPUT_SIZE=$(du -h "$OUTPUT_DIR/$OUTPUT_FILE" | cut -f1)
-echo "📊 Built file size: $OUTPUT_SIZE"
+CSS_DIST_SIZE=$(du -h "$CSS_DIST_DIR/styles.css" | cut -f1)
+echo "📊 Built file sizes:"
+echo "   HTML: $OUTPUT_SIZE"
+echo "   CSS:  $CSS_DIST_SIZE"

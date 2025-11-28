@@ -1,0 +1,92 @@
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.site-footer {
+  text-align: center;
+  padding: var(--space-12) var(--space-6);
+  border-top: var(--border-blue);
+  background: var(--color-surface-alt);
+  box-shadow: inset 0 2px 0 0 rgba(140,170,200,0.15);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+/* ========================================
+   STICKY BUY BAR
+   ======================================== */
+
+.sticky-buy {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -120px;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  align-items: center;
+  background: rgba(245,243,240,0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-top: var(--border-blue);
+  padding: var(--space-3) var(--space-4);
+  z-index: 60;
+  box-shadow: 0 -2px 0 0 rgba(140,170,200,0.15);
+  transition: bottom var(--duration-medium) var(--ease-smooth);
+}
+
+@media (prefers-color-scheme: dark) {
+  .sticky-buy {
+    background: rgba(42,40,38,0.95);
+  }
+}
+
+.sticky-buy.is-visible {
+  bottom: 0;
+}
+
+.sticky-buy__price {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--color-text-primary);
+}
+
+.sticky-buy__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--color-blue);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid var(--color-blue);
+  box-shadow: var(--shadow-blue);
+  text-decoration: none;
+  transition: transform var(--duration-fast) var(--ease-smooth),
+              box-shadow var(--duration-fast) var(--ease-smooth),
+              background var(--duration-fast) ease;
+}
+
+.sticky-buy__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 0 rgba(140,170,200,0.35);
+  background: var(--color-blue-light);
+}
+
+.sticky-buy__cta:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 0 0 rgba(140,170,200,0.3);
+}
+
+@media (min-width: 860px) {
+  .sticky-buy {
+    display: none;
+  }
+}
+

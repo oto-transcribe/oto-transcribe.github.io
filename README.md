@@ -39,7 +39,29 @@ app/
     └── .gitkeep
 
 assets/
-├── css/styles.css       # Design system implementation
+├── css/
+│   ├── styles.css       # Main entry point (imports partials for dev)
+│   ├── partials/        # Modular CSS files
+│   │   ├── _variables.css   # Design tokens & color system
+│   │   ├── _reset.css       # Base styles & resets
+│   │   ├── _typography.css  # Typography rules
+│   │   ├── _navigation.css  # Header & nav styles
+│   │   ├── _layout.css      # Layout & sections
+│   │   ├── _hero.css        # Hero section
+│   │   ├── _buttons.css     # Buttons & CTAs
+│   │   ├── _cards.css       # Card components
+│   │   ├── _video.css       # Video wrapper
+│   │   ├── _screenshots.css # Screenshot gallery
+│   │   ├── _pricing.css     # Pricing section
+│   │   ├── _faq.css         # FAQ accordion
+│   │   ├── _forms.css       # Input fields
+│   │   ├── _footer.css      # Footer & sticky bar
+│   │   ├── _animations.css  # Animations & transitions
+│   │   ├── _utilities.css   # Utility classes
+│   │   ├── _components.css  # Additional components
+│   │   └── _responsive.css  # Responsive overrides
+│   └── dist/
+│       └── styles.css   # Production concatenated file
 ├── js/main.js           # Original interactivity (for production build)
 └── img/                 # Images and assets
 
@@ -73,7 +95,7 @@ open http://localhost:8080
 
 1. **Edit individual modules** in `app/client/modules/` for isolated changes
 2. **Update module configuration** in `app/client/config/modules.json` if needed
-3. **Modify styling** in `assets/css/styles.css`
+3. **Modify styling** in `assets/css/partials/` (edit specific partial files)
 4. **Update JavaScript** in `app/client/js/app.js`
 
 **Benefits of modular structure:**
@@ -81,6 +103,34 @@ open http://localhost:8080
 - Easy to navigate and understand
 - Better for collaboration (different developers can work on different modules)
 - Easier to test individual components
+
+## CSS Architecture
+
+The CSS is organized into modular partials for maintainability:
+
+```
+assets/css/
+├── styles.css          # Main entry (imports partials for dev)
+├── partials/           # Individual CSS modules
+│   ├── _variables.css  # Design tokens & color system
+│   ├── _reset.css      # Base styles & resets
+│   ├── _typography.css # Typography rules
+│   ├── _navigation.css # Header & nav styles
+│   └── ...             # Other partials
+└── dist/
+    └── styles.css      # Production concatenated file
+```
+
+### Development
+Edit individual partials in `assets/css/partials/`. The main `styles.css` uses `@import` to load them, so changes are reflected immediately when refreshing.
+
+### Production
+Run `./scripts/build.sh` which concatenates all partials into a single `assets/css/dist/styles.css` file for optimal performance (no multiple HTTP requests).
+
+### Partial Naming Convention
+- Partials are prefixed with underscore (`_`) following Sass convention
+- Files are named after their content (e.g., `_buttons.css`, `_cards.css`)
+- Import order matters: variables first, reset second, responsive last
 
 ### Building for Production
 
@@ -91,14 +141,15 @@ When ready to deploy, build the production version:
 ```
 
 This:
-1. Assembles all modules into a single `index.html.new` file
-2. Fixes asset paths for production
-3. Outputs to the root directory
+1. Concatenates CSS partials into `assets/css/dist/styles.css`
+2. Assembles all HTML modules into a single `index.html.new` file
+3. Fixes asset paths for production
+4. Outputs to the root directory
 
 Then deploy:
 ```bash
 mv index.html.new index.html
-git add index.html
+git add index.html assets/css/dist/styles.css
 git commit -m "Build: Update production site"
 git push origin main
 ```
@@ -156,7 +207,7 @@ Visit: <https://oto-transcribe.github.io/>
 
 - Update App Store URL in module files (`hero.html`, `pricing.html`, `footer.html`)
 - Modify feature cards in `app/client/modules/features.html`
-- Adjust palette in `assets/css/styles.css` `:root` if native app colors evolve
+- Adjust color palette in `assets/css/partials/_variables.css` if native app colors evolve
 - Update FAQ items in `app/client/modules/faq.html`
 - Modify pricing in `app/client/modules/pricing.html`
 

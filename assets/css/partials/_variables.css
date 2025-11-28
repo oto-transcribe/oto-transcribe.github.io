@@ -1,0 +1,117 @@
+/* ========================================
+   VARIABLES - Design Tokens & Color System
+   oto Website - Soft Neobrutalist Redesign
+   ======================================== */
+
+:root {
+  /* Base Colors (Warm Neutrals - matches app) */
+  --color-bg:           #F5F3F0;
+  --color-surface:      #FEFCF9;
+  --color-surface-alt:  #EEE9E3;
+  --color-text-primary: #2A2A2A;
+  --color-text-secondary: rgba(42,42,42,0.65);
+  --color-text-tertiary: rgba(42,42,42,0.4);
+
+  /* Primary Accents (Soft & Muted) */
+  --color-blue:         #8CAAC8;  /* Matches app primary */
+  --color-blue-light:   #A8BDD4;
+  --color-coral:        #D28C82;
+  --color-coral-light:  #E4A89F;
+  --color-mint:         #9BC4B5;
+  --color-lavender:     #B8A8C8;
+  --color-peach:        #E8B89A;
+
+  /* Semantic */
+  --color-primary:      var(--color-blue);
+  --color-secondary:    var(--color-coral);
+  --color-success:      var(--color-mint);
+  --color-attention:    var(--color-peach);
+
+  /* Borders (Chunky but Soft) */
+  --border-width:       2px;
+  --border-width-thick: 3px;
+  --border-blue:        2px solid rgba(140,170,200,0.4);
+  --border-blue-thick:  3px solid rgba(140,170,200,0.5);
+  --border-coral:       2px solid rgba(210,140,130,0.4);
+  --border-neutral:     2px solid rgba(42,42,42,0.1);
+
+  /* Shadows (Soft Colored Offset) */
+  --shadow-blue:        0 4px 0 0 rgba(140,170,200,0.3);
+  --shadow-blue-hover:  0 8px 0 0 rgba(140,170,200,0.35);
+  --shadow-coral:       0 4px 0 0 rgba(210,140,130,0.3);
+  --shadow-coral-hover: 0 8px 0 0 rgba(210,140,130,0.35);
+  --shadow-mint:        0 4px 0 0 rgba(155,196,181,0.3);
+  --shadow-neutral:     0 4px 0 0 rgba(42,42,42,0.08);
+  --shadow-neutral-hover: 0 8px 0 0 rgba(42,42,42,0.12);
+
+  /* Mixed shadow for depth */
+  --shadow-mixed-blue:  0 0 0 2px rgba(140,170,200,0.2),
+                        0 4px 0 0 rgba(140,170,200,0.25),
+                        0 4px 12px 0 rgba(140,170,200,0.1);
+
+  /* Radius (Friendly Native) */
+  --radius-sm:          8px;
+  --radius-md:          10px;
+  --radius-lg:          12px;
+  --radius-xl:          14px;
+  --radius-2xl:         16px;
+
+  /* Spacing (8px Grid) */
+  --space-1:  8px;
+  --space-2:  16px;
+  --space-3:  24px;
+  --space-4:  32px;
+  --space-5:  40px;
+  --space-6:  48px;
+  --space-8:  64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+  --site-header-height: calc(var(--space-3) * 2 + 32px);
+
+  /* Typography */
+  --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+  --font-mono:    "SF Mono", Monaco, "Cascadia Code", monospace;
+
+  /* Animations (Smooth Apple-like) */
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce: cubic-bezier(0.34, 1.26, 0.64, 1);
+  --duration-fast: 150ms;
+  --duration-medium: 300ms;
+  --duration-slow: 400ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Warm dark palette */
+    --color-bg:           #2A2826;
+    --color-surface:      #36322E;
+    --color-surface-alt:  #1F1D1B;
+    --color-text-primary: #F5F3F0;
+    --color-text-secondary: rgba(245,243,240,0.65);
+    --color-text-tertiary: rgba(245,243,240,0.4);
+
+    /* Lighter accents for visibility */
+    --color-blue:         #A8BDD4;
+    --color-blue-light:   #C0D4E8;
+    --color-coral:        #E4A89F;
+    --color-coral-light:  #F0C4BA;
+    --color-mint:         #B5D9CC;
+    --color-lavender:     #C8B8D4;
+    --color-peach:        #F5CAB0;
+
+    /* Adjusted borders for dark mode */
+    --border-blue:        2px solid rgba(168,189,212,0.4);
+    --border-blue-thick:  3px solid rgba(168,189,212,0.5);
+    --border-neutral:     2px solid rgba(245,243,240,0.15);
+
+    /* Adjusted shadows */
+    --shadow-blue:        0 4px 0 0 rgba(168,189,212,0.25);
+    --shadow-blue-hover:  0 8px 0 0 rgba(168,189,212,0.3);
+    --shadow-mixed-blue:  0 0 0 2px rgba(168,189,212,0.2),
+                          0 4px 0 0 rgba(168,189,212,0.25),
+                          0 4px 12px 0 rgba(168,189,212,0.1);
+  }
+}
+

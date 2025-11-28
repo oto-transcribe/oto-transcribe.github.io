@@ -1,0 +1,109 @@
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6);
+  background: var(--color-bg);
+}
+
+@media (min-width: 960px) {
+  .hero {
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.hero.centered {
+  text-align: center;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-8);
+  gap: var(--space-4);
+  place-content: start center;
+  max-width: min(1100px, 88vw);
+  margin: 0 auto;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: visible;
+  position: relative;
+  max-width: clamp(560px, 70vw, 780px);
+  margin-inline: auto;
+}
+
+.hero__title {
+  margin: 0 0 var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-line {
+  display: block;
+  line-height: 1.08;
+}
+
+.hero__transformation {
+  font-size: 1.2rem;
+  font-weight: 500;
+  max-width: 36rem;
+  margin: var(--space-2) auto var(--space-4);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+  justify-content: center;
+}
+
+/* Trust line with soft indicator */
+.trust-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.trust-line::before {
+  content: "✓";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: var(--color-mint);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+/* Hero visual with soft blue border */
+.hero__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+  width: 100%;
+  max-width: min(980px, 88vw);
+  margin: 0 auto;
+}
+

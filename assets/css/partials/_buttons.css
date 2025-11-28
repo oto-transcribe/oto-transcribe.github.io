@@ -1,0 +1,101 @@
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.warm-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-5);
+  border: 2px solid currentColor;
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 0 0 currentColor;
+  transition: transform var(--duration-fast) var(--ease-smooth),
+              box-shadow var(--duration-fast) var(--ease-smooth);
+}
+
+.warm-button.primary {
+  background: var(--color-blue);
+  color: #FFFFFF;
+  border-color: var(--color-blue);
+  box-shadow: var(--shadow-blue);
+}
+
+.warm-button.primary:hover {
+  background: var(--color-blue-light);
+  border-color: var(--color-blue-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 0 rgba(140,170,200,0.35);
+}
+
+.warm-button.primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 0 0 rgba(140,170,200,0.3);
+}
+
+.warm-button.secondary {
+  background: var(--color-coral);
+  color: #FFFFFF;
+  border-color: var(--color-coral);
+  box-shadow: var(--shadow-coral);
+}
+
+.warm-button.secondary:hover {
+  background: var(--color-coral-light);
+  border-color: var(--color-coral-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 0 rgba(210,140,130,0.35);
+}
+
+.warm-button.secondary:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 0 0 rgba(210,140,130,0.3);
+}
+
+.warm-button:focus-visible {
+  outline: 3px solid rgba(140,170,200,0.5);
+  outline-offset: 2px;
+}
+
+.warm-button.large {
+  padding: var(--space-3) var(--space-6);
+  font-size: 1.125rem;
+  box-shadow: 0 6px 0 0 currentColor;
+}
+
+.warm-button.large:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 0 currentColor;
+}
+
+.warm-button.large:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 0 currentColor;
+}
+
+/* App Store badge */
+.app-store-badge-link {
+  display: inline-block;
+  line-height: 0;
+  border-radius: var(--radius-lg);
+  transition: transform var(--duration-medium) var(--ease-smooth);
+}
+
+.app-store-badge-link:hover {
+  transform: translateY(-2px);
+}
+
+.app-store-badge {
+  display: block;
+  height: 54px;
+  width: auto;
+  max-width: 100%;
+}
+

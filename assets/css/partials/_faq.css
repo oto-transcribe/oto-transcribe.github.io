@@ -1,0 +1,97 @@
+/* ========================================
+   FAQ SECTION
+   ======================================== */
+
+.faq {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.faq-item {
+  background: var(--color-surface);
+  border: var(--border-neutral);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-neutral);
+  transition: transform var(--duration-medium) var(--ease-smooth),
+              box-shadow var(--duration-medium) var(--ease-smooth),
+              border-color var(--duration-medium) ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-neutral-hover);
+  border-color: rgba(140,170,200,0.3);
+}
+
+.faq-toggle {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: var(--space-4);
+  font-family: var(--font-primary);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-text-primary);
+  transition: color var(--duration-medium) ease;
+}
+
+.faq-item h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.faq-toggle:hover {
+  color: var(--color-blue);
+}
+
+.faq-toggle::after {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(140,170,200,0.15);
+  color: var(--color-blue);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  border: 2px solid rgba(140,170,200,0.3);
+  transition: transform var(--duration-medium) var(--ease-bounce),
+              background-color var(--duration-medium) ease,
+              border-color var(--duration-medium) ease;
+}
+
+.faq-toggle[aria-expanded="true"]::after {
+  content: "−";
+  transform: rotate(180deg);
+  background: var(--color-blue);
+  color: white;
+  border-color: var(--color-blue);
+}
+
+.faq-panel {
+  padding: 0 var(--space-4) var(--space-4);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  border-top: 2px solid rgba(42,42,42,0.06);
+  margin-top: var(--space-2);
+}
+
+.faq-panel p {
+  margin: var(--space-2) 0 0;
+}
+
+.faq-panel[hidden] {
+  display: none;
+}
+
