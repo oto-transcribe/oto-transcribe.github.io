@@ -20,7 +20,7 @@ section[id] {
 }
 
 .section--alt {
-  background: var(--color-surface-alt);
+  background: var(--color-bg);
   border-top: var(--border-blue);
   border-bottom: var(--border-blue);
   position: relative;

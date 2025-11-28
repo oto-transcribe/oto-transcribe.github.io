@@ -29,7 +29,7 @@
   left: 0;
   right: 0;
   width: 100%;
-  background: rgba(245,243,240,0.95);
+  background: rgba(238,233,227,0.95);
   border-bottom: var(--border-blue);
   z-index: 200;
   box-shadow: 0 2px 0 0 rgba(140,170,200,0.15);
