@@ -70,11 +70,19 @@ HEAD_START=$(grep -n "<head>" "$SHELL_HTML" | cut -d: -f1)
 HEAD_END=$(grep -n "</head>" "$SHELL_HTML" | cut -d: -f1)
 sed -n "${HEAD_START},${HEAD_END}p" "$SHELL_HTML" > "$TEMP_DIR/head.html"
 
+# Extract noscript block from source
+echo "  🔗 Extracting noscript fallback content..."
+sed -n '/<noscript>/,/<\/noscript>/p' "$SHELL_HTML" > "$TEMP_DIR/noscript.html"
+
 # Start building the output file
 echo "<!DOCTYPE html>" > "$OUTPUT_DIR/$OUTPUT_FILE"
 echo '<html lang="en" class="no-js">' >> "$OUTPUT_DIR/$OUTPUT_FILE"
 cat "$TEMP_DIR/head.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
 echo "<body>" >> "$OUTPUT_DIR/$OUTPUT_FILE"
+echo '<a class="skip-link" href="#main">Skip to content</a>' >> "$OUTPUT_DIR/$OUTPUT_FILE"
+
+# Add noscript fallback content
+cat "$TEMP_DIR/noscript.html" >> "$OUTPUT_DIR/$OUTPUT_FILE"
 
 # Insert modules in order
 echo "  🔗 Assembling header..."
@@ -196,6 +204,21 @@ if [ ! -f "$CSS_DIST_DIR/styles.css" ]; then
   exit 1
 else
   echo "✅ CSS dist file exists"
+fi
+
+# Check for noscript fallback content
+echo "✅ Checking noscript fallback content..."
+NOSCRIPT_COUNT=$(grep -c '<noscript>' "$OUTPUT_DIR/$OUTPUT_FILE" || echo "0")
+if [ "$NOSCRIPT_COUNT" -lt 1 ]; then
+  echo "⚠️  WARNING: No noscript fallback content found (crawlers may miss content)"
+else
+  echo "   Found $NOSCRIPT_COUNT noscript block(s)"
+  # Count FAQ questions in noscript
+  NOSCRIPT_FAQ_COUNT=$(sed -n '/<noscript>/,/<\/noscript>/p' "$OUTPUT_DIR/$OUTPUT_FILE" | grep -c '<h3>' || echo "0")
+  echo "   Found $NOSCRIPT_FAQ_COUNT FAQ questions in noscript"
+  if [ "$NOSCRIPT_FAQ_COUNT" -lt 6 ]; then
+    echo "⚠️  WARNING: Expected 6 FAQ questions in noscript, found $NOSCRIPT_FAQ_COUNT"
+  fi
 fi
 
 echo ""
