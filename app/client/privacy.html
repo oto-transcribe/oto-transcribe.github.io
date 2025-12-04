@@ -48,7 +48,23 @@
   <header class="site-header" role="banner">
     <nav class="nav" aria-label="Primary">
       <div class="nav__brand">
-        <a href="/" class="logo-text">oto</a>
+        <a href="/" class="logo-link" aria-label="oto home">
+          <svg class="logo-icon" viewBox="5 8 90 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="bar-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#EBB2AD"/>
+                <stop offset="50%" stop-color="#C9BFD1"/>
+                <stop offset="100%" stop-color="#A7CAED"/>
+              </linearGradient>
+            </defs>
+            <rect x="35" y="12" width="30" height="10" rx="5" fill="#EBB2AD"/>
+            <rect x="25" y="26" width="50" height="10" rx="5" fill="#EBB2AD"/>
+            <rect x="18" y="40" width="64" height="10" rx="5" fill="#EBB2AD"/>
+            <rect x="10" y="54" width="80" height="10" rx="5" fill="url(#bar-gradient)"/>
+            <rect x="25" y="68" width="50" height="10" rx="5" fill="#A7CAED"/>
+            <rect x="38" y="82" width="24" height="10" rx="5" fill="#A7CAED"/>
+          </svg><span class="logo-text">oto</span>
+        </a>
       </div>
       <a href="/#pricing" class="nav__cta">Download oto</a>
     </nav>

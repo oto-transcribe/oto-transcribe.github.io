@@ -274,6 +274,20 @@ h3 {
   margin-right: auto;
 }
 
+.nav__brand .logo-link {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.nav__brand .logo-icon {
+  width: auto;
+  height: 36px;
+  flex-shrink: 0;
+}
+
 .nav__brand .logo-text {
   font-family: var(--font-heading);
   font-size: 1.5rem;

@@ -1,0 +1,23 @@
+<svg viewBox="5 8 90 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- oto logo - simplified waveform bars -->
+  <defs>
+    <linearGradient id="bar-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#EBB2AD"/>
+      <stop offset="50%" stop-color="#C9BFD1"/>
+      <stop offset="100%" stop-color="#A7CAED"/>
+    </linearGradient>
+  </defs>
+  <!-- Bar 1 (top, shortest) - coral -->
+  <rect x="35" y="12" width="30" height="10" rx="5" fill="#EBB2AD"/>
+  <!-- Bar 2 - coral -->
+  <rect x="25" y="26" width="50" height="10" rx="5" fill="#EBB2AD"/>
+  <!-- Bar 3 - coral -->
+  <rect x="18" y="40" width="64" height="10" rx="5" fill="#EBB2AD"/>
+  <!-- Bar 4 (widest, gradient) -->
+  <rect x="10" y="54" width="80" height="10" rx="5" fill="url(#bar-gradient)"/>
+  <!-- Bar 5 - blue -->
+  <rect x="25" y="68" width="50" height="10" rx="5" fill="#A7CAED"/>
+  <!-- Bar 6 (bottom, shortest) - blue -->
+  <rect x="38" y="82" width="24" height="10" rx="5" fill="#A7CAED"/>
+</svg>
+
